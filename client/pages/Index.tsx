@@ -69,13 +69,13 @@ export default function LandingSecureAI() {
               Security-first AI Automation
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              DoD-grade <span className="text-cyan-300">AI automation</span> — built for{" "}
+              DoD-grade <span className="text-cyan-300">AI automation</span> - built for{" "}
               <span className="text-cyan-300">growing businesses</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We bring Department of Defense–level security and expertise to your AI workflows.
+              We bring Department of Defense-level security and expertise to your AI workflows.
               Our team designs, deploys, and operates secure automations using Microsoft Copilot,
-              n8n, and Azure OpenAI — all with Zero Trust controls, SSO/SCIM, and audit-ready
+              n8n, and Azure OpenAI - all with Zero Trust controls, SSO/SCIM, and audit-ready
               reporting. You get the confidence of enterprise-grade compliance, simplified for your
               business.
             </p>
@@ -136,7 +136,7 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300 mb-3">
-                Every workflow passes through a secure layer — redacting sensitive data, preventing
+                Every workflow passes through a secure layer - redacting sensitive data, preventing
                 prompt-injection, and logging every action for audit and compliance.
               </p>
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
@@ -156,7 +156,7 @@ export default function LandingSecureAI() {
             Secure AI workflows that save time and protect trust
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We help businesses automate safely — from customer support and finance to operations
+            We help businesses automate safely - from customer support and finance to operations
             and compliance.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
@@ -192,7 +192,7 @@ export default function LandingSecureAI() {
           <h2 className="text-2xl font-semibold tracking-tight">Enterprise security, simplified for SMBs</h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
             Our frameworks and controls come from the same standards used across the U.S. Department
-            of Defense and Fortune 500 environments — adapted for small and midsize teams.
+            of Defense and Fortune 500 environments - adapted for small and midsize teams.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -286,7 +286,7 @@ export default function LandingSecureAI() {
               "Their background in defense-grade systems gave us total confidence. We now use AI in
               our CRM without any compliance headaches."
             </blockquote>
-            <p className="text-sm text-slate-400">— Operations Manager, Fintech Startup</p>
+            <p className="text-sm text-slate-400">- Operations Manager, Fintech Startup</p>
           </div>
 
           <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
