@@ -14,6 +14,8 @@ import {
   ServerCog,
   FileCheck2,
   Gauge,
+  Zap,
+  Star,
 } from "lucide-react";
 
 export default function LandingSecureAI() {
@@ -35,11 +37,8 @@ export default function LandingSecureAI() {
             <a href="#trust" className="hover:text-white transition-colors">
               Trust
             </a>
-            <a href="#industries" className="hover:text-white transition-colors">
-              Industries
-            </a>
-            <a href="#pricing" className="hover:text-white transition-colors">
-              Pricing
+            <a href="#why-us" className="hover:text-white transition-colors">
+              Why Us
             </a>
             <a href="#contact" className="hover:text-white transition-colors">
               Contact
@@ -49,7 +48,7 @@ export default function LandingSecureAI() {
             href="#contact"
             className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white text-slate-950 text-sm shadow hover:bg-slate-100 transition-colors font-medium"
           >
-            Book a discovery
+            Book a consultation
           </a>
         </div>
       </header>
@@ -70,20 +69,22 @@ export default function LandingSecureAI() {
               Security-first AI Automation
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              DoD‑grade <span className="text-cyan-300">AI workflows</span> that your{" "}
-              <span className="text-cyan-300">auditors</span> approve
+              DoD-grade <span className="text-cyan-300">AI automation</span> — built for{" "}
+              <span className="text-cyan-300">growing businesses</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We design, deploy, and operate n8n, Microsoft Copilot, and Azure OpenAI automations
-              with Zero Trust controls, SSO/SCIM, and evidence‑ready reporting aligned to NIST
-              800‑53, SOC&nbsp;2, ISO&nbsp;27001, and ISO&nbsp;42001.
+              We bring Department of Defense–level security and expertise to your AI workflows.
+              Our team designs, deploys, and operates secure automations using Microsoft Copilot,
+              n8n, and Azure OpenAI — all with Zero Trust controls, SSO/SCIM, and audit-ready
+              reporting. You get the confidence of enterprise-grade compliance, simplified for your
+              business.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="#contact"
                 className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
               >
-                Book a 30‑min consult <ArrowRight className="h-4 w-4" />
+                🔒 Get a free AI security checkup
               </a>
               <a
                 href="#solutions"
@@ -99,11 +100,11 @@ export default function LandingSecureAI() {
               </div>
               <div className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
-                SSO/SCIM
+                DoD-hardened
               </div>
               <div className="flex items-center gap-2">
                 <BadgeCheck className="h-4 w-4" />
-                Audit‑ready
+                Audit-ready
               </div>
             </div>
           </motion.div>
@@ -134,66 +135,129 @@ export default function LandingSecureAI() {
                   </div>
                 </div>
               </div>
-              <ul className="mt-4 text-sm text-slate-300 space-y-1 list-disc list-inside">
-                <li>Prompt‑injection &amp; data‑exfiltration guardrails</li>
-                <li>Row‑level access with SCIM‑synced roles</li>
-                <li>Immutable audit logs shipped to your SIEM</li>
+              <p className="mt-4 text-sm text-slate-300 mb-3">
+                Every workflow passes through a secure layer — redacting sensitive data, preventing
+                prompt-injection, and logging every action for audit and compliance.
+              </p>
+              <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
+                <li>DoD-inspired data-protection architecture</li>
+                <li>Role-based access synced with your SSO provider</li>
+                <li>Immutable audit logs sent to your SIEM or dashboard</li>
               </ul>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* TRUST */}
-      <section id="trust" className="border-t border-white/10">
+      {/* WHAT WE DO */}
+      <section id="solutions" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Built for regulated environments</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Secure AI workflows that save time and protect trust
+          </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Designed for healthcare, fintech, and public sector where privacy, integrity, and
-            auditability are non‑negotiable.
+            We help businesses automate safely — from customer support and finance to operations
+            and compliance.
+          </p>
+          <div className="mt-8 grid md:grid-cols-2 gap-4">
+            {[
+              "Connect your tools like HubSpot, Slack, and Microsoft 365",
+              "Automate repetitive tasks with privacy-first AI",
+              "Keep full control of your data, logs, and access",
+              "Get guidance from experts with real DoD automation experience",
+            ].map((point) => (
+              <div
+                key={point}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 flex items-start gap-3"
+              >
+                <CheckCircle2 className="h-5 w-5 mt-1 flex-shrink-0 text-cyan-300" />
+                <p className="text-slate-300">{point}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm hover:bg-slate-100 transition-colors font-medium"
+            >
+              🚀 Explore automations
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* BUILT FOR REGULATED ENVIRONMENTS */}
+      <section id="trust" className="border-t border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <h2 className="text-2xl font-semibold tracking-tight">Enterprise security, simplified for SMBs</h2>
+          <p className="mt-2 text-slate-300 max-w-3xl">
+            Our frameworks and controls come from the same standards used across the U.S. Department
+            of Defense and Fortune 500 environments — adapted for small and midsize teams.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {["NIST 800‑53", "SOC 2 (TSC)", "ISO/IEC 27001", "ISO/IEC 42001"].map((label) => (
+            {[
+              {
+                label: "NIST 800-53",
+                description: "Proven DoD-level controls made practical for business use.",
+              },
+              {
+                label: "SOC 2 (TSC)",
+                description: "Compliance-aligned automations and easy evidence reporting.",
+              },
+              {
+                label: "ISO/IEC 27001",
+                description: "Data-protection and risk-management best practices, built in.",
+              },
+              {
+                label: "ISO/IEC 42001",
+                description: "AI-governance standards adapted for your everyday workflows.",
+              },
+            ].map((item) => (
               <div
-                key={label}
+                key={item.label}
                 className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 h-full flex flex-col justify-between"
               >
-                <div className="text-sm text-slate-400">Framework</div>
-                <div className="text-lg font-medium">{label}</div>
-                <div className="mt-3 text-sm text-slate-300">
-                  Mapped controls, evidence plans, and auditor‑ready reports.
+                <div>
+                  <div className="text-sm text-slate-400">Framework</div>
+                  <div className="text-lg font-medium mt-2">{item.label}</div>
                 </div>
+                <div className="mt-3 text-sm text-slate-300">{item.description}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section id="industries" className="border-t border-white/10 bg-slate-950">
+      {/* WHY SMBs CHOOSE US */}
+      <section id="why-us" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Who we serve</h2>
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
+          <h2 className="text-2xl font-semibold tracking-tight">Why growing teams work with us</h2>
+          <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
               {
-                icon: Building2,
-                title: "Healthcare &amp; Healthtech",
-                copy: "HIPAA/HITRUST‑aligned assistants and back‑office automations with PHI minimization.",
+                icon: Shield,
+                title: "Defense-grade expertise",
+                copy: "Built by consultants who've secured AI at the Department of Defense",
               },
               {
-                icon: ServerCog,
-                title: "FinTech &amp; SaaS",
-                copy: "PCI‑aware workflows, evidence capture, and change control baked in.",
+                icon: Zap,
+                title: "Compliance without complexity",
+                copy: "Templates and guardrails for HIPAA, SOC 2, and GDPR",
               },
               {
-                icon: Users,
-                title: "Public Sector",
-                copy: "Azure Government patterns, private networking, and strict RBAC.",
+                icon: BadgeCheck,
+                title: "Affordable security",
+                copy: "Enterprise standards at SMB-friendly pricing",
+              },
+              {
+                icon: Rocket,
+                title: "No IT team needed",
+                copy: "We design, deploy, and manage your automations",
               },
             ].map(({ icon: Icon, title, copy }) => (
               <div key={title} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
                 <div className="flex items-center gap-3">
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5 text-cyan-300" />
                   <h3 className="font-medium">{title}</h3>
                 </div>
                 <p className="mt-3 text-sm text-slate-300">{copy}</p>
@@ -203,140 +267,74 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
-      {/* SOLUTIONS */}
-      <section id="solutions" className="border-t border-white/10 bg-slate-950">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Solutions</h2>
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
-            {[
-              {
-                title: "Secure AI Readiness",
-                points: [
-                  "Threat &amp; data‑flow modeling",
-                  "Zero Trust &amp; SSO/SCIM plan",
-                  "Control mapping (NIST/SOC2/ISO)",
-                ],
-              },
-              {
-                title: "Secure Automations",
-                points: [
-                  "n8n • Power Automate • Copilot Studio",
-                  "Guardrails, redaction, secrets hardening",
-                  "SIEM logging &amp; evidence kits",
-                ],
-              },
-              {
-                title: "Managed AI Ops",
-                points: ["Monitoring &amp; patches", "KPI &amp; cost dashboards", "Quarterly control attestation"],
-              },
-            ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
-                <div className="flex items-center gap-2">
-                  <Rocket className="h-5 w-5" />
-                  <h3 className="font-medium">{card.title}</h3>
-                </div>
-                <ul className="mt-3 space-y-2 text-sm text-slate-300">
-                  {card.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROOF STRIP */}
+      {/* TRUST & TESTIMONIALS */}
       <section className="border-t border-white/10 bg-slate-900">
-        <div className="mx-auto max-w-7xl px-4 py-10 grid md:grid-cols-4 gap-6 text-sm">
-          <div className="rounded-2xl border border-white/10 p-5 flex items-start gap-3">
-            <Gauge className="h-5 w-5 flex-shrink-0" />{" "}
-            <div>
-              <div className="font-medium">Fast pilots</div>
-              <div className="text-slate-300">Production‑ready in 4–6 weeks</div>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/10 p-5 flex items-start gap-3">
-            <FileCheck2 className="h-5 w-5 flex-shrink-0" />{" "}
-            <div>
-              <div className="font-medium">Audit evidence</div>
-              <div className="text-slate-300">Control mapping &amp; logs included</div>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/10 p-5 flex items-start gap-3">
-            <Shield className="h-5 w-5 flex-shrink-0" />{" "}
-            <div>
-              <div className="font-medium">Zero Trust patterns</div>
-              <div className="text-slate-300">Private networking &amp; RBAC</div>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/10 p-5 flex items-start gap-3">
-            <CircuitBoard className="h-5 w-5 flex-shrink-0" />{" "}
-            <div>
-              <div className="font-medium">Platform‑agnostic</div>
-              <div className="text-slate-300">n8n • Power Platform • Azure</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section id="pricing" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Pilot pricing</h2>
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
+          <h2 className="text-2xl font-semibold tracking-tight">Trusted by security-minded teams</h2>
+          <p className="mt-2 text-slate-300 max-w-3xl">
+            Our clients range from fast-moving startups to established service providers who need AI
+            automation without risk.
+          </p>
+
+          <div className="mt-8 rounded-2xl border border-white/10 bg-slate-800/60 p-8">
+            <div className="flex items-center gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
+              ))}
+            </div>
+            <blockquote className="text-lg text-slate-100 italic mb-4">
+              "Their background in defense-grade systems gave us total confidence. We now use AI in
+              our CRM without any compliance headaches."
+            </blockquote>
+            <p className="text-sm text-slate-400">— Operations Manager, Fintech Startup</p>
+          </div>
+
+          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              {
-                name: "Assess",
-                price: "$7,500",
-                features: ["2‑week risk &amp; roadmap", "Control mapping", "Pilot backlog"],
-              },
-              {
-                name: "Build",
-                price: "$25,000",
-                features: ["4–6 week build", "Guardrails &amp; SSO/SCIM", "Audit‑ready docs"],
-              },
-              {
-                name: "Operate",
-                price: "$4,000/mo",
-                features: ["Monitoring &amp; patches", "Evidence &amp; KPIs", "Quarterly attestations"],
-              },
-            ].map((t) => (
-              <div key={t.name} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
-                <div className="text-sm text-slate-400">Pilot</div>
-                <div className="text-xl font-semibold">{t.name}</div>
-                <div className="mt-2 text-3xl font-bold">{t.price}</div>
-                <ul className="mt-4 space-y-2 text-sm text-slate-300">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className="mt-5 inline-block rounded-2xl bg-white text-slate-950 px-4 py-2 text-sm font-medium hover:bg-slate-100 transition-colors"
-                >
-                  Start pilot
-                </a>
+              "✅ Microsoft Partner",
+              "Azure OpenAI Integrator",
+              "NIST-Mapped",
+              "DoD-Experienced",
+            ].map((badge) => (
+              <div
+                key={badge}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-center text-sm font-medium"
+              >
+                {badge}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* FINAL CTA */}
       <section id="contact" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Book a discovery call</h2>
-          <p className="mt-2 text-slate-300">
-            Tell us about your use case and compliance needs. We'll reply within one business day.
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Let's build your next secure automation
+          </h2>
+          <p className="mt-2 text-slate-300 max-w-3xl">
+            Book a 30-minute consultation with our team. We'll review your goals, identify
+            automation opportunities, and show you how to bring DoD-grade security to your business
+            workflows.
           </p>
-          <form className="mt-8 grid md:grid-cols-2 gap-4">
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#booking"
+              className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
+            >
+              Book a 30-minute consultation
+            </a>
+            <a
+              href="#examples"
+              className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
+            >
+              See example workflows
+            </a>
+          </div>
+
+          <form className="mt-12 grid md:grid-cols-2 gap-4 max-w-2xl">
             <input
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               placeholder="Name"
@@ -352,10 +350,10 @@ export default function LandingSecureAI() {
             <textarea
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               rows={5}
-              placeholder="What would you like to automate? Any frameworks to satisfy (e.g., NIST, SOC 2, ISO 27001)?"
+              placeholder="Tell us about your automation needs and any compliance requirements..."
             />
             <button className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors">
-              Request consult
+              Request consultation
             </button>
           </form>
           <p className="mt-6 text-xs text-slate-500">
