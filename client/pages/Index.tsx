@@ -28,7 +28,9 @@ export default function LandingSecureAI() {
             <div className="h-9 w-9 rounded-2xl bg-white text-slate-950 font-black flex items-center justify-center">
               SA
             </div>
-            <span className="font-semibold tracking-tight">Secure Automations</span>
+            <span className="font-semibold tracking-tight">
+              Secure Automations
+            </span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
             <a href="#solutions" className="hover:text-white transition-colors">
@@ -73,10 +75,11 @@ export default function LandingSecureAI() {
               <span className="text-cyan-300">growing businesses</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We bring Department of Defense-level security and expertise to your AI workflows.
-              Our team designs, deploys, and operates secure automations using Microsoft Copilot,
-              n8n, and Azure OpenAI with Zero Trust controls, SSO/SCIM, and audit-ready
-              reporting. You get the confidence of enterprise-grade compliance, simplified for your
+              We bring Department of Defense-level security and expertise to
+              your AI workflows. Our team designs, deploys, and operates secure
+              automations using Microsoft Copilot, n8n, and Azure OpenAI with
+              Zero Trust controls, SSO/SCIM, and audit-ready reporting. You get
+              the confidence of enterprise-grade compliance, simplified for your
               business.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -115,7 +118,9 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
-              <div className="text-sm text-slate-400 mb-3">Reference architecture</div>
+              <div className="text-sm text-slate-400 mb-3">
+                Reference architecture
+              </div>
               <div className="rounded-2xl bg-slate-950/60 p-5">
                 <div className="grid grid-cols-6 gap-3 text-xs">
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
@@ -136,8 +141,9 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300 mb-3">
-                Every workflow passes through a secure layer that redacts sensitive data, prevents
-                prompt-injection, and logs every action for audit and compliance.
+                Every workflow passes through a secure layer that redacts
+                sensitive data, prevents prompt-injection, and logs every action
+                for audit and compliance.
               </p>
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
                 <li>DoD-inspired data-protection architecture</li>
@@ -156,8 +162,8 @@ export default function LandingSecureAI() {
             Secure AI workflows that save time and protect trust
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We help businesses automate safely, from customer support and finance to operations
-            and compliance.
+            We help businesses automate safely, from customer support and
+            finance to operations and compliance.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
@@ -189,28 +195,35 @@ export default function LandingSecureAI() {
       {/* BUILT FOR REGULATED ENVIRONMENTS */}
       <section id="trust" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Enterprise security, simplified for SMBs</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Enterprise security, simplified for SMBs
+          </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Our frameworks and controls come from the same standards used across the U.S. Department
-            of Defense and Fortune 500 environments, adapted for small and midsize teams.
+            Our frameworks and controls come from the same standards used across
+            the U.S. Department of Defense and Fortune 500 environments, adapted
+            for small and midsize teams.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 label: "NIST 800-53",
-                description: "Proven DoD-level controls made practical for business use.",
+                description:
+                  "Proven DoD-level controls made practical for business use.",
               },
               {
                 label: "SOC 2 (TSC)",
-                description: "Compliance-aligned automations and easy evidence reporting.",
+                description:
+                  "Compliance-aligned automations and easy evidence reporting.",
               },
               {
                 label: "ISO/IEC 27001",
-                description: "Data-protection and risk-management best practices, built in.",
+                description:
+                  "Data-protection and risk-management best practices, built in.",
               },
               {
                 label: "ISO/IEC 42001",
-                description: "AI-governance standards adapted for your everyday workflows.",
+                description:
+                  "AI-governance standards adapted for your everyday workflows.",
               },
             ].map((item) => (
               <div
@@ -221,7 +234,9 @@ export default function LandingSecureAI() {
                   <div className="text-sm text-slate-400">Framework</div>
                   <div className="text-lg font-medium mt-2">{item.label}</div>
                 </div>
-                <div className="mt-3 text-sm text-slate-300">{item.description}</div>
+                <div className="mt-3 text-sm text-slate-300">
+                  {item.description}
+                </div>
               </div>
             ))}
           </div>
@@ -231,7 +246,9 @@ export default function LandingSecureAI() {
       {/* WHY SMBs CHOOSE US */}
       <section id="why-us" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Why growing teams work with us</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Why growing teams work with us
+          </h2>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
               {
@@ -255,7 +272,10 @@ export default function LandingSecureAI() {
                 copy: "We design, deploy, and manage your automations",
               },
             ].map(({ icon: Icon, title, copy }) => (
-              <div key={title} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
+              <div
+                key={title}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-6"
+              >
                 <div className="flex items-center gap-3">
                   <Icon className="h-5 w-5 text-cyan-300" />
                   <h3 className="font-medium">{title}</h3>
@@ -270,10 +290,12 @@ export default function LandingSecureAI() {
       {/* TRUST & TESTIMONIALS */}
       <section className="border-t border-white/10 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Trusted by security-minded teams</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Trusted by security-minded teams
+          </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Our clients range from fast-moving startups to established service providers who need AI
-            automation without risk.
+            Our clients range from fast-moving startups to established service
+            providers who need AI automation without risk.
           </p>
 
           <div className="mt-8 rounded-2xl border border-white/10 bg-slate-800/60 p-8">
@@ -283,10 +305,13 @@ export default function LandingSecureAI() {
               ))}
             </div>
             <blockquote className="text-lg text-slate-100 italic mb-4">
-              "Their background in defense-grade systems gave us total confidence. We now use AI in
-              our CRM without any compliance headaches."
+              "Their background in defense-grade systems gave us total
+              confidence. We now use AI in our CRM without any compliance
+              headaches."
             </blockquote>
-            <p className="text-sm text-slate-400">Operations Manager, Fintech Startup</p>
+            <p className="text-sm text-slate-400">
+              Operations Manager, Fintech Startup
+            </p>
           </div>
 
           <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -314,9 +339,9 @@ export default function LandingSecureAI() {
             Let's build your next secure automation
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Book a 30-minute consultation with our team. We'll review your goals, identify
-            automation opportunities, and show you how to bring DoD-grade security to your business
-            workflows.
+            Book a 30-minute consultation with our team. We'll review your
+            goals, identify automation opportunities, and show you how to bring
+            DoD-grade security to your business workflows.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -357,7 +382,8 @@ export default function LandingSecureAI() {
             </button>
           </form>
           <p className="mt-6 text-xs text-slate-500">
-            By submitting, you agree to our privacy notice. We never use your data to train models.
+            By submitting, you agree to our privacy notice. We never use your
+            data to train models.
           </p>
         </div>
       </section>
