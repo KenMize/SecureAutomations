@@ -501,6 +501,87 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
+      {/* PARTNERS & INTEGRATIONS */}
+      <section className="border-t border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <div className="text-center mb-10">
+            <p className="text-sm text-slate-400 uppercase tracking-wider font-medium">
+              Trusted Technology Partners
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              Built on the best platforms
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-center">
+            {/* Microsoft */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  Microsoft
+                </div>
+                <p className="text-xs text-slate-400">Azure & Copilot</p>
+              </div>
+            </div>
+
+            {/* OpenAI */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  OpenAI
+                </div>
+                <p className="text-xs text-slate-400">AI Models</p>
+              </div>
+            </div>
+
+            {/* n8n */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  n8n
+                </div>
+                <p className="text-xs text-slate-400">Automation</p>
+              </div>
+            </div>
+
+            {/* Power Automate */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  Power Automate
+                </div>
+                <p className="text-xs text-slate-400">Workflows</p>
+              </div>
+            </div>
+
+            {/* Slack */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  Slack
+                </div>
+                <p className="text-xs text-slate-400">Communication</p>
+              </div>
+            </div>
+
+            {/* HubSpot */}
+            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-2">
+                  HubSpot
+                </div>
+                <p className="text-xs text-slate-400">CRM</p>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-10 text-center text-sm text-slate-400 max-w-2xl mx-auto">
+            Plus integrations with ServiceNow, Salesforce, Okta, Entra ID, and
+            your custom APIs. Our platform works where you work.
+          </p>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section id="contact" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
