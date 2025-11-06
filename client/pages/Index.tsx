@@ -398,7 +398,7 @@ export default function LandingSecureAI() {
               Get pricing for your business
             </a>
             <a
-              href="#checkup"
+              href="/checkup"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
               Take the AI security assessment
