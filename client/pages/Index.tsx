@@ -287,6 +287,126 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
+      {/* ROI FOR SMBS */}
+      <section className="border-t border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Built for SMB budgets, with enterprise-grade results
+          </h2>
+          <p className="mt-2 text-slate-300 max-w-3xl">
+            Your team is stretched thin. Compliance is complex. Hiring specialists is expensive.
+            At $1,500/month, our solution pays for itself while you focus on growth.
+          </p>
+
+          <div className="mt-10 grid md:grid-cols-2 gap-6">
+            {/* Pain Point 1: Time */}
+            <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
+              <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                The Time Problem
+              </div>
+              <h3 className="mt-3 text-lg font-semibold">Manual processes eat 50-70 hours/month</h3>
+              <p className="mt-3 text-sm text-slate-300">
+                Your team spends hours on data entry, report generation, customer support tickets, and compliance documentation. That's time not spent on strategy or revenue.
+              </p>
+              <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
+                <p className="text-xs text-slate-400">Real cost to your business:</p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">$3,000-5,000/month</p>
+                <p className="text-xs text-slate-400 mt-1">(at $50-75/hour average staff cost)</p>
+              </div>
+            </div>
+
+            {/* Pain Point 2: Compliance */}
+            <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
+              <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                The Compliance Problem
+              </div>
+              <h3 className="mt-3 text-lg font-semibold">Audit prep and compliance consulting is expensive</h3>
+              <p className="mt-3 text-sm text-slate-300">
+                External auditors, compliance consultants, and ad-hoc reviews cost thousands. Plus the risk of failed audits or regulatory fines if controls slip.
+              </p>
+              <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
+                <p className="text-xs text-slate-400">Typical consulting project cost:</p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">$5,000-15,000</p>
+                <p className="text-xs text-slate-400 mt-1">(plus ongoing audit labor)</p>
+              </div>
+            </div>
+
+            {/* Pain Point 3: Hiring */}
+            <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
+              <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                The Hiring Problem
+              </div>
+              <h3 className="mt-3 text-lg font-semibold">Can't afford to hire specialists</h3>
+              <p className="mt-3 text-sm text-slate-300">
+                A full-time compliance or automation engineer costs $60-100k/year, plus benefits. Even a part-time contractor burns $5-8k/month. That's on top of existing payroll.
+              </p>
+              <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
+                <p className="text-xs text-slate-400">Annual cost of one FTE specialist:</p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">$70,000-120,000</p>
+                <p className="text-xs text-slate-400 mt-1">(base + benefits + onboarding)</p>
+              </div>
+            </div>
+
+            {/* The Solution */}
+            <div className="rounded-2xl border border-cyan-300/30 bg-slate-900/80 p-6">
+              <div className="text-sm text-cyan-300 font-medium uppercase tracking-wider">
+                The Secure Automations Solution
+              </div>
+              <h3 className="mt-3 text-lg font-semibold">Starting at $1,500/month</h3>
+              <p className="mt-3 text-sm text-slate-300">
+                Automate your workflows. Meet compliance. Eliminate manual work. All managed by our team of DoD-grade security experts.
+              </p>
+              <div className="mt-4 space-y-3">
+                <div className="flex gap-2 text-sm">
+                  <span className="text-cyan-300 font-semibold">Year 1 savings:</span>
+                  <span className="text-slate-300">$18,000-60,000 in labor + compliance costs</span>
+                </div>
+                <div className="flex gap-2 text-sm">
+                  <span className="text-cyan-300 font-semibold">Your investment:</span>
+                  <span className="text-slate-300">$18,000/year starting</span>
+                </div>
+              </div>
+              <p className="mt-4 text-xs text-slate-400 italic">
+                Plus: compliance audits become routine, your team gets hours back, and you sleep knowing your AI workflows are secure.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8">
+            <h3 className="text-lg font-semibold">Why this works for SMBs</h3>
+            <div className="mt-6 grid md:grid-cols-3 gap-6">
+              <div>
+                <div className="text-2xl font-bold text-cyan-300">50-70 hrs</div>
+                <p className="mt-2 text-sm text-slate-300">Recovered per month for your team</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-cyan-300">$5k-15k</div>
+                <p className="mt-2 text-sm text-slate-300">Replaced external consulting costs</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-cyan-300">1+ FTE</div>
+                <p className="mt-2 text-sm text-slate-300">Worth of coverage without hiring</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#contact"
+              className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
+            >
+              Get pricing for your business
+            </a>
+            <a
+              href="#checkup"
+              className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
+            >
+              Take the AI security assessment
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* TRUST & TESTIMONIALS */}
       <section className="border-t border-white/10 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16">
