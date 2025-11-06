@@ -84,10 +84,10 @@ export default function LandingSecureAI() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="#contact"
+                href="/checkup"
                 className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
               >
-                🔒 Get a free AI security checkup
+                Get a free AI security checkup
               </a>
               <a
                 href="#solutions"
