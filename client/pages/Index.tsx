@@ -294,8 +294,9 @@ export default function LandingSecureAI() {
             Built for SMB budgets, with enterprise-grade results
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Your team is stretched thin. Compliance is complex. Hiring specialists is expensive.
-            At $1,500/month, our solution pays for itself while you focus on growth.
+            Your team is stretched thin. Compliance is complex. Hiring
+            specialists is expensive. At $1,500/month, our solution pays for
+            itself while you focus on growth.
           </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
@@ -304,14 +305,24 @@ export default function LandingSecureAI() {
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
                 The Time Problem
               </div>
-              <h3 className="mt-3 text-lg font-semibold">Manual processes eat 50-70 hours/month</h3>
+              <h3 className="mt-3 text-lg font-semibold">
+                Manual processes eat 50-70 hours/month
+              </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Your team spends hours on data entry, report generation, customer support tickets, and compliance documentation. That's time not spent on strategy or revenue.
+                Your team spends hours on data entry, report generation,
+                customer support tickets, and compliance documentation. That's
+                time not spent on strategy or revenue.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
-                <p className="text-xs text-slate-400">Real cost to your business:</p>
-                <p className="mt-2 text-lg font-semibold text-cyan-300">$3,000-5,000/month</p>
-                <p className="text-xs text-slate-400 mt-1">(at $50-75/hour average staff cost)</p>
+                <p className="text-xs text-slate-400">
+                  Real cost to your business:
+                </p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">
+                  $3,000-5,000/month
+                </p>
+                <p className="text-xs text-slate-400 mt-1">
+                  (at $50-75/hour average staff cost)
+                </p>
               </div>
             </div>
 
@@ -320,14 +331,24 @@ export default function LandingSecureAI() {
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
                 The Compliance Problem
               </div>
-              <h3 className="mt-3 text-lg font-semibold">Audit prep and compliance consulting is expensive</h3>
+              <h3 className="mt-3 text-lg font-semibold">
+                Audit prep and compliance consulting is expensive
+              </h3>
               <p className="mt-3 text-sm text-slate-300">
-                External auditors, compliance consultants, and ad-hoc reviews cost thousands. Plus the risk of failed audits or regulatory fines if controls slip.
+                External auditors, compliance consultants, and ad-hoc reviews
+                cost thousands. Plus the risk of failed audits or regulatory
+                fines if controls slip.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
-                <p className="text-xs text-slate-400">Typical consulting project cost:</p>
-                <p className="mt-2 text-lg font-semibold text-cyan-300">$5,000-15,000</p>
-                <p className="text-xs text-slate-400 mt-1">(plus ongoing audit labor)</p>
+                <p className="text-xs text-slate-400">
+                  Typical consulting project cost:
+                </p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">
+                  $5,000-15,000
+                </p>
+                <p className="text-xs text-slate-400 mt-1">
+                  (plus ongoing audit labor)
+                </p>
               </div>
             </div>
 
@@ -336,14 +357,24 @@ export default function LandingSecureAI() {
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
                 The Hiring Problem
               </div>
-              <h3 className="mt-3 text-lg font-semibold">Can't afford to hire specialists</h3>
+              <h3 className="mt-3 text-lg font-semibold">
+                Can't afford to hire specialists
+              </h3>
               <p className="mt-3 text-sm text-slate-300">
-                A full-time compliance or automation engineer costs $60-100k/year, plus benefits. Even a part-time contractor burns $5-8k/month. That's on top of existing payroll.
+                A full-time compliance or automation engineer costs
+                $60-100k/year, plus benefits. Even a part-time contractor burns
+                $5-8k/month. That's on top of existing payroll.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
-                <p className="text-xs text-slate-400">Annual cost of one FTE specialist:</p>
-                <p className="mt-2 text-lg font-semibold text-cyan-300">$70,000-120,000</p>
-                <p className="text-xs text-slate-400 mt-1">(base + benefits + onboarding)</p>
+                <p className="text-xs text-slate-400">
+                  Annual cost of one FTE specialist:
+                </p>
+                <p className="mt-2 text-lg font-semibold text-cyan-300">
+                  $70,000-120,000
+                </p>
+                <p className="text-xs text-slate-400 mt-1">
+                  (base + benefits + onboarding)
+                </p>
               </div>
             </div>
 
@@ -352,22 +383,32 @@ export default function LandingSecureAI() {
               <div className="text-sm text-cyan-300 font-medium uppercase tracking-wider">
                 The Secure Automations Solution
               </div>
-              <h3 className="mt-3 text-lg font-semibold">Starting at $1,500/month</h3>
+              <h3 className="mt-3 text-lg font-semibold">
+                Starting at $1,500/month
+              </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Automate your workflows. Meet compliance. Eliminate manual work. All managed by our team of DoD-grade security experts.
+                Automate your workflows. Meet compliance. Eliminate manual work.
+                All managed by our team of DoD-grade security experts.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
-                  <span className="text-cyan-300 font-semibold">Year 1 savings:</span>
-                  <span className="text-slate-300">$18,000-60,000 in labor + compliance costs</span>
+                  <span className="text-cyan-300 font-semibold">
+                    Year 1 savings:
+                  </span>
+                  <span className="text-slate-300">
+                    $18,000-60,000 in labor + compliance costs
+                  </span>
                 </div>
                 <div className="flex gap-2 text-sm">
-                  <span className="text-cyan-300 font-semibold">Your investment:</span>
+                  <span className="text-cyan-300 font-semibold">
+                    Your investment:
+                  </span>
                   <span className="text-slate-300">$18,000/year starting</span>
                 </div>
               </div>
               <p className="mt-4 text-xs text-slate-400 italic">
-                Plus: compliance audits become routine, your team gets hours back, and you sleep knowing your AI workflows are secure.
+                Plus: compliance audits become routine, your team gets hours
+                back, and you sleep knowing your AI workflows are secure.
               </p>
             </div>
           </div>
@@ -376,16 +417,24 @@ export default function LandingSecureAI() {
             <h3 className="text-lg font-semibold">Why this works for SMBs</h3>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-cyan-300">50-70 hrs</div>
-                <p className="mt-2 text-sm text-slate-300">Recovered per month for your team</p>
+                <div className="text-2xl font-bold text-cyan-300">
+                  50-70 hrs
+                </div>
+                <p className="mt-2 text-sm text-slate-300">
+                  Recovered per month for your team
+                </p>
               </div>
               <div>
                 <div className="text-2xl font-bold text-cyan-300">$5k-15k</div>
-                <p className="mt-2 text-sm text-slate-300">Replaced external consulting costs</p>
+                <p className="mt-2 text-sm text-slate-300">
+                  Replaced external consulting costs
+                </p>
               </div>
               <div>
                 <div className="text-2xl font-bold text-cyan-300">1+ FTE</div>
-                <p className="mt-2 text-sm text-slate-300">Worth of coverage without hiring</p>
+                <p className="mt-2 text-sm text-slate-300">
+                  Worth of coverage without hiring
+                </p>
               </div>
             </div>
           </div>

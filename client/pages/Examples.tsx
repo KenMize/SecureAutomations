@@ -103,8 +103,8 @@ export default function ExamplesPage() {
             Example Workflows
           </h1>
           <p className="mt-4 text-lg text-slate-300 max-w-3xl">
-            See how Secure Automations helps businesses across industries save time,
-            reduce risk, and stay compliant.
+            See how Secure Automations helps businesses across industries save
+            time, reduce risk, and stay compliant.
           </p>
         </div>
 
@@ -178,13 +178,11 @@ export default function ExamplesPage() {
         </div>
 
         <div className="mt-16 rounded-3xl border border-white/10 bg-slate-900/60 p-8 md:p-12">
-          <h2 className="text-2xl font-bold mb-6">
-            Don't see your use case?
-          </h2>
+          <h2 className="text-2xl font-bold mb-6">Don't see your use case?</h2>
           <p className="text-slate-300 text-lg mb-6 max-w-2xl">
-            Every business has unique automation needs. Our team can design custom
-            workflows for your specific requirements, all built with enterprise-grade
-            security and compliance controls.
+            Every business has unique automation needs. Our team can design
+            custom workflows for your specific requirements, all built with
+            enterprise-grade security and compliance controls.
           </p>
           <a
             href="/#contact"
@@ -228,7 +226,8 @@ export default function ExamplesPage() {
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold">Ready to automate securely?</h2>
             <p className="mt-3 text-slate-300">
-              Let's talk about your automation goals and compliance requirements.
+              Let's talk about your automation goals and compliance
+              requirements.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

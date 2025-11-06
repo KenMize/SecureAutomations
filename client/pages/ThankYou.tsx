@@ -39,9 +39,10 @@ export default function ThankYouPage() {
 
           <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-8 mt-8">
             <p className="text-slate-300 text-lg leading-relaxed">
-              Your personalized readiness report will arrive in your inbox within
-              2 business days. Our compliance team will review your responses and
-              provide actionable recommendations tailored to your organization.
+              Your personalized readiness report will arrive in your inbox
+              within 2 business days. Our compliance team will review your
+              responses and provide actionable recommendations tailored to your
+              organization.
             </p>
           </div>
 
@@ -106,7 +107,10 @@ export default function ThankYouPage() {
                 </a>
               </li>
               <li>
-                <a href="/#solutions" className="hover:text-white transition-colors">
+                <a
+                  href="/#solutions"
+                  className="hover:text-white transition-colors"
+                >
                   Our solutions
                 </a>
               </li>

@@ -52,7 +52,8 @@ interface FormData {
   additional_notes: string;
 }
 
-const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/YOUR_ZAPIER_ID/YOUR_CATCH_ID";
+const ZAPIER_WEBHOOK_URL =
+  "https://hooks.zapier.com/hooks/catch/YOUR_ZAPIER_ID/YOUR_CATCH_ID";
 
 export default function CheckupPage() {
   const [formData, setFormData] = useState<FormData>({
@@ -131,7 +132,7 @@ export default function CheckupPage() {
         : formData.least_privilege === "Sometimes"
           ? partial
           : no,
-      weights.access
+      weights.access,
     );
     add(formData.access_reviewed === "Yes" ? yes : no, weights.access);
 
@@ -142,7 +143,7 @@ export default function CheckupPage() {
         : formData.encryption === "Partially"
           ? partial
           : no,
-      weights.privacy
+      weights.privacy,
     );
     add(formData.gdpr_support === "Yes" ? yes : no, weights.privacy);
     add(
@@ -151,7 +152,7 @@ export default function CheckupPage() {
         : formData.phi_pii_secured === "In progress"
           ? partial
           : no,
-      weights.privacy
+      weights.privacy,
     );
     add(formData.retention_policy === "Yes" ? yes : no, weights.privacy);
 
@@ -165,7 +166,7 @@ export default function CheckupPage() {
         : formData.output_review === "Occasionally"
           ? partial
           : no,
-      weights.ai
+      weights.ai,
     );
 
     // Audit & Monitoring
@@ -294,17 +295,9 @@ export default function CheckupPage() {
     </div>
   );
 
-  const SectionHeader = ({
-    num,
-    title,
-  }: {
-    num: number;
-    title: string;
-  }) => (
+  const SectionHeader = ({ num, title }: { num: number; title: string }) => (
     <button
-      onClick={() =>
-        setExpandedSection(expandedSection === num ? 0 : num)
-      }
+      onClick={() => setExpandedSection(expandedSection === num ? 0 : num)}
       className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
     >
       <h3 className="text-lg font-semibold text-white">
@@ -398,12 +391,7 @@ export default function CheckupPage() {
                 />
                 <SelectField
                   label="Company Size"
-                  options={[
-                    "1–50",
-                    "51–250",
-                    "251–1000",
-                    "1000+",
-                  ]}
+                  options={["1–50", "51–250", "251–1000", "1000+"]}
                   field="company_size"
                 />
               </div>
@@ -604,7 +592,10 @@ export default function CheckupPage() {
                         onChange={() => handleCertificationChange(cert)}
                         className="h-4 w-4 rounded border-white/20 bg-slate-900/60 text-cyan-300 cursor-pointer"
                       />
-                      <label htmlFor={cert} className="text-sm text-slate-300 cursor-pointer">
+                      <label
+                        htmlFor={cert}
+                        className="text-sm text-slate-300 cursor-pointer"
+                      >
                         {cert}
                       </label>
                     </div>
