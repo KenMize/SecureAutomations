@@ -466,13 +466,13 @@ export default function LandingSecureAI() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#booking"
+              href="#contact"
               className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
             >
               Book a 30-minute consultation
             </a>
             <a
-              href="#examples"
+              href="/examples"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
               See example workflows
