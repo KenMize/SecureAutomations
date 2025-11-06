@@ -183,10 +183,10 @@ export default function LandingSecureAI() {
           </div>
           <div className="mt-8">
             <a
-              href="#contact"
+              href="/examples"
               className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm hover:bg-slate-100 transition-colors font-medium"
             >
-              🚀 Explore automations
+              Explore automations
             </a>
           </div>
         </div>
