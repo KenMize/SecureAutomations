@@ -452,7 +452,7 @@ export default function CheckupPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Section 1 */}
           <div className="space-y-4">
-            <SectionHeader num={1} title="Organization Overview" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+            <SectionHeader num={1} title="Organization Overview" isExpanded={expandedSection === 1} onToggle={() => setExpandedSection(expandedSection === 1 ? 0 : 1)} />
             {expandedSection === 1 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <TextField
@@ -460,32 +460,24 @@ export default function CheckupPage() {
                   placeholder="Enter your company name"
                   field="company_name"
                   required
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Primary Contact Name"
                   placeholder="Your full name"
                   field="contact_name"
                   required
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Contact Title"
                   placeholder="Your title/role"
                   field="contact_title"
                   required
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Work Email"
                   placeholder="your@company.com"
                   field="work_email"
                   required
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Industry"
