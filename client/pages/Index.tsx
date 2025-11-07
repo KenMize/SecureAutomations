@@ -398,8 +398,7 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-xs text-slate-400 italic">
-                Plus: compliance audits become routine, your team gets hours
-                back, and you sleep knowing your AI workflows are secure.
+                You get back 50+ hours a month. Your team stays focused on growth. Audits become straightforward.
               </p>
             </div>
           </div>
