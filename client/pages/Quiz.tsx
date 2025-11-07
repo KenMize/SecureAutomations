@@ -282,6 +282,122 @@ export default function Quiz() {
     }
   };
 
+  if (showRecommendationModal && result) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+          <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+            <a
+              href="/"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="/logo.svg"
+                alt="Secure Automations"
+                className="h-8 w-8"
+              />
+              <span className="font-semibold tracking-tight">
+                Secure Automations
+              </span>
+            </a>
+            <a
+              href="/"
+              className="text-sm text-slate-300 hover:text-white transition-colors"
+            >
+              ✕ Close
+            </a>
+          </div>
+        </header>
+
+        <div className="min-h-screen flex items-center justify-center px-4 py-16">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/95 p-8 md:p-12 max-w-md w-full shadow-2xl">
+              <div className="text-center mb-8">
+                <div className="inline-block mb-6 p-3 rounded-full bg-cyan-300/20 border border-cyan-300/50">
+                  <svg className="w-8 h-8 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  Your Recommendation
+                </h2>
+                <p className="text-slate-300 text-sm">
+                  Based on your assessment responses
+                </p>
+              </div>
+
+              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-300/10 to-cyan-300/5 border border-cyan-300/30">
+                <div className="text-center mb-4">
+                  <div className="text-4xl font-bold text-cyan-300 mb-2">
+                    {result.score}%
+                  </div>
+                  <p className="text-xs text-slate-400">Readiness Score</p>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                    {result.recommendation}
+                  </h3>
+                  <p className="text-sm text-slate-300">
+                    {result.recommendation ===
+                    "Full AI Agent Platform (with Learning & Autonomy)" ? (
+                      <>
+                        You're ready for autonomous AI agents that learn and
+                        adapt with minimal oversight.
+                      </>
+                    ) : result.recommendation ===
+                      "Hybrid AI Agent + Workflow Automation" ? (
+                      <>
+                        Combine AI agents for customer engagement with workflow
+                        automations for back-office operations.
+                      </>
+                    ) : (
+                      <>
+                        Start with focused RPA or simple automation to build
+                        momentum and internal support.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3 mb-6 p-4 rounded-xl bg-slate-950/40 border border-white/10">
+                <h4 className="text-sm font-semibold text-cyan-300 mb-3">
+                  Key Factors
+                </h4>
+                <div className="space-y-2 text-sm text-slate-300">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Pain Point:</span>
+                    <span className="font-medium">{result.details["pain-points"]}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Task Frequency:</span>
+                    <span className="font-medium">{result.details["task-frequency"]}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Complexity:</span>
+                    <span className="font-medium">{result.details["complexity-level"]}</span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs text-slate-400 text-center mb-6">
+                We've sent these results to <span className="font-medium text-slate-300">{result.email}</span>.
+                A specialist will contact you within 2 hours.
+              </p>
+
+              <button
+                onClick={() => setShowResults(true)}
+                className="w-full rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors"
+              >
+                View Full Results
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (showResults && result) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100">
