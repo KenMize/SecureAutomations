@@ -293,7 +293,7 @@ export default function CheckupPage() {
         type="text"
         required={required}
         placeholder={placeholder}
-        value={formData[field] as string}
+        value={(formData[field] as string) ?? ""}
         onChange={(e) => handleChange(field, e.target.value)}
         className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
       />
