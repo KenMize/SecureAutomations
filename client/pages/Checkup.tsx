@@ -701,7 +701,8 @@ export default function CheckupPage() {
                 <SelectField
                   label="Regular backups and recovery testing?"
                   options={["Yes", "No"]}
-                  field="backup_testing"
+                  value={formData.backup_testing}
+                  onChange={(val) => handleChangeCallback("backup_testing", val)}
                 />
               </div>
             )}
@@ -750,13 +751,15 @@ export default function CheckupPage() {
                     "6–12 months",
                     "More than 12 months",
                   ]}
-                  field="audit_timeline"
+                  value={formData.audit_timeline}
+                  onChange={(val) => handleChangeCallback("audit_timeline", val)}
                 />
 
                 <SelectField
                   label="Request your free AI Security Readiness Report?"
                   options={["Yes", "No"]}
-                  field="request_report"
+                  value={formData.request_report}
+                  onChange={(val) => handleChangeCallback("request_report", val)}
                 />
 
                 <div className="space-y-2">
