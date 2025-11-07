@@ -464,7 +464,7 @@ export default function Quiz() {
                           {rec.description}
                         </p>
                         <div className="space-y-1">
-                          {rec.benefits.map((benefit, bIdx) => (
+                          {(rec.benefits || []).map((benefit, bIdx) => (
                             <div
                               key={bIdx}
                               className="flex gap-2 text-xs text-slate-300"
