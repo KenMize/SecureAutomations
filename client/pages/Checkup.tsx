@@ -590,25 +590,25 @@ export default function CheckupPage() {
                 <SelectField
                   label="Data encrypted at rest and in transit?"
                   options={["Yes", "Partially", "No"]}
-                  value={formData.encryption}
+                  value={formData.encryption ?? ""}
                   onChange={(val) => handleChangeCallback("encryption", val)}
                 />
                 <SelectField
                   label="GDPR/CCPA data subject requests supported?"
                   options={["Yes", "No"]}
-                  value={formData.gdpr_support}
+                  value={formData.gdpr_support ?? ""}
                   onChange={(val) => handleChangeCallback("gdpr_support", val)}
                 />
                 <SelectField
                   label="PHI/PII data flows documented and secured?"
                   options={["Yes", "In progress", "No"]}
-                  value={formData.phi_pii_secured}
+                  value={formData.phi_pii_secured ?? ""}
                   onChange={(val) => handleChangeCallback("phi_pii_secured", val)}
                 />
                 <SelectField
                   label="Data retention and deletion policy exists?"
                   options={["Yes", "No"]}
-                  value={formData.retention_policy}
+                  value={formData.retention_policy ?? ""}
                   onChange={(val) => handleChangeCallback("retention_policy", val)}
                 />
               </div>
