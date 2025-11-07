@@ -398,6 +398,101 @@ export default function ExamplesPage() {
         </div>
       </div>
 
+      {/* CONSULTATION MODAL */}
+      {showConsultationModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="rounded-3xl border border-white/10 bg-slate-900/95 p-8 md:p-12 max-w-2xl w-full shadow-2xl my-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">Book a Consultation</h2>
+              <button
+                onClick={() => setShowConsultationModal(false)}
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className="text-slate-300 mb-6">
+              Tell us about your needs and we'll get back to you within 2 hours.
+            </p>
+
+            <form onSubmit={handleConsultationSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={consultationForm.name ?? ""}
+                  onChange={handleConsultationChange}
+                  required
+                  className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Work Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={consultationForm.email ?? ""}
+                  onChange={handleConsultationChange}
+                  required
+                  className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+                  placeholder="your@company.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  value={consultationForm.company ?? ""}
+                  onChange={handleConsultationChange}
+                  required
+                  className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+                  placeholder="Your company"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={consultationForm.message ?? ""}
+                  onChange={handleConsultationChange}
+                  required
+                  rows={4}
+                  className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all resize-none"
+                  placeholder="Tell us about your needs..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              >
+                {isSubmitting ? "Submitting..." : "Send Consultation Request"}
+              </button>
+
+              <p className="text-xs text-slate-500 text-center">
+                We'll never share your data. You can unsubscribe at any time.
+              </p>
+            </form>
+          </div>
+        </div>
+      )}
+
       <section className="border-t border-white/10 bg-slate-950 mt-16">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <div className="text-center mb-8">
@@ -408,12 +503,12 @@ export default function ExamplesPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/#contact"
+            <button
+              onClick={() => setShowConsultationModal(true)}
               className="rounded-2xl bg-white text-slate-950 px-6 py-3 text-sm shadow inline-flex items-center justify-center hover:bg-slate-100 transition-colors font-medium"
             >
               Book a consultation
-            </a>
+            </button>
             <a
               href="/checkup"
               className="rounded-2xl border border-white/20 px-6 py-3 text-sm inline-flex items-center justify-center hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
