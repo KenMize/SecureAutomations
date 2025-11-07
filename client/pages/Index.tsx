@@ -141,7 +141,7 @@ export default function LandingSecureAI() {
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
                 <li>Your data is encrypted and protected like it's defending national security</li>
                 <li>Every action is logged so you can prove compliance to auditors</li>
-                <li>You stay in control—see exactly what's being automated</li>
+                <li>You stay in control and see exactly what's being automated</li>
               </ul>
             </div>
           </motion.div>
