@@ -378,22 +378,17 @@ export async function handleContactForm(req: Request, res: Response) {
 }
 
 function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
-  const getReadableAnswer = (key: string, value: string | number): string => {
-    if (typeof value === "number") {
-      return `${value} / 5`;
-    }
-    return String(value);
-  };
-
-  const detailsHtml = Object.entries(data.details)
+  const recommendationsHtml = data.recommendations
     .map(
-      ([key, value]) =>
-        `<tr>
-          <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0; font-weight: 500;">${key
-            .replace(/-/g, " ")
-            .replace(/\b\w/g, (l) => l.toUpperCase())}</td>
-          <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0;">${getReadableAnswer(key, value)}</td>
-        </tr>`,
+      (rec, idx) =>
+        `<div style="background: #f9fafb; border-left: 4px solid #06b6d4; padding: 15px; margin: 15px 0; border-radius: 3px;">
+          <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 5px;">${idx + 1}. ${rec.name}</h4>
+          <p style="color: #666; margin: 8px 0; font-size: 14px;">${rec.description}</p>
+          <p style="color: #06b6d4; font-weight: bold; margin: 10px 0 5px 0; font-size: 12px;">Key Benefits:</p>
+          <ul style="margin: 5px 0; padding-left: 20px; font-size: 13px; color: #666;">
+            ${rec.benefits.map((benefit) => `<li style="margin: 4px 0;">${benefit}</li>`).join("")}
+          </ul>
+        </div>`,
     )
     .join("");
 
@@ -402,32 +397,73 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
     <html>
       <head>
         <style>
-          body { font-family: Arial, sans-serif; color: #333; }
-          h1 { color: #0f172a; }
+          body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+          h1 { color: #0f172a; margin-bottom: 10px; }
+          h2 { color: #0f172a; margin-top: 25px; margin-bottom: 15px; font-size: 18px; }
           h3 { color: #06b6d4; }
-          p { margin: 5px 0; }
+          h4 { color: #0f172a; }
+          p { margin: 8px 0; }
           table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+          td { padding: 10px 12px; border: 1px solid #e5e7eb; }
+          .assessment-box { background: #f0f9fc; border-left: 4px solid #06b6d4; padding: 15px; margin: 20px 0; border-radius: 3px; }
+          .next-steps { background: #f9fafb; padding: 15px; margin: 20px 0; border-radius: 3px; }
+          .footer { color: #999; font-size: 11px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
         </style>
       </head>
       <body>
-        <h1>Automation Readiness Assessment Results</h1>
-        <p><strong>Name:</strong> ${data.name}</p>
+        <h1>Your Personalized Automation Plan</h1>
         <p><strong>Company:</strong> ${data.company}</p>
-        <p><strong>Submitted:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+        <p><strong>Contact Name:</strong> ${data.name}</p>
+        <p><strong>Contact Email:</strong> ${data.email}</p>
+        <p><strong>Assessment Date:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
 
-        <div style="background: #f0f0f0; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="margin-top: 0; color: #06b6d4;">Assessment Score: ${data.score}%</h3>
-          <h3 style="color: #0f172a;">Recommendation: ${data.recommendation}</h3>
-          <p>Based on the assessment, we recommend the above approach to maximize your automation ROI.</p>
-        </div>
+        <h2>Recommended Solutions</h2>
+        <p>Based on your assessment responses, we recommend the following solutions to address your automation needs:</p>
 
-        <h3>Detailed Responses</h3>
+        ${recommendationsHtml}
+
+        <h2>Your Assessment Details</h2>
         <table>
-          ${detailsHtml}
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Primary Need</strong></td>
+            <td>${data.details["pain-points"] || "Not provided"}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Task Frequency</strong></td>
+            <td>${data.details["task-frequency"] || "Not provided"}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Complexity Level</strong></td>
+            <td>${data.details["complexity-level"] || "Not provided"}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Volume</strong></td>
+            <td>${data.details["volume-scale"] || "Not provided"}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Systems Integration</strong></td>
+            <td>${data.details["systems-integration"] || "Not provided"}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Timeline</strong></td>
+            <td>${data.details["timeline"] || "Not provided"}</td>
+          </tr>
         </table>
 
-        <hr style="margin-top: 30px;">
-        <p style="color: #666; font-size: 12px;">This assessment was completed via the Secure Automations Automation Readiness Quiz. Our Sales team will review your results and contact you within 2 hours.</p>
+        <div class="next-steps">
+          <h3 style="margin-top: 0; color: #0f172a;">What Happens Next</h3>
+          <ol style="padding-left: 20px;">
+            <li><strong>Consultation (2 hours)</strong> – Our specialist will contact you to discuss your needs</li>
+            <li><strong>Deep Dive Analysis</strong> – We'll review your workflows in detail</li>
+            <li><strong>Custom Proposal</strong> – You'll receive a tailored implementation roadmap</li>
+            <li><strong>Proof of Concept</strong> – Start with a focused pilot project</li>
+          </ol>
+        </div>
+
+        <div class="footer">
+          <p>This assessment was completed via the Secure Automations Automation Readiness Quiz. Our Sales team will review your results and contact you shortly to discuss next steps.</p>
+          <p>Questions? Reply to this email or visit our website.</p>
+        </div>
       </body>
     </html>
   `;
