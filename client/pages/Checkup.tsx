@@ -689,12 +689,14 @@ export default function CheckupPage() {
                 <SelectField
                   label="Incident response plan (including AI risks)?"
                   options={["Yes", "No"]}
-                  field="incident_response"
+                  value={formData.incident_response}
+                  onChange={(val) => handleChangeCallback("incident_response", val)}
                 />
                 <SelectField
                   label="Team trained on breach response?"
                   options={["Yes", "No"]}
-                  field="breach_training"
+                  value={formData.breach_training}
+                  onChange={(val) => handleChangeCallback("breach_training", val)}
                 />
                 <SelectField
                   label="Regular backups and recovery testing?"
