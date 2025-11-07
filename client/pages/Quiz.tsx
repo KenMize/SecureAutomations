@@ -813,7 +813,26 @@ export default function Quiz() {
           </h2>
 
           <div className="space-y-3">
-            {currentQ.type === "select" ? (
+            {currentQ.type === "multi-select" ? (
+              (currentQ.options || []).map((option) => {
+                const selectedAnswers = answers.find((a) => a.questionId === currentQ.id)?.answer || [];
+                const isSelected = Array.isArray(selectedAnswers) && selectedAnswers.includes(option);
+                return (
+                  <label
+                    key={option}
+                    className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-slate-950/40 hover:bg-slate-950/60 hover:border-cyan-300/50 transition-all cursor-pointer group"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isSelected}
+                      onChange={() => handleAnswer(option)}
+                      className="w-5 h-5 rounded border-white/20 bg-slate-900/60 text-cyan-300 cursor-pointer"
+                    />
+                    <span className="text-slate-200 group-hover:text-white">{option}</span>
+                  </label>
+                );
+              })
+            ) : currentQ.type === "select" ? (
               (currentQ.options || []).map((option) => (
                 <button
                   key={option}
