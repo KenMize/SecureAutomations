@@ -24,8 +24,8 @@ interface QuizResult {
 const QUIZ_QUESTIONS = [
   {
     id: "pain-points",
-    question: "What's your biggest current pain point?",
-    type: "select",
+    question: "What are your biggest current pain points? (Select all that apply)",
+    type: "multi-select",
     options: [
       "Manual data entry and repetitive tasks",
       "Customer support and response delays",
