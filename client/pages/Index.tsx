@@ -384,10 +384,10 @@ export default function LandingSecureAI() {
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
                   <span className="text-cyan-300 font-semibold">
-                    Year 1 savings:
+                    Year 1 comparison:
                   </span>
                   <span className="text-slate-300">
-                    $18,000-60,000 in labor + compliance costs
+                    Save $24,000-110,000 in labor + hiring
                   </span>
                 </div>
                 <div className="flex gap-2 text-sm">
