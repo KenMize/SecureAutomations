@@ -567,6 +567,90 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
+      {/* AI AGENTS SHOWCASE */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <h2 className="text-3xl font-semibold tracking-tight mb-4">
+            What AI Agents Do
+          </h2>
+          <p className="text-slate-300 max-w-3xl mb-12">
+            Intelligent agents that work 24/7 on your behalf. They learn your business, engage your customers, and drive measurable results while your team focuses on strategy and growth.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                title: "Customer Support Agent",
+                description: "Answers questions, resolves issues, and escalates complex problems to your team",
+                impact: "Handles 70% of support inquiries automatically",
+                icon: MessageSquare,
+              },
+              {
+                title: "Appointment Scheduler",
+                description: "Books meetings, sends confirmations, and manages reminders without manual work",
+                impact: "Books 100+ appointments per month",
+                icon: Clock,
+              },
+              {
+                title: "Lead Qualifier",
+                description: "Screens inbound leads, asks qualifying questions, and routes hot prospects to sales",
+                impact: "Improves lead quality by 40%+",
+                icon: Users,
+              },
+            ].map((agent) => {
+              const Icon = agent.icon;
+              return (
+                <div
+                  key={agent.title}
+                  className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 flex flex-col"
+                >
+                  <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 w-fit mb-4">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{agent.title}</h3>
+                  <p className="text-slate-300 text-sm mb-4 flex-grow">
+                    {agent.description}
+                  </p>
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-sm font-semibold text-cyan-300">
+                      {agent.impact}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/80 p-8 mb-8">
+            <h3 className="text-xl font-bold mb-4">Why AI Agents Matter for SMBs</h3>
+            <p className="text-slate-300 mb-6">
+              Traditional support models have a critical flaw: they only work during business hours. AI agents work 24/7. They never get tired, never give inconsistent answers, and never miss an opportunity to engage a customer.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { stat: "20%+ revenue increase", desc: "From capturing opportunities agents find" },
+                { stat: "60% support cost reduction", desc: "From handling routine inquiries" },
+                { stat: "24/7 availability", desc: "No more missed leads after hours" },
+              ].map((item) => (
+                <div key={item.stat} className="rounded-2xl bg-slate-950/40 p-4 border border-white/10">
+                  <div className="font-semibold text-cyan-300 mb-1">{item.stat}</div>
+                  <p className="text-xs text-slate-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <a
+              href="/examples"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-6 py-3 text-sm hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
+            >
+              See more agent examples <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* PARTNERS & INTEGRATIONS */}
       <section className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
