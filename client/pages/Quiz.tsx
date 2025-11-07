@@ -206,14 +206,18 @@ export default function Quiz() {
     const recommendations: RecommendedSolution[] = [];
 
     // Map pain points to specific solutions
-    const painPoint = answerMap["pain-points"];
+    const painPoints = Array.isArray(answerMap["pain-points"])
+      ? answerMap["pain-points"]
+      : [answerMap["pain-points"]];
     const frequency = answerMap["task-frequency"];
     const complexity = answerMap["complexity-level"];
     const volume = answerMap["volume-scale"];
-    const goal = answerMap["primary-goal"];
+    const goals = Array.isArray(answerMap["primary-goal"])
+      ? answerMap["primary-goal"]
+      : [answerMap["primary-goal"]];
 
     // Manual data entry and repetitive tasks
-    if (painPoint === "Manual data entry and repetitive tasks") {
+    if (painPoints.includes("Manual data entry and repetitive tasks")) {
       recommendations.push({
         name: "Data Entry & Processing Workflow",
         description: "Automated extraction and validation of data across systems",
