@@ -450,26 +450,39 @@ export default function LandingSecureAI() {
       <section className="border-t border-white/10 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Trusted by security-minded teams
+            Real teams, real results
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Our automations follow the same security standards trusted by the U.S. Department of Defense. That means your customer data stays protected, and you can pass any audit with confidence.
+            From dental practices to e-commerce shops, small teams automate their busywork and focus on growth.
           </p>
 
-          <div className="mt-8 rounded-2xl border border-white/10 bg-slate-800/60 p-8">
-            <div className="flex items-center gap-1 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
-              ))}
+          <div className="mt-8 grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
+                ))}
+              </div>
+              <blockquote className="text-base text-slate-100 italic mb-4">
+                "Our office now runs 24/7 automations. Leads come in, they hit our CRM, invoices generate themselves. We sleep better."
+              </blockquote>
+              <p className="text-sm text-slate-400">
+                Founder, Dental Practice (Austin, TX)
+              </p>
             </div>
-            <blockquote className="text-lg text-slate-100 italic mb-4">
-              "Their background in defense-grade systems gave us total
-              confidence. We now use AI in our CRM without any compliance
-              headaches."
-            </blockquote>
-            <p className="text-sm text-slate-400">
-              Operations Manager, Fintech Startup
-            </p>
+            <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
+                ))}
+              </div>
+              <blockquote className="text-base text-slate-100 italic mb-4">
+                "We got audited last month. Secure Automations' audit logs made compliance trivial. The auditor had nothing to question."
+              </blockquote>
+              <p className="text-sm text-slate-400">
+                Operations Lead, E-Commerce Startup
+              </p>
+            </div>
           </div>
 
           <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
