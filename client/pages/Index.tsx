@@ -75,7 +75,7 @@ export default function LandingSecureAI() {
               <span className="text-cyan-300">your data protected</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We help small teams automate their repetitive work—invoices, emails, customer follow-ups—safely and securely. Our automations follow the same data-protection standards trusted by U.S. defense systems. No IT team needed.
+              We help small teams automate their repetitive work: invoices, emails, customer follow-ups. All safely and securely. Our automations follow the same data-protection standards trusted by U.S. defense systems. No IT team needed.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
