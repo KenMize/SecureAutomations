@@ -71,11 +71,15 @@ export default function LandingSecureAI() {
               Stop doing tasks by hand
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              Secure automation that <span className="text-cyan-300">saves you hours</span> and keeps{" "}
+              Secure automation that{" "}
+              <span className="text-cyan-300">saves you hours</span> and keeps{" "}
               <span className="text-cyan-300">your data protected</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We help small teams automate their repetitive work: invoices, emails, customer follow-ups. All safely and securely. Our automations follow the same data-protection standards trusted by U.S. defense systems. No IT team needed.
+              We help small teams automate their repetitive work: invoices,
+              emails, customer follow-ups. All safely and securely. Our
+              automations follow the same data-protection standards trusted by
+              U.S. defense systems. No IT team needed.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -113,9 +117,7 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
-              <div className="text-sm text-slate-400 mb-3">
-                How it works
-              </div>
+              <div className="text-sm text-slate-400 mb-3">How it works</div>
               <div className="rounded-2xl bg-slate-950/60 p-5">
                 <div className="grid grid-cols-6 gap-3 text-xs">
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
@@ -136,12 +138,21 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300 mb-3">
-                Every automation is protected with the same security standards used by defense systems. Customer data gets redacted, every action is logged, and you stay compliant.
+                Every automation is protected with the same security standards
+                used by defense systems. Customer data gets redacted, every
+                action is logged, and you stay compliant.
               </p>
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
-                <li>Your data is encrypted and protected like it's defending national security</li>
-                <li>Every action is logged so you can prove compliance to auditors</li>
-                <li>You stay in control and see exactly what's being automated</li>
+                <li>
+                  Your data is encrypted and protected like it's defending
+                  national security
+                </li>
+                <li>
+                  Every action is logged so you can prove compliance to auditors
+                </li>
+                <li>
+                  You stay in control and see exactly what's being automated
+                </li>
               </ul>
             </div>
           </motion.div>
@@ -155,7 +166,9 @@ export default function LandingSecureAI() {
             What we automate for you
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We set up automations that handle invoices, leads, customer messages, and follow-ups securely, so you can focus on growing your business.
+            We set up automations that handle invoices, leads, customer
+            messages, and follow-ups securely, so you can focus on growing your
+            business.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
@@ -379,7 +392,8 @@ export default function LandingSecureAI() {
                 Starting at $1,500/month
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                You get automations, compliance, and audit trails. All handled by us. No IT department needed.
+                You get automations, compliance, and audit trails. All handled
+                by us. No IT department needed.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
@@ -398,7 +412,8 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-xs text-slate-400 italic">
-                You get back 50+ hours a month. Your team stays focused on growth. Audits become straightforward.
+                You get back 50+ hours a month. Your team stays focused on
+                growth. Audits become straightforward.
               </p>
             </div>
           </div>
@@ -421,7 +436,9 @@ export default function LandingSecureAI() {
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">Audit-ready</div>
+                <div className="text-2xl font-bold text-cyan-300">
+                  Audit-ready
+                </div>
                 <p className="mt-2 text-sm text-slate-300">
                   Compliance is handled, not a constant worry
                 </p>
@@ -453,18 +470,23 @@ export default function LandingSecureAI() {
             Real teams, real results
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            From dental practices to e-commerce shops, small teams automate their busywork and focus on growth.
+            From dental practices to e-commerce shops, small teams automate
+            their busywork and focus on growth.
           </p>
 
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
+                  <Star
+                    key={i}
+                    className="h-4 w-4 fill-cyan-300 text-cyan-300"
+                  />
                 ))}
               </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "Our office now runs 24/7 automations. Leads come in, they hit our CRM, invoices generate themselves. We sleep better."
+                "Our office now runs 24/7 automations. Leads come in, they hit
+                our CRM, invoices generate themselves. We sleep better."
               </blockquote>
               <p className="text-sm text-slate-400">
                 Founder, Dental Practice (Austin, TX)
@@ -473,11 +495,15 @@ export default function LandingSecureAI() {
             <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-cyan-300 text-cyan-300" />
+                  <Star
+                    key={i}
+                    className="h-4 w-4 fill-cyan-300 text-cyan-300"
+                  />
                 ))}
               </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "We got audited last month. Secure Automations' audit logs made compliance trivial. The auditor had nothing to question."
+                "We got audited last month. Secure Automations' audit logs made
+                compliance trivial. The auditor had nothing to question."
               </blockquote>
               <p className="text-sm text-slate-400">
                 Operations Lead, E-Commerce Startup
