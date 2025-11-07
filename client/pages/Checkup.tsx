@@ -98,8 +98,8 @@ interface TextFieldProps {
   placeholder: string;
   field: keyof FormData;
   required?: boolean;
-  formData: FormData;
-  handleChange: (field: keyof FormData, value: string | string[]) => void;
+  formData?: FormData;
+  handleChange?: (field: keyof FormData, value: string | string[]) => void;
 }
 
 const TextField = ({
@@ -107,8 +107,8 @@ const TextField = ({
   placeholder,
   field,
   required = false,
-  formData,
-  handleChange,
+  formData = {} as FormData,
+  handleChange = () => {},
 }: TextFieldProps) => (
   <div className="space-y-2">
     <label className="text-sm font-medium text-slate-300">
