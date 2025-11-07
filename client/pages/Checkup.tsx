@@ -129,15 +129,15 @@ const TextField = ({
 interface SectionHeaderProps {
   num: number;
   title: string;
-  expandedSection: number;
-  setExpandedSection: (num: number) => void;
+  expandedSection?: number;
+  setExpandedSection?: (num: number) => void;
 }
 
 const SectionHeader = ({
   num,
   title,
-  expandedSection,
-  setExpandedSection,
+  expandedSection = 0,
+  setExpandedSection = () => {},
 }: SectionHeaderProps) => (
   <button
     onClick={() => setExpandedSection(expandedSection === num ? 0 : num)}
