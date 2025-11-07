@@ -6,12 +6,17 @@ interface QuizAnswer {
   answer: string | number;
 }
 
+interface RecommendedSolution {
+  name: string;
+  description: string;
+  benefits: string[];
+}
+
 interface QuizResult {
   email: string;
   name: string;
   company: string;
-  score: number;
-  recommendation: string;
+  recommendations: RecommendedSolution[];
   details: Record<string, string | number>;
   timestamp: string;
 }
