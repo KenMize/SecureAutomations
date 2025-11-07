@@ -387,8 +387,8 @@ export default function Quiz() {
         </header>
 
         <div className="min-h-screen flex items-center justify-center px-4 py-16">
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-            <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/95 p-8 md:p-12 max-w-md w-full shadow-2xl">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+            <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/95 p-8 md:p-12 max-w-2xl w-full shadow-2xl my-8">
               <div className="text-center mb-8">
                 <div className="inline-block mb-6 p-3 rounded-full bg-cyan-300/20 border border-cyan-300/50">
                   <svg className="w-8 h-8 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -396,58 +396,58 @@ export default function Quiz() {
                   </svg>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  Your Recommendation
+                  Recommended Solutions for {result.company}
                 </h2>
                 <p className="text-slate-300 text-sm">
-                  Based on your assessment responses
+                  Based on your responses, here's what we recommend
                 </p>
               </div>
 
-              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-300/10 to-cyan-300/5 border border-cyan-300/30">
-                <div className="text-center mb-4">
-                  <div className="text-4xl font-bold text-cyan-300 mb-2">
-                    {result.score}%
+              <div className="space-y-4 mb-8">
+                {result.recommendations.map((rec, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-cyan-300/30 bg-gradient-to-br from-cyan-300/10 to-cyan-300/5 p-5"
+                  >
+                    <div className="flex gap-3 mb-3">
+                      <div className="text-cyan-300 font-bold text-lg flex-shrink-0">
+                        {idx + 1}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white text-lg mb-1">
+                          {rec.name}
+                        </h3>
+                        <p className="text-sm text-slate-300 mb-3">
+                          {rec.description}
+                        </p>
+                        <div className="space-y-1">
+                          {rec.benefits.map((benefit, bIdx) => (
+                            <div
+                              key={bIdx}
+                              className="flex gap-2 text-xs text-slate-300"
+                            >
+                              <span className="text-cyan-300">✓</span>
+                              <span>{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs text-slate-400">Readiness Score</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                    {result.recommendation}
-                  </h3>
-                  <p className="text-sm text-slate-300">
-                    {result.recommendation ===
-                    "Full AI Agent Platform (with Learning & Autonomy)" ? (
-                      <>
-                        You're ready for autonomous AI agents that learn and
-                        adapt with minimal oversight.
-                      </>
-                    ) : result.recommendation ===
-                      "Hybrid AI Agent + Workflow Automation" ? (
-                      <>
-                        Combine AI agents for customer engagement with workflow
-                        automations for back-office operations.
-                      </>
-                    ) : (
-                      <>
-                        Start with focused RPA or simple automation to build
-                        momentum and internal support.
-                      </>
-                    )}
-                  </p>
-                </div>
+                ))}
               </div>
 
-              <div className="space-y-3 mb-6 p-4 rounded-xl bg-slate-950/40 border border-white/10">
+              <div className="p-4 rounded-xl bg-slate-950/40 border border-white/10 mb-6">
                 <h4 className="text-sm font-semibold text-cyan-300 mb-3">
-                  Key Factors
+                  Your Assessment
                 </h4>
                 <div className="space-y-2 text-sm text-slate-300">
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Pain Point:</span>
+                    <span className="text-slate-400">Primary Need:</span>
                     <span className="font-medium">{result.details["pain-points"]}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Task Frequency:</span>
+                    <span className="text-slate-400">Frequency:</span>
                     <span className="font-medium">{result.details["task-frequency"]}</span>
                   </div>
                   <div className="flex justify-between">
@@ -458,15 +458,15 @@ export default function Quiz() {
               </div>
 
               <p className="text-xs text-slate-400 text-center mb-6">
-                We've sent these results to <span className="font-medium text-slate-300">{result.email}</span>.
-                A specialist will contact you within 2 hours.
+                These recommendations have been sent to <span className="font-medium text-slate-300">{result.email}</span>.
+                A specialist will contact you within 2 hours to discuss implementation.
               </p>
 
               <button
                 onClick={() => setShowResults(true)}
                 className="w-full rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors"
               >
-                View Full Results
+                View Full Assessment Details
               </button>
             </div>
           </div>
