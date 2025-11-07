@@ -502,108 +502,84 @@ export default function Quiz() {
           </div>
         </header>
 
-        <div className="mx-auto max-w-3xl px-4 py-16">
+        <div className="mx-auto max-w-4xl px-4 py-16">
           <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/80 p-8 md:p-12">
-            <div className="text-center mb-8">
+            <div className="text-center mb-12">
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Your Automation Readiness Assessment
+                Your Personalized Automation Plan
               </h1>
               <p className="text-slate-300">
-                Based on your responses, here's our personalized recommendation.
+                Based on your assessment, here are the solutions we recommend to address your needs.
               </p>
             </div>
 
-            <div className="mb-8">
-              <div className="relative w-32 h-32 mx-auto mb-6">
-                <svg className="w-full h-full" viewBox="0 0 120 120">
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="54"
-                    fill="none"
-                    stroke="#1e293b"
-                    strokeWidth="8"
-                  />
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="54"
-                    fill="none"
-                    stroke="#06b6d4"
-                    strokeWidth="8"
-                    strokeDasharray={`${(result.score / 100) * 339.3} 339.3`}
-                    strokeLinecap="round"
-                    style={{
-                      transform: "rotate(-90deg)",
-                      transformOrigin: "50% 50%",
-                    }}
-                  />
-                  <text
-                    x="60"
-                    y="60"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="text-3xl font-bold fill-cyan-300"
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-white mb-6 text-center">
+                Recommended Solutions
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                {result.recommendations.map((rec, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-2xl border border-cyan-300/30 bg-gradient-to-br from-cyan-300/10 to-cyan-300/5 p-6"
                   >
-                    {result.score}%
-                  </text>
-                </svg>
-              </div>
-
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-white mb-3">
-                  {result.recommendation}
-                </h2>
-                <p className="text-slate-300 max-w-2xl mx-auto">
-                  {result.recommendation ===
-                  "Full AI Agent Platform (with Learning & Autonomy)" ? (
-                    <>
-                      You're a strong candidate for autonomous AI agents. Your
-                      workflows are complex, high-volume, and have clear ROI
-                      potential. You can deploy intelligent agents that learn
-                      and adapt with minimal human oversight.
-                    </>
-                  ) : result.recommendation ===
-                    "Hybrid AI Agent + Workflow Automation" ? (
-                    <>
-                      A combined approach works best for you. Deploy AI agents
-                      for customer engagement while using workflow automations
-                      for back-office operations. This maximizes ROI and covers
-                      both internal and external processes.
-                    </>
-                  ) : (
-                    <>
-                      Start with focused RPA or simple automation to build
-                      momentum. Once you see quick wins, you can expand to more
-                      sophisticated AI agents and workflows. Quick wins build
-                      internal support for larger initiatives.
-                    </>
-                  )}
-                </p>
+                    <div className="flex gap-3 mb-4">
+                      <div className="text-cyan-300 font-bold text-2xl flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-cyan-300/10">
+                        {idx + 1}
+                      </div>
+                      <h3 className="font-bold text-white text-lg self-center">
+                        {rec.name}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-slate-300 mb-4">
+                      {rec.description}
+                    </p>
+                    <div className="space-y-2">
+                      <p className="text-xs font-semibold text-cyan-300 uppercase tracking-wide">
+                        Key Benefits
+                      </p>
+                      {rec.benefits.map((benefit, bIdx) => (
+                        <div
+                          key={bIdx}
+                          className="flex gap-2 text-sm text-slate-300"
+                        >
+                          <span className="text-cyan-300 flex-shrink-0 mt-0.5">✓</span>
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="rounded-2xl bg-slate-950/40 p-6 border border-white/10">
                 <h3 className="font-semibold text-cyan-300 mb-4">
-                  Your Assessment
+                  Your Assessment Details
                 </h3>
                 <div className="space-y-3 text-sm text-slate-300">
                   <div>
-                    <span className="text-slate-400">Primary Pain Point:</span>
-                    <p className="font-medium">
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">Primary Need</span>
+                    <p className="font-medium mt-1">
                       {result.details["pain-points"]}
                     </p>
                   </div>
                   <div>
-                    <span className="text-slate-400">Complexity Level:</span>
-                    <p className="font-medium">
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">Task Frequency</span>
+                    <p className="font-medium mt-1">
+                      {result.details["task-frequency"]}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">Complexity Level</span>
+                    <p className="font-medium mt-1">
                       {result.details["complexity-level"]}
                     </p>
                   </div>
                   <div>
-                    <span className="text-slate-400">Volume:</span>
-                    <p className="font-medium">
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">Volume</span>
+                    <p className="font-medium mt-1">
                       {result.details["volume-scale"]}
                     </p>
                   </div>
@@ -611,23 +587,23 @@ export default function Quiz() {
               </div>
 
               <div className="rounded-2xl bg-slate-950/40 p-6 border border-white/10">
-                <h3 className="font-semibold text-cyan-300 mb-4">Next Steps</h3>
-                <ul className="space-y-2 text-sm text-slate-300">
-                  <li className="flex gap-2">
-                    <ChevronRight className="h-4 w-4 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span>A specialist will contact you within 2 hours</span>
+                <h3 className="font-semibold text-cyan-300 mb-4">What Happens Next</h3>
+                <ul className="space-y-3 text-sm text-slate-300">
+                  <li className="flex gap-3">
+                    <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><span className="font-semibold text-white">Consultation</span> – A specialist will contact you within 2 hours</span>
                   </li>
-                  <li className="flex gap-2">
-                    <ChevronRight className="h-4 w-4 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span>We'll review your specific workflows</span>
+                  <li className="flex gap-3">
+                    <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><span className="font-semibold text-white">Deep Dive</span> – We'll review your workflows in detail</span>
                   </li>
-                  <li className="flex gap-2">
-                    <ChevronRight className="h-4 w-4 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span>Create a custom deployment plan</span>
+                  <li className="flex gap-3">
+                    <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><span className="font-semibold text-white">Proposal</span> – Get a custom implementation roadmap</span>
                   </li>
-                  <li className="flex gap-2">
-                    <ChevronRight className="h-4 w-4 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span>Start with a proof-of-concept</span>
+                  <li className="flex gap-3">
+                    <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><span className="font-semibold text-white">Pilot</span> – Start with a focused proof-of-concept</span>
                   </li>
                 </ul>
               </div>
@@ -635,8 +611,8 @@ export default function Quiz() {
 
             <div className="text-center">
               <p className="text-sm text-slate-400 mb-6">
-                Your results have been sent to {result.email} and our Sales
-                team. We'll be in touch shortly!
+                These recommendations have been sent to <span className="font-semibold text-slate-300">{result.email}</span>.
+                Our team will reach out shortly to discuss implementation details.
               </p>
               <a
                 href="/"
