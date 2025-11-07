@@ -381,10 +381,10 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
       ([key, value]) =>
         `<tr>
           <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0; font-weight: 500;">${key
-          .replace(/-/g, " ")
-          .replace(/\b\w/g, (l) => l.toUpperCase())}</td>
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (l) => l.toUpperCase())}</td>
           <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0;">${getReadableAnswer(key, value)}</td>
-        </tr>`
+        </tr>`,
     )
     .join("");
 
@@ -429,7 +429,12 @@ export async function handleQuizSubmission(req: Request, res: Response) {
     const formData = req.body as QuizSubmissionRequest;
 
     // Validate required fields
-    if (!formData.name || !formData.email || !formData.company || !formData.score) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.company ||
+      !formData.score
+    ) {
       res.status(400).json({ error: "Missing required fields" });
       return;
     }
@@ -442,12 +447,7 @@ export async function handleQuizSubmission(req: Request, res: Response) {
     const bodyHtml = formatQuizResultsAsHtml(formData);
 
     // Send to user's email
-    await sendEmailViaGraph(
-      accessToken,
-      formData.email,
-      subject,
-      bodyHtml,
-    );
+    await sendEmailViaGraph(accessToken, formData.email, subject, bodyHtml);
 
     // Send to sales team
     await sendEmailViaGraph(
@@ -461,7 +461,8 @@ export async function handleQuizSubmission(req: Request, res: Response) {
   } catch (error) {
     console.error("Error sending quiz results:", error);
     res.status(500).json({
-      error: error instanceof Error ? error.message : "Failed to send quiz results",
+      error:
+        error instanceof Error ? error.message : "Failed to send quiz results",
     });
   }
 }

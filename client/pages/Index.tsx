@@ -35,7 +35,8 @@ const initialContactForm: ContactFormState = {
 };
 
 export default function LandingSecureAI() {
-  const [contactForm, setContactForm] = useState<ContactFormState>(initialContactForm);
+  const [contactForm, setContactForm] =
+    useState<ContactFormState>(initialContactForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleContactChange = (

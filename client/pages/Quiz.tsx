@@ -34,7 +34,13 @@ const QUIZ_QUESTIONS = [
     id: "task-frequency",
     question: "How often do these repetitive tasks occur?",
     type: "select",
-    options: ["Daily", "Multiple times per week", "Weekly", "Monthly", "Varies"],
+    options: [
+      "Daily",
+      "Multiple times per week",
+      "Weekly",
+      "Monthly",
+      "Varies",
+    ],
   },
   {
     id: "complexity-level",
@@ -49,7 +55,8 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: "human-oversight",
-    question: "Do these tasks need human review, or can they be fully autonomous?",
+    question:
+      "Do these tasks need human review, or can they be fully autonomous?",
     type: "select",
     options: [
       "Must always have human oversight",
@@ -126,7 +133,11 @@ export default function Quiz() {
   const [showResults, setShowResults] = useState(false);
   const [result, setResult] = useState<QuizResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [userInfo, setUserInfo] = useState({ email: "", name: "", company: "" });
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    name: "",
+    company: "",
+  });
   const [showUserForm, setShowUserForm] = useState(false);
 
   const currentQ = QUIZ_QUESTIONS[currentQuestion];
@@ -146,12 +157,11 @@ export default function Quiz() {
   const calculateScore = (): { score: number; recommendation: string } => {
     let score = 0;
     const answerMap = Object.fromEntries(
-      answers.map((a) => [a.questionId, a.answer])
+      answers.map((a) => [a.questionId, a.answer]),
     );
 
     if (
-      answerMap["pain-points"] ===
-        "Manual data entry and repetitive tasks" ||
+      answerMap["pain-points"] === "Manual data entry and repetitive tasks" ||
       answerMap["pain-points"] === "Invoice processing and financial workflows"
     ) {
       score += 20;
@@ -174,10 +184,13 @@ export default function Quiz() {
       score += 10;
     }
 
-    if (answerMap["complexity-level"] === "Simple and rule-based (if X then Y)") {
+    if (
+      answerMap["complexity-level"] === "Simple and rule-based (if X then Y)"
+    ) {
       score += 15;
     } else if (
-      answerMap["complexity-level"] === "Mostly routine with occasional exceptions"
+      answerMap["complexity-level"] ===
+      "Mostly routine with occasional exceptions"
     ) {
       score += 20;
     } else {
@@ -224,7 +237,7 @@ export default function Quiz() {
     try {
       const { score, recommendation } = calculateScore();
       const answerMap = Object.fromEntries(
-        answers.map((a) => [a.questionId, a.answer])
+        answers.map((a) => [a.questionId, a.answer]),
       );
 
       const resultData: QuizResult = {
@@ -254,7 +267,7 @@ export default function Quiz() {
     } catch (error) {
       console.error("Quiz submission error:", error);
       alert(
-        "An error occurred. Please check your internet connection and try again."
+        "An error occurred. Please check your internet connection and try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -270,7 +283,11 @@ export default function Quiz() {
               href="/"
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+              <img
+                src="/logo.svg"
+                alt="Secure Automations"
+                className="h-8 w-8"
+              />
               <span className="font-semibold tracking-tight">
                 Secure Automations
               </span>
@@ -315,7 +332,10 @@ export default function Quiz() {
                     strokeWidth="8"
                     strokeDasharray={`${(result.score / 100) * 339.3} 339.3`}
                     strokeLinecap="round"
-                    style={{ transform: "rotate(-90deg)", transformOrigin: "50% 50%" }}
+                    style={{
+                      transform: "rotate(-90deg)",
+                      transformOrigin: "50% 50%",
+                    }}
                   />
                   <text
                     x="60"
@@ -334,23 +354,28 @@ export default function Quiz() {
                   {result.recommendation}
                 </h2>
                 <p className="text-slate-300 max-w-2xl mx-auto">
-                  {result.recommendation === "Full AI Agent Platform (with Learning & Autonomy)" ? (
+                  {result.recommendation ===
+                  "Full AI Agent Platform (with Learning & Autonomy)" ? (
                     <>
-                      You're a strong candidate for autonomous AI agents. Your workflows are
-                      complex, high-volume, and have clear ROI potential. You can deploy
-                      intelligent agents that learn and adapt with minimal human oversight.
+                      You're a strong candidate for autonomous AI agents. Your
+                      workflows are complex, high-volume, and have clear ROI
+                      potential. You can deploy intelligent agents that learn
+                      and adapt with minimal human oversight.
                     </>
-                  ) : result.recommendation === "Hybrid AI Agent + Workflow Automation" ? (
+                  ) : result.recommendation ===
+                    "Hybrid AI Agent + Workflow Automation" ? (
                     <>
-                      A combined approach works best for you. Deploy AI agents for customer
-                      engagement while using workflow automations for back-office operations. This
-                      maximizes ROI and covers both internal and external processes.
+                      A combined approach works best for you. Deploy AI agents
+                      for customer engagement while using workflow automations
+                      for back-office operations. This maximizes ROI and covers
+                      both internal and external processes.
                     </>
                   ) : (
                     <>
-                      Start with focused RPA or simple automation to build momentum. Once you see
-                      quick wins, you can expand to more sophisticated AI agents and workflows.
-                      Quick wins build internal support for larger initiatives.
+                      Start with focused RPA or simple automation to build
+                      momentum. Once you see quick wins, you can expand to more
+                      sophisticated AI agents and workflows. Quick wins build
+                      internal support for larger initiatives.
                     </>
                   )}
                 </p>
@@ -359,19 +384,27 @@ export default function Quiz() {
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="rounded-2xl bg-slate-950/40 p-6 border border-white/10">
-                <h3 className="font-semibold text-cyan-300 mb-4">Your Assessment</h3>
+                <h3 className="font-semibold text-cyan-300 mb-4">
+                  Your Assessment
+                </h3>
                 <div className="space-y-3 text-sm text-slate-300">
                   <div>
                     <span className="text-slate-400">Primary Pain Point:</span>
-                    <p className="font-medium">{result.details["pain-points"]}</p>
+                    <p className="font-medium">
+                      {result.details["pain-points"]}
+                    </p>
                   </div>
                   <div>
                     <span className="text-slate-400">Complexity Level:</span>
-                    <p className="font-medium">{result.details["complexity-level"]}</p>
+                    <p className="font-medium">
+                      {result.details["complexity-level"]}
+                    </p>
                   </div>
                   <div>
                     <span className="text-slate-400">Volume:</span>
-                    <p className="font-medium">{result.details["volume-scale"]}</p>
+                    <p className="font-medium">
+                      {result.details["volume-scale"]}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -401,8 +434,8 @@ export default function Quiz() {
 
             <div className="text-center">
               <p className="text-sm text-slate-400 mb-6">
-                Your results have been sent to {result.email} and our Sales team. We'll be in
-                touch shortly!
+                Your results have been sent to {result.email} and our Sales
+                team. We'll be in touch shortly!
               </p>
               <a
                 href="/"
@@ -426,7 +459,11 @@ export default function Quiz() {
               href="/"
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+              <img
+                src="/logo.svg"
+                alt="Secure Automations"
+                className="h-8 w-8"
+              />
               <span className="font-semibold tracking-tight">
                 Secure Automations
               </span>
@@ -444,7 +481,8 @@ export default function Quiz() {
           <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
             <h2 className="text-2xl font-bold mb-2">Almost there!</h2>
             <p className="text-slate-300 mb-8">
-              Just need a few details to send you your personalized recommendations.
+              Just need a few details to send you your personalized
+              recommendations.
             </p>
 
             <form onSubmit={handleSubmitUserInfo} className="space-y-4">
