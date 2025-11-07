@@ -106,7 +106,7 @@ export default function CheckupPage() {
     []
   );
 
-  const SelectField = memo(({
+  const SelectField = ({
     label,
     options,
     field,
@@ -136,9 +136,9 @@ export default function CheckupPage() {
         ))}
       </select>
     </div>
-  ));
+  );
 
-  const TextField = memo(({
+  const TextField = ({
     label,
     placeholder,
     field,
@@ -163,9 +163,9 @@ export default function CheckupPage() {
         className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
       />
     </div>
-  ));
+  );
 
-  const SectionHeader = memo(({ num, title, isExpanded, onToggle }: { num: number; title: string; isExpanded: boolean; onToggle: () => void }) => (
+  const SectionHeader = ({ num, title, isExpanded, onToggle }: { num: number; title: string; isExpanded: boolean; onToggle: () => void }) => (
     <button
       onClick={onToggle}
       className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
@@ -179,7 +179,7 @@ export default function CheckupPage() {
         }`}
       />
     </button>
-  ));
+  );
 
   const calculateComplianceScores = () => {
     // Calculate individual compliance framework scores
