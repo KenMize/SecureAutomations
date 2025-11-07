@@ -262,7 +262,14 @@ export default function Quiz() {
         setResult(resultData);
         setShowResults(true);
       } else {
-        alert("Failed to submit quiz. Please try again.");
+        let errorMessage = "Failed to submit quiz. Please try again.";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          errorMessage = `Server error: ${response.status}`;
+        }
+        alert(errorMessage);
       }
     } catch (error) {
       console.error("Quiz submission error:", error);
