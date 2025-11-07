@@ -744,6 +744,16 @@ export default function Quiz() {
                   </div>
                   <div>
                     <span className="text-slate-400 text-xs uppercase tracking-wide">
+                      Primary Goals
+                    </span>
+                    <p className="font-medium mt-1">
+                      {Array.isArray(result.details["primary-goal"])
+                        ? result.details["primary-goal"].join(", ")
+                        : result.details["primary-goal"]}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">
                       Task Frequency
                     </span>
                     <p className="font-medium mt-1">
