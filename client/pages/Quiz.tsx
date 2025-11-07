@@ -776,6 +776,11 @@ export default function Quiz() {
     );
   }
 
+  // Safety check: if no current question and not in other states, show loading
+  if (!currentQ && !showUserForm && !showResults && !showRecommendationModal) {
+    return <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center"><p className="text-slate-300">Loading quiz...</p></div>;
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
