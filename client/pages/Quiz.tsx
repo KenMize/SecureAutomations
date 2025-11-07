@@ -71,8 +71,8 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: "primary-goal",
-    question: "What's your primary goal?",
-    type: "select",
+    question: "What are your primary goals? (Select all that apply)",
+    type: "multi-select",
     options: [
       "Save time and reduce manual work",
       "Improve customer experience",
