@@ -737,7 +737,9 @@ export default function Quiz() {
                       Primary Need
                     </span>
                     <p className="font-medium mt-1">
-                      {result.details["pain-points"]}
+                      {Array.isArray(result.details["pain-points"])
+                        ? result.details["pain-points"].join(", ")
+                        : result.details["pain-points"]}
                     </p>
                   </div>
                   <div>
