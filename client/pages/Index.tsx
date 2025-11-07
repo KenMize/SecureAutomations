@@ -579,64 +579,27 @@ export default function LandingSecureAI() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-center">
-            {/* Microsoft */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  Microsoft
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {[
+              { name: "Microsoft", desc: "Azure & Copilot" },
+              { name: "OpenAI", desc: "AI Models" },
+              { name: "n8n", desc: "Automation" },
+              { name: "Power Automate", desc: "Workflows" },
+              { name: "Slack", desc: "Communication" },
+              { name: "HubSpot", desc: "CRM" },
+            ].map((partner) => (
+              <div
+                key={partner.name}
+                className="flex flex-col items-center justify-center p-6 h-32 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors"
+              >
+                <div className="text-2xl font-bold text-cyan-300 mb-2 text-center">
+                  {partner.name}
                 </div>
-                <p className="text-xs text-slate-400">Azure & Copilot</p>
+                <p className="text-xs text-slate-400 text-center line-clamp-2">
+                  {partner.desc}
+                </p>
               </div>
-            </div>
-
-            {/* OpenAI */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  OpenAI
-                </div>
-                <p className="text-xs text-slate-400">AI Models</p>
-              </div>
-            </div>
-
-            {/* n8n */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">n8n</div>
-                <p className="text-xs text-slate-400">Automation</p>
-              </div>
-            </div>
-
-            {/* Power Automate */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  Power Automate
-                </div>
-                <p className="text-xs text-slate-400">Workflows</p>
-              </div>
-            </div>
-
-            {/* Slack */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  Slack
-                </div>
-                <p className="text-xs text-slate-400">Communication</p>
-              </div>
-            </div>
-
-            {/* HubSpot */}
-            <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  HubSpot
-                </div>
-                <p className="text-xs text-slate-400">CRM</p>
-              </div>
-            </div>
+            ))}
           </div>
 
           <p className="mt-10 text-center text-sm text-slate-400 max-w-2xl mx-auto">
