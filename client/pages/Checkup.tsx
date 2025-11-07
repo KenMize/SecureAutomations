@@ -273,12 +273,6 @@ export default function CheckupPage() {
     return score;
   };
 
-  const handleChange = (field: keyof FormData, value: string | string[]) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
 
   const handleCertificationChange = (cert: string) => {
     setFormData((prev) => {
