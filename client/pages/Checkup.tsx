@@ -333,7 +333,7 @@ export default function CheckupPage() {
             href="/"
             className="text-sm text-slate-300 hover:text-white transition-colors"
           >
-            Back to Home
+            ✕ Close
           </a>
         </div>
       </header>
