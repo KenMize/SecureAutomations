@@ -147,38 +147,102 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
-      {/* AI AGENTS FOR REVENUE */}
+      {/* SOLUTIONS: AGENTS + AUTOMATIONS */}
       <section id="solutions" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            AI agents that generate revenue
+            Two solutions. Choose one or both.
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Deploy intelligent agents on your website, email, and messaging platforms to convert more leads, book more appointments, and delight your customers while you sleep.
+            Deploy AI agents to engage customers. Use workflow automations to streamline operations. Or combine both for a seamless, 24/7 business engine.
           </p>
-          <div className="mt-8 grid md:grid-cols-2 gap-4">
-            {[
-              "Customer service chatbot that solves 70% of support tickets automatically",
-              "Appointment scheduler that books meetings and sends reminders 24/7",
-              "Lead qualifier that screens prospects and routes hot leads to your team",
-              "Email responder that handles FAQs and schedules follow-ups",
-            ].map((point) => (
-              <div
-                key={point}
-                className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 flex items-start gap-3"
-              >
-                <Rocket className="h-5 w-5 mt-1 flex-shrink-0 text-cyan-300" />
-                <p className="text-slate-300">{point}</p>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            {/* AI AGENTS */}
+            <div className="rounded-3xl border border-white/10 bg-slate-900/40 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="rounded-2xl bg-cyan-300/10 p-3">
+                  <Users className="h-6 w-6 text-cyan-300" />
+                </div>
+                <h3 className="text-xl font-semibold">AI Agents</h3>
               </div>
-            ))}
+              <p className="text-slate-300 mb-6">
+                Intelligent agents that engage customers, handle conversations, and drive business growth.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {[
+                  "Customer support chatbot resolves 70% of inquiries",
+                  "Appointment scheduler books 24/7 without manual work",
+                  "Lead qualifier screens prospects and prioritizes hot leads",
+                  "Email responder handles FAQs and follow-ups instantly",
+                  "Multi-channel deployment on website, email, and messaging",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/examples"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 text-sm hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
+              >
+                See agent examples <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* WORKFLOW AUTOMATIONS */}
+            <div className="rounded-3xl border border-white/10 bg-slate-900/40 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="rounded-2xl bg-cyan-300/10 p-3">
+                  <Workflow className="h-6 w-6 text-cyan-300" />
+                </div>
+                <h3 className="text-xl font-semibold">Workflow Automations</h3>
+              </div>
+              <p className="text-slate-300 mb-6">
+                Backend automations that handle data, systems, and compliance without human intervention.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {[
+                  "Auto-process invoices, quotes, and payment reminders",
+                  "Update CRM, databases, and tools in real-time",
+                  "Generate audit logs and compliance documentation",
+                  "Route leads to the right team automatically",
+                  "Sync data across all your business systems",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/examples"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 text-sm hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
+              >
+                See automation examples <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
-          <div className="mt-8">
-            <a
-              href="/examples"
-              className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm hover:bg-slate-100 transition-colors font-medium"
-            >
-              See agent examples
-            </a>
+
+          {/* SYNERGY SECTION */}
+          <div className="mt-12 rounded-3xl border border-cyan-300/30 bg-slate-900/80 p-8">
+            <h3 className="text-lg font-semibold mb-4">The Magic: When Used Together</h3>
+            <p className="text-slate-300 mb-6">
+              Agents and automations create a powerful synergy. When a customer books an appointment through your agent, automations instantly create the calendar entry, send reminders, and prepare internal documents. When a lead is qualified, automations route them to sales and update the CRM while the agent handles the conversation.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { title: "Complete Coverage", desc: "Customer-facing and backend operations run 24/7" },
+                { title: "Zero Manual Work", desc: "Every handoff is automated. No data re-entry." },
+                { title: "Maximum ROI", desc: "More revenue + lower costs = faster payback" },
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl bg-slate-950/40 p-4 border border-cyan-300/20">
+                  <div className="font-semibold text-sm mb-2">{item.title}</div>
+                  <p className="text-xs text-slate-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
