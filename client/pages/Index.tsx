@@ -28,6 +28,54 @@ export default function LandingSecureAI() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleContactChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setContactForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactForm),
+      });
+
+      if (response.ok) {
+        setContactForm({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        });
+        alert("Thank you! We'll contact you within 2 hours.");
+      } else {
+        const errorData = await response.json();
+        alert(
+          `Failed to submit form: ${errorData.error || "Unknown error"}`
+        );
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert(
+        "An error occurred. Please check your internet connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* NAV */}
