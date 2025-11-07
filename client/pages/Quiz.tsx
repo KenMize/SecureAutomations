@@ -154,7 +154,7 @@ export default function Quiz() {
   }
 
   const handleAnswer = (answer: string | number) => {
-    if (!currentQ || currentQ.type === "multi-select") {
+    if (currentQ && currentQ.type === "multi-select") {
       // For multi-select, toggle the answer
       const existingAnswer = answers.find((a) => a.questionId === currentQ.id);
       if (existingAnswer) {
