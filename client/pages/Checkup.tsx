@@ -52,8 +52,8 @@ interface FormData {
   additional_notes: string;
 }
 
-const ZAPIER_WEBHOOK_URL =
-  "https://hooks.zapier.com/hooks/catch/YOUR_ZAPIER_ID/YOUR_CATCH_ID";
+// API endpoint for sending assessment emails
+const SEND_EMAIL_ENDPOINT = "/api/send-email";
 
 export default function CheckupPage() {
   const [formData, setFormData] = useState<FormData>({
