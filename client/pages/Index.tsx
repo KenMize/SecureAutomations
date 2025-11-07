@@ -82,7 +82,7 @@ export default function LandingSecureAI() {
                 href="/checkup"
                 className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
               >
-                See what's possible
+                Get a free AI security checkup
               </a>
               <a
                 href="#solutions"
@@ -713,10 +713,10 @@ export default function LandingSecureAI() {
               Book a strategy call
             </a>
             <a
-              href="/examples"
+              href="/checkup"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
-              See what's possible
+              Take the AI security checkup
             </a>
           </div>
 
