@@ -124,7 +124,10 @@ export default function ExamplesPage() {
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <a
+            href="/"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
             <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
@@ -145,7 +148,8 @@ export default function ExamplesPage() {
             AI Agents & Workflow Automations
           </h1>
           <p className="mt-4 text-lg text-slate-300 max-w-3xl">
-            See how AI agents and workflow automations help SMBs drive revenue, reduce costs, and stay compliant.
+            See how AI agents and workflow automations help SMBs drive revenue,
+            reduce costs, and stay compliant.
           </p>
         </div>
 
@@ -153,7 +157,10 @@ export default function ExamplesPage() {
         <div className="mb-20">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2">AI Agents</h2>
-            <p className="text-slate-300 text-lg">Customer-facing agents that work 24/7 to engage customers and drive revenue.</p>
+            <p className="text-slate-300 text-lg">
+              Customer-facing agents that work 24/7 to engage customers and
+              drive revenue.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {agents.map((agent, index) => {
@@ -214,7 +221,10 @@ export default function ExamplesPage() {
         <div className="mb-20">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2">Workflow Automations</h2>
-            <p className="text-slate-300 text-lg">Backend automations that handle data, systems, and compliance without human intervention.</p>
+            <p className="text-slate-300 text-lg">
+              Backend automations that handle data, systems, and compliance
+              without human intervention.
+            </p>
           </div>
           <div className="space-y-6">
             {workflows.map((workflow, index) => {
@@ -278,7 +288,9 @@ export default function ExamplesPage() {
         <div className="mt-16 rounded-3xl border border-white/10 bg-slate-900/60 p-8 md:p-12">
           <h2 className="text-2xl font-bold mb-6">Need something custom?</h2>
           <p className="text-slate-300 text-lg mb-6 max-w-2xl">
-            Every business has unique needs. Whether you need a custom AI agent or automation workflow, our team can build exactly what you need—all with enterprise-grade security.
+            Every business has unique needs. Whether you need a custom AI agent
+            or automation workflow, our team can build exactly what you need—all
+            with enterprise-grade security.
           </p>
           <a
             href="/#contact"
@@ -322,7 +334,8 @@ export default function ExamplesPage() {
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold">Ready to get started?</h2>
             <p className="mt-3 text-slate-300">
-              Let's talk about your goals with AI agents and workflow automations.
+              Let's talk about your goals with AI agents and workflow
+              automations.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

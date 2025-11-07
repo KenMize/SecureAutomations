@@ -75,7 +75,10 @@ export default function LandingSecureAI() {
               <span className="text-cyan-300">smart backend automation</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              Deploy intelligent agents to engage customers, book appointments, and generate leads. Pair them with workflow automation to process data, update systems, and manage internal operations. Choose one or both.
+              Deploy intelligent agents to engage customers, book appointments,
+              and generate leads. Pair them with workflow automation to process
+              data, update systems, and manage internal operations. Choose one
+              or both.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -113,12 +116,16 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
-              <div className="text-sm text-slate-400 mb-4">How they work together</div>
+              <div className="text-sm text-slate-400 mb-4">
+                How they work together
+              </div>
               <div className="space-y-4">
                 <div className="rounded-2xl bg-slate-950/60 p-4 border border-cyan-300/20">
                   <div className="flex items-center gap-2 mb-3">
                     <Users className="h-4 w-4 text-cyan-300" />
-                    <span className="font-semibold text-sm">AI Agents (Customer-Facing)</span>
+                    <span className="font-semibold text-sm">
+                      AI Agents (Customer-Facing)
+                    </span>
                   </div>
                   <ul className="text-xs text-slate-300 space-y-1 ml-6 list-disc">
                     <li>Support chatbots answer questions instantly</li>
@@ -127,12 +134,16 @@ export default function LandingSecureAI() {
                   </ul>
                 </div>
                 <div className="flex justify-center">
-                  <div className="text-xs text-slate-400 bg-slate-950/40 px-3 py-1 rounded-full">↕ Hand-in-hand ↕</div>
+                  <div className="text-xs text-slate-400 bg-slate-950/40 px-3 py-1 rounded-full">
+                    ↕ Hand-in-hand ↕
+                  </div>
                 </div>
                 <div className="rounded-2xl bg-slate-950/60 p-4 border border-cyan-300/20">
                   <div className="flex items-center gap-2 mb-3">
                     <Workflow className="h-4 w-4 text-cyan-300" />
-                    <span className="font-semibold text-sm">Workflow Automations (Backend)</span>
+                    <span className="font-semibold text-sm">
+                      Workflow Automations (Backend)
+                    </span>
                   </div>
                   <ul className="text-xs text-slate-300 space-y-1 ml-6 list-disc">
                     <li>Auto-process invoices and payments</li>
@@ -142,7 +153,8 @@ export default function LandingSecureAI() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300">
-                Agents engage your customers. Automations handle the backend work. Together, they create a seamless, 24/7 operation.
+                Agents engage your customers. Automations handle the backend
+                work. Together, they create a seamless, 24/7 operation.
               </p>
             </div>
           </motion.div>
@@ -156,7 +168,9 @@ export default function LandingSecureAI() {
             Two solutions. Choose one or both.
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Deploy AI agents to engage customers. Use workflow automations to streamline operations. Or combine both for a seamless, 24/7 business engine.
+            Deploy AI agents to engage customers. Use workflow automations to
+            streamline operations. Or combine both for a seamless, 24/7 business
+            engine.
           </p>
 
           <div className="mt-12 grid md:grid-cols-2 gap-8">
@@ -169,7 +183,8 @@ export default function LandingSecureAI() {
                 <h3 className="text-xl font-semibold">AI Agents</h3>
               </div>
               <p className="text-slate-300 mb-6">
-                Intelligent agents that engage customers, handle conversations, and drive business growth.
+                Intelligent agents that engage customers, handle conversations,
+                and drive business growth.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
@@ -179,7 +194,10 @@ export default function LandingSecureAI() {
                   "Email responder handles FAQs and follow-ups instantly",
                   "Multi-channel deployment on website, email, and messaging",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-sm text-slate-300"
+                  >
                     <CheckCircle2 className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -202,7 +220,8 @@ export default function LandingSecureAI() {
                 <h3 className="text-xl font-semibold">Workflow Automations</h3>
               </div>
               <p className="text-slate-300 mb-6">
-                Backend automations that handle data, systems, and compliance without human intervention.
+                Backend automations that handle data, systems, and compliance
+                without human intervention.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
@@ -212,7 +231,10 @@ export default function LandingSecureAI() {
                   "Route leads to the right team automatically",
                   "Sync data across all your business systems",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-sm text-slate-300"
+                  >
                     <CheckCircle2 className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -229,17 +251,35 @@ export default function LandingSecureAI() {
 
           {/* SYNERGY SECTION */}
           <div className="mt-12 rounded-3xl border border-cyan-300/30 bg-slate-900/80 p-8">
-            <h3 className="text-lg font-semibold mb-4">The Magic: When Used Together</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              The Magic: When Used Together
+            </h3>
             <p className="text-slate-300 mb-6">
-              Agents and automations create a powerful synergy. When a customer books an appointment through your agent, automations instantly create the calendar entry, send reminders, and prepare internal documents. When a lead is qualified, automations route them to sales and update the CRM while the agent handles the conversation.
+              Agents and automations create a powerful synergy. When a customer
+              books an appointment through your agent, automations instantly
+              create the calendar entry, send reminders, and prepare internal
+              documents. When a lead is qualified, automations route them to
+              sales and update the CRM while the agent handles the conversation.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { title: "Complete Coverage", desc: "Customer-facing and backend operations run 24/7" },
-                { title: "Zero Manual Work", desc: "Every handoff is automated. No data re-entry." },
-                { title: "Maximum ROI", desc: "More revenue + lower costs = faster payback" },
+                {
+                  title: "Complete Coverage",
+                  desc: "Customer-facing and backend operations run 24/7",
+                },
+                {
+                  title: "Zero Manual Work",
+                  desc: "Every handoff is automated. No data re-entry.",
+                },
+                {
+                  title: "Maximum ROI",
+                  desc: "More revenue + lower costs = faster payback",
+                },
               ].map((item) => (
-                <div key={item.title} className="rounded-2xl bg-slate-950/40 p-4 border border-cyan-300/20">
+                <div
+                  key={item.title}
+                  className="rounded-2xl bg-slate-950/40 p-4 border border-cyan-300/20"
+                >
                   <div className="font-semibold text-sm mb-2">{item.title}</div>
                   <p className="text-xs text-slate-400">{item.desc}</p>
                 </div>
@@ -256,7 +296,9 @@ export default function LandingSecureAI() {
             Enterprise AI with SMB simplicity
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Deploy with confidence knowing your customer data is protected to the same standards as Fortune 500 companies and U.S. government agencies.
+            Deploy with confidence knowing your customer data is protected to
+            the same standards as Fortune 500 companies and U.S. government
+            agencies.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -349,7 +391,8 @@ export default function LandingSecureAI() {
             ROI that pays for itself in weeks
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Starting at $1,500/month. Whether you choose agents, automations, or both—you'll see measurable results within weeks.
+            Starting at $1,500/month. Whether you choose agents, automations, or
+            both—you'll see measurable results within weeks.
           </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
@@ -362,7 +405,8 @@ export default function LandingSecureAI() {
                 Direct revenue generation
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Appointment schedulers and chatbots generate new revenue by capturing opportunities 24/7 that would otherwise be lost.
+                Appointment schedulers and chatbots generate new revenue by
+                capturing opportunities 24/7 that would otherwise be lost.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
@@ -386,7 +430,8 @@ export default function LandingSecureAI() {
                 Eliminate manual work and errors
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Invoice processing, CRM updates, and data entry automations save time and eliminate costly manual errors.
+                Invoice processing, CRM updates, and data entry automations save
+                time and eliminate costly manual errors.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
@@ -410,7 +455,9 @@ export default function LandingSecureAI() {
                 More leads + better efficiency
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                When agents generate leads, automations instantly process them, update systems, and route to your team. Zero friction, maximum conversion.
+                When agents generate leads, automations instantly process them,
+                update systems, and route to your team. Zero friction, maximum
+                conversion.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
@@ -434,7 +481,8 @@ export default function LandingSecureAI() {
                 $40,000-80,000 in first-year value
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                New revenue from agents plus labor savings from automations. At $1,500/month cost ($18k/year), that's 2-4x return on investment.
+                New revenue from agents plus labor savings from automations. At
+                $1,500/month cost ($18k/year), that's 2-4x return on investment.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
@@ -460,7 +508,9 @@ export default function LandingSecureAI() {
           </div>
 
           <div className="mt-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8">
-            <h3 className="text-lg font-semibold">The impact across the board</h3>
+            <h3 className="text-lg font-semibold">
+              The impact across the board
+            </h3>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               <div>
                 <div className="text-2xl font-bold text-cyan-300">
@@ -471,15 +521,15 @@ export default function LandingSecureAI() {
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">40+ hrs/month</div>
+                <div className="text-2xl font-bold text-cyan-300">
+                  40+ hrs/month
+                </div>
                 <p className="mt-2 text-sm text-slate-300">
                   From automations eliminating manual work
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">
-                  2-4x ROI
-                </div>
+                <div className="text-2xl font-bold text-cyan-300">2-4x ROI</div>
                 <p className="mt-2 text-sm text-slate-300">
                   Payback in weeks, not months or years
                 </p>
@@ -511,7 +561,8 @@ export default function LandingSecureAI() {
             Real results with agents and automations
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Whether using agents alone, automations alone, or both—SMBs are seeing immediate impact on their bottom line.
+            Whether using agents alone, automations alone, or both—SMBs are
+            seeing immediate impact on their bottom line.
           </p>
 
           <div className="mt-8 grid md:grid-cols-2 gap-6">
@@ -524,9 +575,12 @@ export default function LandingSecureAI() {
                   />
                 ))}
               </div>
-              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">Using AI Agents</div>
+              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">
+                Using AI Agents
+              </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "The appointment scheduler agent booked 200+ meetings in month one. That's $15,000 in revenue we would've lost without it."
+                "The appointment scheduler agent booked 200+ meetings in month
+                one. That's $15,000 in revenue we would've lost without it."
               </blockquote>
               <p className="text-sm text-slate-400">
                 Founder, Dental Practice (Austin, TX)
@@ -541,9 +595,13 @@ export default function LandingSecureAI() {
                   />
                 ))}
               </div>
-              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">Using Workflow Automations</div>
+              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">
+                Using Workflow Automations
+              </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "Invoice processing went from 6 hours a week to fully automated. That's one team member who can now focus on strategy instead of data entry."
+                "Invoice processing went from 6 hours a week to fully automated.
+                That's one team member who can now focus on strategy instead of
+                data entry."
               </blockquote>
               <p className="text-sm text-slate-400">
                 VP Operations, E-Commerce Company
@@ -576,26 +634,31 @@ export default function LandingSecureAI() {
             What AI Agents Do
           </h2>
           <p className="text-slate-300 max-w-3xl mb-12">
-            Intelligent agents that work 24/7 on your behalf. They learn your business, engage your customers, and drive measurable results while your team focuses on strategy and growth.
+            Intelligent agents that work 24/7 on your behalf. They learn your
+            business, engage your customers, and drive measurable results while
+            your team focuses on strategy and growth.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
                 title: "Customer Support Agent",
-                description: "Answers questions, resolves issues, and escalates complex problems to your team",
+                description:
+                  "Answers questions, resolves issues, and escalates complex problems to your team",
                 impact: "Handles 70% of support inquiries automatically",
                 icon: MessageSquare,
               },
               {
                 title: "Appointment Scheduler",
-                description: "Books meetings, sends confirmations, and manages reminders without manual work",
+                description:
+                  "Books meetings, sends confirmations, and manages reminders without manual work",
                 impact: "Books 100+ appointments per month",
                 icon: Clock,
               },
               {
                 title: "Lead Qualifier",
-                description: "Screens inbound leads, asks qualifying questions, and routes hot prospects to sales",
+                description:
+                  "Screens inbound leads, asks qualifying questions, and routes hot prospects to sales",
                 impact: "Improves lead quality by 40%+",
                 icon: Users,
               },
@@ -624,18 +687,37 @@ export default function LandingSecureAI() {
           </div>
 
           <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/80 p-8 mb-8">
-            <h3 className="text-xl font-bold mb-4">Why AI Agents Matter for SMBs</h3>
+            <h3 className="text-xl font-bold mb-4">
+              Why AI Agents Matter for SMBs
+            </h3>
             <p className="text-slate-300 mb-6">
-              Traditional support models have a critical flaw: they only work during business hours. AI agents work 24/7. They never get tired, never give inconsistent answers, and never miss an opportunity to engage a customer.
+              Traditional support models have a critical flaw: they only work
+              during business hours. AI agents work 24/7. They never get tired,
+              never give inconsistent answers, and never miss an opportunity to
+              engage a customer.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { stat: "20%+ revenue increase", desc: "From capturing opportunities agents find" },
-                { stat: "60% support cost reduction", desc: "From handling routine inquiries" },
-                { stat: "24/7 availability", desc: "No more missed leads after hours" },
+                {
+                  stat: "20%+ revenue increase",
+                  desc: "From capturing opportunities agents find",
+                },
+                {
+                  stat: "60% support cost reduction",
+                  desc: "From handling routine inquiries",
+                },
+                {
+                  stat: "24/7 availability",
+                  desc: "No more missed leads after hours",
+                },
               ].map((item) => (
-                <div key={item.stat} className="rounded-2xl bg-slate-950/40 p-4 border border-white/10">
-                  <div className="font-semibold text-cyan-300 mb-1">{item.stat}</div>
+                <div
+                  key={item.stat}
+                  className="rounded-2xl bg-slate-950/40 p-4 border border-white/10"
+                >
+                  <div className="font-semibold text-cyan-300 mb-1">
+                    {item.stat}
+                  </div>
                   <p className="text-xs text-slate-400">{item.desc}</p>
                 </div>
               ))}
@@ -702,7 +784,8 @@ export default function LandingSecureAI() {
             Ready to deploy your first AI agent?
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Book a 30-minute strategy call. We'll identify your biggest revenue opportunity and show you exactly how agents can deliver it.
+            Book a 30-minute strategy call. We'll identify your biggest revenue
+            opportunity and show you exactly how agents can deliver it.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -743,7 +826,8 @@ export default function LandingSecureAI() {
             </button>
           </form>
           <p className="mt-6 text-xs text-slate-500">
-            By submitting, you agree to our privacy notice. We'll contact you within 2 hours.
+            By submitting, you agree to our privacy notice. We'll contact you
+            within 2 hours.
           </p>
         </div>
       </section>
