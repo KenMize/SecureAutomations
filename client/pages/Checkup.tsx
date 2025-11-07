@@ -656,22 +656,26 @@ export default function CheckupPage() {
                 <SelectField
                   label="Security logs collected and reviewed?"
                   options={["Yes", "No"]}
-                  field="security_logs"
+                  value={formData.security_logs}
+                  onChange={(val) => handleChangeCallback("security_logs", val)}
                 />
                 <SelectField
                   label="Audit logs tamper-proof?"
                   options={["Yes", "No"]}
-                  field="tamper_proof"
+                  value={formData.tamper_proof}
+                  onChange={(val) => handleChangeCallback("tamper_proof", val)}
                 />
                 <SelectField
                   label="Change management process for automations?"
                   options={["Yes", "No"]}
-                  field="change_management"
+                  value={formData.change_management}
+                  onChange={(val) => handleChangeCallback("change_management", val)}
                 />
                 <SelectField
                   label="Third-party vendors assessed for security?"
                   options={["Yes", "No"]}
-                  field="vendor_assessment"
+                  value={formData.vendor_assessment}
+                  onChange={(val) => handleChangeCallback("vendor_assessment", val)}
                 />
               </div>
             )}
