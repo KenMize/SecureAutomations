@@ -215,7 +215,7 @@ export default function CheckupPage() {
     };
 
     try {
-      const response = await fetch(ZAPIER_WEBHOOK_URL, {
+      const response = await fetch(SEND_EMAIL_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -226,12 +226,17 @@ export default function CheckupPage() {
       if (response.ok) {
         window.location.href = "/thank-you";
       } else {
-        alert("Failed to submit assessment. Please try again.");
+        const errorData = await response.json();
+        alert(
+          `Failed to submit assessment: ${errorData.error || "Unknown error"}`
+        );
         setIsSubmitting(false);
       }
     } catch (error) {
       console.error("Submission error:", error);
-      alert("An error occurred. Please try again.");
+      alert(
+        "An error occurred. Please check your internet connection and try again."
+      );
       setIsSubmitting(false);
     }
   };
