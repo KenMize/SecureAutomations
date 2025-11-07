@@ -665,7 +665,7 @@ export default function LandingSecureAI() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
               { name: "Microsoft", desc: "Azure & Copilot" },
               { name: "OpenAI", desc: "AI Models" },
@@ -676,12 +676,12 @@ export default function LandingSecureAI() {
             ].map((partner) => (
               <div
                 key={partner.name}
-                className="flex flex-col items-center justify-center p-6 h-32 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors"
+                className="flex flex-col items-center justify-center p-6 h-40 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors"
               >
-                <div className="text-2xl font-bold text-cyan-300 mb-2 text-center">
+                <div className="text-xl font-bold text-cyan-300 mb-3 text-center leading-tight">
                   {partner.name}
                 </div>
-                <p className="text-xs text-slate-400 text-center line-clamp-2">
+                <p className="text-sm text-slate-400 text-center">
                   {partner.desc}
                 </p>
               </div>
