@@ -314,7 +314,7 @@ export default function Quiz() {
     setIsSubmitting(true);
 
     try {
-      const { score, recommendation } = calculateScore();
+      const recommendations = generateRecommendations();
       const answerMap = Object.fromEntries(
         answers.map((a) => [a.questionId, a.answer]),
       );
@@ -323,8 +323,7 @@ export default function Quiz() {
         email: userInfo.email,
         name: userInfo.name,
         company: userInfo.company,
-        score,
-        recommendation,
+        recommendations,
         details: answerMap,
         timestamp: new Date().toISOString(),
       };
