@@ -530,7 +530,7 @@ export default function CheckupPage() {
 
           {/* Section 3 */}
           <div className="space-y-4">
-            <SectionHeader num={3} title="Access Control / Zero Trust" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+            <SectionHeader num={3} title="Access Control / Zero Trust" isExpanded={expandedSection === 3} onToggle={() => setExpandedSection(expandedSection === 3 ? 0 : 3)} />
             {expandedSection === 3 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
