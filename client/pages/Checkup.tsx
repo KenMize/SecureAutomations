@@ -56,88 +56,104 @@ interface FormData {
 const SEND_EMAIL_ENDPOINT = "/api/send-email";
 
 // Memoized field components defined OUTSIDE the component
-const TextField = memo(({
-  label,
-  placeholder,
-  value,
-  onChange,
-  required = false,
-}: {
-  label: string;
-  placeholder: string;
-  value: string;
-  onChange: (value: string) => void;
-  required?: boolean;
-}) => (
-  <div className="space-y-2">
-    <label className="text-sm font-medium text-slate-300">
-      {label}
-      {required && <span className="text-red-400 ml-1">*</span>}
-    </label>
-    <input
-      type="text"
-      required={required}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
-    />
-  </div>
-));
+const TextField = memo(
+  ({
+    label,
+    placeholder,
+    value,
+    onChange,
+    required = false,
+  }: {
+    label: string;
+    placeholder: string;
+    value: string;
+    onChange: (value: string) => void;
+    required?: boolean;
+  }) => (
+    <div className="space-y-2">
+      <label className="text-sm font-medium text-slate-300">
+        {label}
+        {required && <span className="text-red-400 ml-1">*</span>}
+      </label>
+      <input
+        type="text"
+        required={required}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+      />
+    </div>
+  ),
+);
 
 TextField.displayName = "TextField";
 
-const SelectField = memo(({
-  label,
-  options,
-  value,
-  onChange,
-  required = false,
-}: {
-  label: string;
-  options: string[];
-  value: string;
-  onChange: (value: string) => void;
-  required?: boolean;
-}) => (
-  <div className="space-y-2">
-    <label className="text-sm font-medium text-slate-300">
-      {label}
-      {required && <span className="text-red-400 ml-1">*</span>}
-    </label>
-    <select
-      required={required}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
-    >
-      <option value="">Select an option</option>
-      {options.map((opt) => (
-        <option key={opt} value={opt}>
-          {opt}
-        </option>
-      ))}
-    </select>
-  </div>
-));
+const SelectField = memo(
+  ({
+    label,
+    options,
+    value,
+    onChange,
+    required = false,
+  }: {
+    label: string;
+    options: string[];
+    value: string;
+    onChange: (value: string) => void;
+    required?: boolean;
+  }) => (
+    <div className="space-y-2">
+      <label className="text-sm font-medium text-slate-300">
+        {label}
+        {required && <span className="text-red-400 ml-1">*</span>}
+      </label>
+      <select
+        required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+      >
+        <option value="">Select an option</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+    </div>
+  ),
+);
 
 SelectField.displayName = "SelectField";
 
-const SectionHeader = memo(({ num, title, isExpanded, onToggle }: { num: number; title: string; isExpanded: boolean; onToggle: () => void }) => (
-  <button
-    onClick={onToggle}
-    className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
-  >
-    <h3 className="text-lg font-semibold text-white">
-      Section {num} – {title}
-    </h3>
-    <ChevronDown
-      className={`w-5 h-5 text-slate-400 transition-transform ${
-        isExpanded ? "rotate-180" : ""
-      }`}
-    />
-  </button>
-));
+const SectionHeader = memo(
+  ({
+    num,
+    title,
+    isExpanded,
+    onToggle,
+  }: {
+    num: number;
+    title: string;
+    isExpanded: boolean;
+    onToggle: () => void;
+  }) => (
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
+    >
+      <h3 className="text-lg font-semibold text-white">
+        Section {num} – {title}
+      </h3>
+      <ChevronDown
+        className={`w-5 h-5 text-slate-400 transition-transform ${
+          isExpanded ? "rotate-180" : ""
+        }`}
+      />
+    </button>
+  ),
+);
 
 SectionHeader.displayName = "SectionHeader";
 
@@ -189,7 +205,7 @@ export default function CheckupPage() {
         [field]: value,
       }));
     },
-    []
+    [],
   );
 
   const calculateComplianceScores = () => {
@@ -199,68 +215,75 @@ export default function CheckupPage() {
       "SOC 2 (TSC)": 0,
       "ISO/IEC 27001": 0,
       "ISO/IEC 42001": 0,
-      "HIPAA": 0,
-      "GDPR": 0,
+      HIPAA: 0,
+      GDPR: 0,
     };
 
-    const yes = 1, no = 0;
+    const yes = 1,
+      no = 0;
 
     // NIST 800-53 (focuses on organizational controls, access, audit, incident response)
     frameworks["NIST 800-53"] = Math.round(
-      ((formData.security_policy === "Yes" ? yes : no) +
+      (((formData.security_policy === "Yes" ? yes : no) +
         (formData.roles_assigned === "Yes" ? yes : no) +
         (formData.access_reviewed === "Yes" ? yes : no) +
         (formData.security_logs === "Yes" ? yes : no) +
         (formData.incident_response === "Yes" ? yes : no)) /
-        5 * 100
+        5) *
+        100,
     );
 
     // SOC 2 (focuses on security, availability, processing integrity, confidentiality, privacy)
     frameworks["SOC 2 (TSC)"] = Math.round(
-      ((formData.security_policy === "Yes" ? yes : no) +
+      (((formData.security_policy === "Yes" ? yes : no) +
         (formData.mfa_required === "Yes" ? yes : no) +
         (formData.encryption === "Yes" ? yes : no) +
         (formData.security_logs === "Yes" ? yes : no) +
         (formData.breach_training === "Yes" ? yes : no)) /
-        5 * 100
+        5) *
+        100,
     );
 
     // ISO/IEC 27001 (focuses on information security management)
     frameworks["ISO/IEC 27001"] = Math.round(
-      ((formData.security_policy === "Yes" ? yes : no) +
+      (((formData.security_policy === "Yes" ? yes : no) +
         (formData.asset_inventory === "Yes" ? yes : no) +
         (formData.access_reviewed === "Yes" ? yes : no) +
         (formData.least_privilege === "Yes" ? yes : no) +
         (formData.change_management === "Yes" ? yes : no)) /
-        5 * 100
+        5) *
+        100,
     );
 
     // ISO/IEC 42001 (focuses on AI governance)
     frameworks["ISO/IEC 42001"] = Math.round(
-      ((formData.ai_governance === "Yes" ? yes : no) +
+      (((formData.ai_governance === "Yes" ? yes : no) +
         (formData.ai_bias_reviewed === "Yes" ? yes : no) +
         (formData.model_logging === "Yes" ? yes : no) +
         (formData.output_review === "Yes" ? yes : no)) /
-        4 * 100
+        4) *
+        100,
     );
 
     // HIPAA (focuses on data protection and privacy for healthcare)
     frameworks["HIPAA"] = Math.round(
-      ((formData.phi_pii_secured === "Yes" ? yes : no) +
+      (((formData.phi_pii_secured === "Yes" ? yes : no) +
         (formData.encryption === "Yes" ? yes : no) +
         (formData.access_reviewed === "Yes" ? yes : no) +
         (formData.breach_training === "Yes" ? yes : no) +
         (formData.incident_response === "Yes" ? yes : no)) /
-        5 * 100
+        5) *
+        100,
     );
 
     // GDPR (focuses on data protection and privacy)
     frameworks["GDPR"] = Math.round(
-      ((formData.gdpr_support === "Yes" ? yes : no) +
+      (((formData.gdpr_support === "Yes" ? yes : no) +
         (formData.retention_policy === "Yes" ? yes : no) +
         (formData.encryption === "Yes" ? yes : no) +
         (formData.access_reviewed === "Yes" ? yes : no)) /
-        4 * 100
+        4) *
+        100,
     );
 
     return frameworks;
@@ -358,7 +381,6 @@ export default function CheckupPage() {
     return score;
   };
 
-
   const handleCertificationChange = (cert: string) => {
     setFormData((prev) => {
       const certs = prev.certifications.includes(cert)
@@ -398,7 +420,7 @@ export default function CheckupPage() {
             complianceScores,
             company: formData.company_name,
             timestamp: new Date().toISOString(),
-          })
+          }),
         );
         window.location.href = "/thank-you";
       } else {
@@ -420,7 +442,6 @@ export default function CheckupPage() {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
@@ -463,7 +484,12 @@ export default function CheckupPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Section 1 */}
           <div className="space-y-4">
-            <SectionHeader num={1} title="Organization Overview" isExpanded={expandedSection === 1} onToggle={() => setExpandedSection(expandedSection === 1 ? 0 : 1)} />
+            <SectionHeader
+              num={1}
+              title="Organization Overview"
+              isExpanded={expandedSection === 1}
+              onToggle={() => setExpandedSection(expandedSection === 1 ? 0 : 1)}
+            />
             {expandedSection === 1 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <TextField
@@ -518,32 +544,45 @@ export default function CheckupPage() {
 
           {/* Section 2 */}
           <div className="space-y-4">
-            <SectionHeader num={2} title="Governance & Policy" isExpanded={expandedSection === 2} onToggle={() => setExpandedSection(expandedSection === 2 ? 0 : 2)} />
+            <SectionHeader
+              num={2}
+              title="Governance & Policy"
+              isExpanded={expandedSection === 2}
+              onToggle={() => setExpandedSection(expandedSection === 2 ? 0 : 2)}
+            />
             {expandedSection === 2 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
                   label="Do you have an information security policy?"
                   options={["Yes", "In progress", "No"]}
                   value={formData.security_policy ?? ""}
-                  onChange={(val) => handleChangeCallback("security_policy", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("security_policy", val)
+                  }
                 />
                 <SelectField
                   label="Have roles been assigned for data protection & AI governance?"
                   options={["Yes", "No"]}
                   value={formData.roles_assigned ?? ""}
-                  onChange={(val) => handleChangeCallback("roles_assigned", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("roles_assigned", val)
+                  }
                 />
                 <SelectField
                   label="Do you maintain an asset inventory?"
                   options={["Yes", "No"]}
                   value={formData.asset_inventory ?? ""}
-                  onChange={(val) => handleChangeCallback("asset_inventory", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("asset_inventory", val)
+                  }
                 />
                 <SelectField
                   label="Do you classify data (e.g., public, internal, confidential)?"
                   options={["Yes", "No"]}
                   value={formData.data_classification ?? ""}
-                  onChange={(val) => handleChangeCallback("data_classification", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("data_classification", val)
+                  }
                 />
               </div>
             )}
@@ -551,7 +590,12 @@ export default function CheckupPage() {
 
           {/* Section 3 */}
           <div className="space-y-4">
-            <SectionHeader num={3} title="Access Control / Zero Trust" isExpanded={expandedSection === 3} onToggle={() => setExpandedSection(expandedSection === 3 ? 0 : 3)} />
+            <SectionHeader
+              num={3}
+              title="Access Control / Zero Trust"
+              isExpanded={expandedSection === 3}
+              onToggle={() => setExpandedSection(expandedSection === 3 ? 0 : 3)}
+            />
             {expandedSection === 3 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -570,13 +614,17 @@ export default function CheckupPage() {
                   label="Least-privilege access enforced?"
                   options={["Always", "Sometimes", "Never"]}
                   value={formData.least_privilege ?? ""}
-                  onChange={(val) => handleChangeCallback("least_privilege", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("least_privilege", val)
+                  }
                 />
                 <SelectField
                   label="Access rights reviewed quarterly?"
                   options={["Yes", "No"]}
                   value={formData.access_reviewed ?? ""}
-                  onChange={(val) => handleChangeCallback("access_reviewed", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("access_reviewed", val)
+                  }
                 />
               </div>
             )}
@@ -584,7 +632,12 @@ export default function CheckupPage() {
 
           {/* Section 4 */}
           <div className="space-y-4">
-            <SectionHeader num={4} title="Data Protection & Privacy" isExpanded={expandedSection === 4} onToggle={() => setExpandedSection(expandedSection === 4 ? 0 : 4)} />
+            <SectionHeader
+              num={4}
+              title="Data Protection & Privacy"
+              isExpanded={expandedSection === 4}
+              onToggle={() => setExpandedSection(expandedSection === 4 ? 0 : 4)}
+            />
             {expandedSection === 4 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -603,13 +656,17 @@ export default function CheckupPage() {
                   label="PHI/PII data flows documented and secured?"
                   options={["Yes", "In progress", "No"]}
                   value={formData.phi_pii_secured ?? ""}
-                  onChange={(val) => handleChangeCallback("phi_pii_secured", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("phi_pii_secured", val)
+                  }
                 />
                 <SelectField
                   label="Data retention and deletion policy exists?"
                   options={["Yes", "No"]}
                   value={formData.retention_policy ?? ""}
-                  onChange={(val) => handleChangeCallback("retention_policy", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("retention_policy", val)
+                  }
                 />
               </div>
             )}
@@ -617,14 +674,21 @@ export default function CheckupPage() {
 
           {/* Section 5 */}
           <div className="space-y-4">
-            <SectionHeader num={5} title="AI Governance" isExpanded={expandedSection === 5} onToggle={() => setExpandedSection(expandedSection === 5 ? 0 : 5)} />
+            <SectionHeader
+              num={5}
+              title="AI Governance"
+              isExpanded={expandedSection === 5}
+              onToggle={() => setExpandedSection(expandedSection === 5 ? 0 : 5)}
+            />
             {expandedSection === 5 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
                   label="AI models reviewed for bias and fairness?"
                   options={["Yes", "No"]}
                   value={formData.ai_bias_reviewed ?? ""}
-                  onChange={(val) => handleChangeCallback("ai_bias_reviewed", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("ai_bias_reviewed", val)
+                  }
                 />
                 <SelectField
                   label="AI governance committee or review process exists?"
@@ -650,7 +714,12 @@ export default function CheckupPage() {
 
           {/* Section 6 */}
           <div className="space-y-4">
-            <SectionHeader num={6} title="Audit & Monitoring" isExpanded={expandedSection === 6} onToggle={() => setExpandedSection(expandedSection === 6 ? 0 : 6)} />
+            <SectionHeader
+              num={6}
+              title="Audit & Monitoring"
+              isExpanded={expandedSection === 6}
+              onToggle={() => setExpandedSection(expandedSection === 6 ? 0 : 6)}
+            />
             {expandedSection === 6 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -669,13 +738,17 @@ export default function CheckupPage() {
                   label="Change management process for automations?"
                   options={["Yes", "No"]}
                   value={formData.change_management ?? ""}
-                  onChange={(val) => handleChangeCallback("change_management", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("change_management", val)
+                  }
                 />
                 <SelectField
                   label="Third-party vendors assessed for security?"
                   options={["Yes", "No"]}
                   value={formData.vendor_assessment ?? ""}
-                  onChange={(val) => handleChangeCallback("vendor_assessment", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("vendor_assessment", val)
+                  }
                 />
               </div>
             )}
@@ -683,26 +756,37 @@ export default function CheckupPage() {
 
           {/* Section 7 */}
           <div className="space-y-4">
-            <SectionHeader num={7} title="Incident Response & Continuity" isExpanded={expandedSection === 7} onToggle={() => setExpandedSection(expandedSection === 7 ? 0 : 7)} />
+            <SectionHeader
+              num={7}
+              title="Incident Response & Continuity"
+              isExpanded={expandedSection === 7}
+              onToggle={() => setExpandedSection(expandedSection === 7 ? 0 : 7)}
+            />
             {expandedSection === 7 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
                   label="Incident response plan (including AI risks)?"
                   options={["Yes", "No"]}
                   value={formData.incident_response ?? ""}
-                  onChange={(val) => handleChangeCallback("incident_response", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("incident_response", val)
+                  }
                 />
                 <SelectField
                   label="Team trained on breach response?"
                   options={["Yes", "No"]}
                   value={formData.breach_training ?? ""}
-                  onChange={(val) => handleChangeCallback("breach_training", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("breach_training", val)
+                  }
                 />
                 <SelectField
                   label="Regular backups and recovery testing?"
                   options={["Yes", "No"]}
                   value={formData.backup_testing ?? ""}
-                  onChange={(val) => handleChangeCallback("backup_testing", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("backup_testing", val)
+                  }
                 />
               </div>
             )}
@@ -710,7 +794,12 @@ export default function CheckupPage() {
 
           {/* Section 8 */}
           <div className="space-y-4">
-            <SectionHeader num={8} title="Certifications & Goals" isExpanded={expandedSection === 8} onToggle={() => setExpandedSection(expandedSection === 8 ? 0 : 8)} />
+            <SectionHeader
+              num={8}
+              title="Certifications & Goals"
+              isExpanded={expandedSection === 8}
+              onToggle={() => setExpandedSection(expandedSection === 8 ? 0 : 8)}
+            />
             {expandedSection === 8 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <div className="space-y-3">
@@ -752,14 +841,18 @@ export default function CheckupPage() {
                     "More than 12 months",
                   ]}
                   value={formData.audit_timeline ?? ""}
-                  onChange={(val) => handleChangeCallback("audit_timeline", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("audit_timeline", val)
+                  }
                 />
 
                 <SelectField
                   label="Request your free AI Security Readiness Report?"
                   options={["Yes", "No"]}
                   value={formData.request_report ?? ""}
-                  onChange={(val) => handleChangeCallback("request_report", val)}
+                  onChange={(val) =>
+                    handleChangeCallback("request_report", val)
+                  }
                 />
 
                 <div className="space-y-2">

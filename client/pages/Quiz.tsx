@@ -24,7 +24,8 @@ interface QuizResult {
 const QUIZ_QUESTIONS = [
   {
     id: "pain-points",
-    question: "What are your biggest current pain points? (Select all that apply)",
+    question:
+      "What are your biggest current pain points? (Select all that apply)",
     type: "multi-select",
     options: [
       "Manual data entry and repetitive tasks",
@@ -150,7 +151,11 @@ export default function Quiz() {
   const progress = ((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100;
 
   if (!currentQ && !showUserForm && !showResults && !showRecommendationModal) {
-    return <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center"><p>Loading...</p></div>;
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   const handleAnswer = (answer: string | number) => {
@@ -166,12 +171,18 @@ export default function Quiz() {
           : [...answerArray, answer as string];
         const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
         if (newAnswerArray.length > 0) {
-          setAnswers([...newAnswers, { questionId: currentQ.id, answer: newAnswerArray }]);
+          setAnswers([
+            ...newAnswers,
+            { questionId: currentQ.id, answer: newAnswerArray },
+          ]);
         } else {
           setAnswers(newAnswers);
         }
       } else {
-        setAnswers([...answers, { questionId: currentQ.id, answer: [answer as string] }]);
+        setAnswers([
+          ...answers,
+          { questionId: currentQ.id, answer: [answer as string] },
+        ]);
       }
     } else {
       // For single-select, replace the answer
@@ -224,7 +235,8 @@ export default function Quiz() {
     if (painPoints.includes("Manual data entry and repetitive tasks")) {
       recommendations.push({
         name: "Data Entry & Processing Workflow",
-        description: "Automated extraction and validation of data across systems",
+        description:
+          "Automated extraction and validation of data across systems",
         benefits: [
           "Eliminates manual keyboard entry",
           "Real-time data synchronization",
@@ -237,7 +249,8 @@ export default function Quiz() {
     if (painPoints.includes("Customer support and response delays")) {
       recommendations.push({
         name: "Customer Support AI Agent",
-        description: "Intelligent agent that handles inquiries, routes tickets, and learns from responses",
+        description:
+          "Intelligent agent that handles inquiries, routes tickets, and learns from responses",
         benefits: [
           "24/7 instant response to common questions",
           "Automatic ticket routing and prioritization",
@@ -250,7 +263,8 @@ export default function Quiz() {
     if (painPoints.includes("Appointment booking and scheduling")) {
       recommendations.push({
         name: "Smart Scheduling Agent",
-        description: "Autonomous scheduling that coordinates calendars and handles confirmations",
+        description:
+          "Autonomous scheduling that coordinates calendars and handles confirmations",
         benefits: [
           "Reduces back-and-forth emails",
           "Prevents double-bookings",
@@ -263,7 +277,8 @@ export default function Quiz() {
     if (painPoints.includes("Invoice processing and financial workflows")) {
       recommendations.push({
         name: "Invoice Processing Automation",
-        description: "Extract, validate, and route invoices to appropriate departments",
+        description:
+          "Extract, validate, and route invoices to appropriate departments",
         benefits: [
           "90% reduction in processing time",
           "Automatic GL code assignment",
@@ -302,13 +317,15 @@ export default function Quiz() {
     if (
       (complexity === "Requires judgment and decision-making" ||
         complexity === "Involves learning from patterns") &&
-      (volume === "High (100-1000 per day)" || volume === "Very high (1000+ per day)")
+      (volume === "High (100-1000 per day)" ||
+        volume === "Very high (1000+ per day)")
     ) {
       // Check if we haven't already added an AI agent
       if (!recommendations.some((r) => r.name.includes("Agent"))) {
         recommendations.push({
           name: "Advanced AI Agent Platform",
-          description: "Full-featured autonomous agent for complex, high-volume operations",
+          description:
+            "Full-featured autonomous agent for complex, high-volume operations",
           benefits: [
             "Handles complex decision logic",
             "Learns and adapts from patterns",
@@ -326,7 +343,8 @@ export default function Quiz() {
     ) {
       recommendations.push({
         name: "System Integration Workflow",
-        description: "Connect disparate systems and synchronize data across platforms",
+        description:
+          "Connect disparate systems and synchronize data across platforms",
         benefits: [
           "Single source of truth across systems",
           "Real-time data synchronization",
@@ -339,7 +357,8 @@ export default function Quiz() {
     if (recommendations.length === 0) {
       recommendations.push({
         name: "Foundational Automation Workflow",
-        description: "Start with core automation to identify quick wins and build momentum",
+        description:
+          "Start with core automation to identify quick wins and build momentum",
         benefits: [
           "Easy to implement and monitor",
           "Quick ROI to build internal support",
@@ -438,8 +457,18 @@ export default function Quiz() {
             <div className="rounded-3xl border border-cyan-300/30 bg-slate-900/95 p-8 md:p-12 max-w-2xl w-full shadow-2xl my-8">
               <div className="text-center mb-8">
                 <div className="inline-block mb-6 p-3 rounded-full bg-cyan-300/20 border border-cyan-300/50">
-                  <svg className="w-8 h-8 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="w-8 h-8 text-cyan-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
@@ -499,18 +528,26 @@ export default function Quiz() {
                   </div>
                   <div>
                     <span className="text-slate-400">Frequency:</span>
-                    <p className="font-medium mt-1">{result.details["task-frequency"]}</p>
+                    <p className="font-medium mt-1">
+                      {result.details["task-frequency"]}
+                    </p>
                   </div>
                   <div>
                     <span className="text-slate-400">Complexity:</span>
-                    <p className="font-medium mt-1">{result.details["complexity-level"]}</p>
+                    <p className="font-medium mt-1">
+                      {result.details["complexity-level"]}
+                    </p>
                   </div>
                 </div>
               </div>
 
               <p className="text-xs text-slate-400 text-center mb-6">
-                These recommendations have been sent to <span className="font-medium text-slate-300">{result.email}</span>.
-                A specialist will contact you within 2 hours to discuss implementation.
+                These recommendations have been sent to{" "}
+                <span className="font-medium text-slate-300">
+                  {result.email}
+                </span>
+                . A specialist will contact you within 2 hours to discuss
+                implementation.
               </p>
 
               <button
@@ -560,7 +597,8 @@ export default function Quiz() {
                 Your Personalized Automation Plan
               </h1>
               <p className="text-slate-300">
-                Based on your assessment, here are the solutions we recommend to address your needs.
+                Based on your assessment, here are the solutions we recommend to
+                address your needs.
               </p>
             </div>
 
@@ -594,7 +632,9 @@ export default function Quiz() {
                           key={bIdx}
                           className="flex gap-2 text-sm text-slate-300"
                         >
-                          <span className="text-cyan-300 flex-shrink-0 mt-0.5">✓</span>
+                          <span className="text-cyan-300 flex-shrink-0 mt-0.5">
+                            ✓
+                          </span>
                           <span>{benefit}</span>
                         </div>
                       ))}
@@ -611,25 +651,33 @@ export default function Quiz() {
                 </h3>
                 <div className="space-y-3 text-sm text-slate-300">
                   <div>
-                    <span className="text-slate-400 text-xs uppercase tracking-wide">Primary Need</span>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">
+                      Primary Need
+                    </span>
                     <p className="font-medium mt-1">
                       {result.details["pain-points"]}
                     </p>
                   </div>
                   <div>
-                    <span className="text-slate-400 text-xs uppercase tracking-wide">Task Frequency</span>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">
+                      Task Frequency
+                    </span>
                     <p className="font-medium mt-1">
                       {result.details["task-frequency"]}
                     </p>
                   </div>
                   <div>
-                    <span className="text-slate-400 text-xs uppercase tracking-wide">Complexity Level</span>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">
+                      Complexity Level
+                    </span>
                     <p className="font-medium mt-1">
                       {result.details["complexity-level"]}
                     </p>
                   </div>
                   <div>
-                    <span className="text-slate-400 text-xs uppercase tracking-wide">Volume</span>
+                    <span className="text-slate-400 text-xs uppercase tracking-wide">
+                      Volume
+                    </span>
                     <p className="font-medium mt-1">
                       {result.details["volume-scale"]}
                     </p>
@@ -638,23 +686,41 @@ export default function Quiz() {
               </div>
 
               <div className="rounded-2xl bg-slate-950/40 p-6 border border-white/10">
-                <h3 className="font-semibold text-cyan-300 mb-4">What Happens Next</h3>
+                <h3 className="font-semibold text-cyan-300 mb-4">
+                  What Happens Next
+                </h3>
                 <ul className="space-y-3 text-sm text-slate-300">
                   <li className="flex gap-3">
                     <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span><span className="font-semibold text-white">Consultation</span> – A specialist will contact you within 2 hours</span>
+                    <span>
+                      <span className="font-semibold text-white">
+                        Consultation
+                      </span>{" "}
+                      – A specialist will contact you within 2 hours
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span><span className="font-semibold text-white">Deep Dive</span> – We'll review your workflows in detail</span>
+                    <span>
+                      <span className="font-semibold text-white">
+                        Deep Dive
+                      </span>{" "}
+                      – We'll review your workflows in detail
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span><span className="font-semibold text-white">Proposal</span> – Get a custom implementation roadmap</span>
+                    <span>
+                      <span className="font-semibold text-white">Proposal</span>{" "}
+                      – Get a custom implementation roadmap
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
-                    <span><span className="font-semibold text-white">Pilot</span> – Start with a focused proof-of-concept</span>
+                    <span>
+                      <span className="font-semibold text-white">Pilot</span> –
+                      Start with a focused proof-of-concept
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -662,8 +728,12 @@ export default function Quiz() {
 
             <div className="text-center">
               <p className="text-sm text-slate-400 mb-6">
-                These recommendations have been sent to <span className="font-semibold text-slate-300">{result.email}</span>.
-                Our team will reach out shortly to discuss implementation details.
+                These recommendations have been sent to{" "}
+                <span className="font-semibold text-slate-300">
+                  {result.email}
+                </span>
+                . Our team will reach out shortly to discuss implementation
+                details.
               </p>
               <a
                 href="/"
@@ -782,7 +852,11 @@ export default function Quiz() {
 
   // Safety check: if no current question and not in other states, show loading
   if (!currentQ && !showUserForm && !showResults && !showRecommendationModal) {
-    return <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center"><p className="text-slate-300">Loading quiz...</p></div>;
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center">
+        <p className="text-slate-300">Loading quiz...</p>
+      </div>
+    );
   }
 
   return (
@@ -833,8 +907,12 @@ export default function Quiz() {
           <div className="space-y-3">
             {currentQ.type === "multi-select" ? (
               (currentQ.options || []).map((option) => {
-                const selectedAnswers = answers.find((a) => a.questionId === currentQ.id)?.answer || [];
-                const isSelected = Array.isArray(selectedAnswers) && selectedAnswers.includes(option);
+                const selectedAnswers =
+                  answers.find((a) => a.questionId === currentQ.id)?.answer ||
+                  [];
+                const isSelected =
+                  Array.isArray(selectedAnswers) &&
+                  selectedAnswers.includes(option);
                 return (
                   <label
                     key={option}
@@ -846,7 +924,9 @@ export default function Quiz() {
                       onChange={() => handleAnswer(option)}
                       className="w-5 h-5 rounded border-white/20 bg-slate-900/60 text-cyan-300 cursor-pointer"
                     />
-                    <span className="text-slate-200 group-hover:text-white">{option}</span>
+                    <span className="text-slate-200 group-hover:text-white">
+                      {option}
+                    </span>
                   </label>
                 );
               })

@@ -82,37 +82,59 @@ export default function ThankYouPage() {
 
           {results && (
             <div className="mt-12 pt-8 border-t border-white/10">
-              <h2 className="text-2xl font-bold mb-2">Your Compliance Readiness</h2>
-              <p className="text-slate-400 mb-8">Overall Score: <span className="text-cyan-300 font-bold text-xl">{results.score}%</span></p>
+              <h2 className="text-2xl font-bold mb-2">
+                Your Compliance Readiness
+              </h2>
+              <p className="text-slate-400 mb-8">
+                Overall Score:{" "}
+                <span className="text-cyan-300 font-bold text-xl">
+                  {results.score}%
+                </span>
+              </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {Object.entries(results.complianceScores).map(([framework, score]) => (
-                  <div
-                    key={framework}
-                    className={`rounded-xl border p-6 ${getScoreColor(score)}`}
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-semibold text-white">{framework}</h3>
-                      <span className={`text-sm font-bold ${score >= 80 ? 'text-green-300' : score >= 60 ? 'text-yellow-300' : 'text-red-300'}`}>
-                        {score}%
-                      </span>
+                {Object.entries(results.complianceScores).map(
+                  ([framework, score]) => (
+                    <div
+                      key={framework}
+                      className={`rounded-xl border p-6 ${getScoreColor(score)}`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-semibold text-white">
+                          {framework}
+                        </h3>
+                        <span
+                          className={`text-sm font-bold ${score >= 80 ? "text-green-300" : score >= 60 ? "text-yellow-300" : "text-red-300"}`}
+                        >
+                          {score}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-800/50 rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full transition-all ${getProgressColor(score)}`}
+                          style={{ width: `${score}%` }}
+                        />
+                      </div>
+                      <p className="text-xs text-slate-400 mt-2">
+                        {score >= 80
+                          ? "✓ Strong compliance"
+                          : score >= 60
+                            ? "~ Moderate compliance"
+                            : "⚠ Needs improvement"}
+                      </p>
                     </div>
-                    <div className="w-full bg-slate-800/50 rounded-full h-2">
-                      <div
-                        className={`h-2 rounded-full transition-all ${getProgressColor(score)}`}
-                        style={{ width: `${score}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-slate-400 mt-2">
-                      {score >= 80 ? '✓ Strong compliance' : score >= 60 ? '~ Moderate compliance' : '⚠ Needs improvement'}
-                    </p>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
 
               <div className="mt-8 p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-xl">
                 <p className="text-slate-300">
-                  <span className="font-semibold text-cyan-300">Next Steps:</span> A compliance specialist from our team will contact {results.company} within 2 hours to discuss these results and develop a customized remediation plan.
+                  <span className="font-semibold text-cyan-300">
+                    Next Steps:
+                  </span>{" "}
+                  A compliance specialist from our team will contact{" "}
+                  {results.company} within 2 hours to discuss these results and
+                  develop a customized remediation plan.
                 </p>
               </div>
             </div>
