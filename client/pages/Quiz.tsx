@@ -188,7 +188,7 @@ export default function Quiz() {
 
   const handleNextQuestion = () => {
     // Check if current question is answered for multi-select
-    if (currentQ.type === "multi-select") {
+    if (currentQ && currentQ.type === "multi-select") {
       const hasAnswer = answers.some((a) => a.questionId === currentQ.id);
       if (!hasAnswer) {
         alert("Please select at least one option");
