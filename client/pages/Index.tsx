@@ -379,8 +379,7 @@ export default function LandingSecureAI() {
                 Starting at $1,500/month
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Automate your workflows. Meet compliance. Eliminate manual work.
-                All managed by our team of DoD-grade security experts.
+                You get automations, compliance, and audit trails. All handled by us. No IT department needed.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
