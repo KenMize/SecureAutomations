@@ -588,7 +588,7 @@ export default function CheckupPage() {
 
           {/* Section 5 */}
           <div className="space-y-4">
-            <SectionHeader num={5} title="AI Governance" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+            <SectionHeader num={5} title="AI Governance" isExpanded={expandedSection === 5} onToggle={() => setExpandedSection(expandedSection === 5 ? 0 : 5)} />
             {expandedSection === 5 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
