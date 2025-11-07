@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
+interface ComplianceResults {
+  score: number;
+  complianceScores: Record<string, number>;
+  company: string;
+  timestamp: string;
+}
+
 export default function ThankYouPage() {
+  const [results, setResults] = useState<ComplianceResults | null>(null);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("complianceResults");
+    if (stored) {
+      try {
+        setResults(JSON.parse(stored));
+        sessionStorage.removeItem("complianceResults"); // Clear after reading
+      } catch {
+        // Invalid data, ignore
+      }
+    }
+  }, []);
+
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return "bg-green-500/20 border-green-500/40";
+    if (score >= 60) return "bg-yellow-500/20 border-yellow-500/40";
+    return "bg-red-500/20 border-red-500/40";
+  };
+
+  const getProgressColor = (score: number) => {
+    if (score >= 80) return "bg-green-500";
+    if (score >= 60) return "bg-yellow-500";
+    return "bg-red-500";
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
