@@ -66,28 +66,27 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-              Deploy AI agents that work 24/7
+              AI agents + workflow automations
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              Build and deploy AI agents that{" "}
-              <span className="text-cyan-300">drive revenue</span> and{" "}
-              <span className="text-cyan-300">cut costs</span>
+              Customer-facing AI that works hand-in-hand with{" "}
+              <span className="text-cyan-300">smart backend automation</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              Create intelligent agents that handle customer conversations, book appointments, qualify leads, and manage your workflows. Your team stays focused on what matters.
+              Deploy intelligent agents to engage customers, book appointments, and generate leads. Pair them with workflow automation to process data, update systems, and manage internal operations. Choose one or both.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="/checkup"
                 className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
               >
-                See what your agents could do
+                See what's possible
               </a>
               <a
                 href="#solutions"
                 className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
               >
-                Explore agent templates
+                Explore both solutions
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
@@ -112,40 +111,37 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
-              <div className="text-sm text-slate-400 mb-3">Ready-to-use agent templates</div>
-              <div className="rounded-2xl bg-slate-950/60 p-5">
-                <div className="grid grid-cols-6 gap-3 text-xs">
-                  <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Users className="h-4 w-4" /> Customer support bot
+              <div className="text-sm text-slate-400 mb-4">How they work together</div>
+              <div className="space-y-4">
+                <div className="rounded-2xl bg-slate-950/60 p-4 border border-cyan-300/20">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Users className="h-4 w-4 text-cyan-300" />
+                    <span className="font-semibold text-sm">AI Agents (Customer-Facing)</span>
                   </div>
-                  <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Appointment scheduler
+                  <ul className="text-xs text-slate-300 space-y-1 ml-6 list-disc">
+                    <li>Support chatbots answer questions instantly</li>
+                    <li>Appointment schedulers book meetings 24/7</li>
+                    <li>Lead qualifiers screen prospects automatically</li>
+                  </ul>
+                </div>
+                <div className="flex justify-center">
+                  <div className="text-xs text-slate-400 bg-slate-950/40 px-3 py-1 rounded-full">↕ Hand-in-hand ↕</div>
+                </div>
+                <div className="rounded-2xl bg-slate-950/60 p-4 border border-cyan-300/20">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Workflow className="h-4 w-4 text-cyan-300" />
+                    <span className="font-semibold text-sm">Workflow Automations (Backend)</span>
                   </div>
-                  <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Rocket className="h-4 w-4" /> Lead qualifier
-                  </div>
-                  <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Zap className="h-4 w-4" /> Email automation
-                  </div>
-                  <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Gauge className="h-4 w-4" /> Performance tracking
-                  </div>
+                  <ul className="text-xs text-slate-300 space-y-1 ml-6 list-disc">
+                    <li>Auto-process invoices and payments</li>
+                    <li>Update CRM and systems in real-time</li>
+                    <li>Generate compliance logs and audit trails</li>
+                  </ul>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-slate-300 mb-3">
-                Deploy intelligent agents that work 24/7 on your website, email, and messaging platforms. No coding or AI expertise required.
+              <p className="mt-4 text-sm text-slate-300">
+                Agents engage your customers. Automations handle the backend work. Together, they create a seamless, 24/7 operation.
               </p>
-              <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
-                <li>
-                  Agents learn your business in minutes, not weeks
-                </li>
-                <li>
-                  Monitor every interaction and adjust behavior in real-time
-                </li>
-                <li>
-                  See ROI immediately with built-in analytics and reporting
-                </li>
-              </ul>
             </div>
           </motion.div>
         </div>
