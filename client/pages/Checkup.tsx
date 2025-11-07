@@ -557,25 +557,25 @@ export default function CheckupPage() {
                 <SelectField
                   label="Single Sign-On enabled?"
                   options={["Yes", "No"]}
-                  value={formData.sso_enabled}
+                  value={formData.sso_enabled ?? ""}
                   onChange={(val) => handleChangeCallback("sso_enabled", val)}
                 />
                 <SelectField
                   label="MFA required for privileged accounts?"
                   options={["Yes", "No"]}
-                  value={formData.mfa_required}
+                  value={formData.mfa_required ?? ""}
                   onChange={(val) => handleChangeCallback("mfa_required", val)}
                 />
                 <SelectField
                   label="Least-privilege access enforced?"
                   options={["Always", "Sometimes", "Never"]}
-                  value={formData.least_privilege}
+                  value={formData.least_privilege ?? ""}
                   onChange={(val) => handleChangeCallback("least_privilege", val)}
                 />
                 <SelectField
                   label="Access rights reviewed quarterly?"
                   options={["Yes", "No"]}
-                  value={formData.access_reviewed}
+                  value={formData.access_reviewed ?? ""}
                   onChange={(val) => handleChangeCallback("access_reviewed", val)}
                 />
               </div>
