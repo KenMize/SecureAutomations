@@ -230,6 +230,7 @@ export default function Quiz() {
     const goals = Array.isArray(answerMap["primary-goal"])
       ? answerMap["primary-goal"]
       : [answerMap["primary-goal"]];
+    const systemsIntegration = answerMap["systems-integration"];
 
     // Manual data entry and repetitive tasks
     if (painPoints.includes("Manual data entry and repetitive tasks")) {
@@ -313,14 +314,92 @@ export default function Quiz() {
       });
     }
 
-    // Add a second recommendation based on complexity and volume
+    // Add goal-based recommendations
+    // Save time and reduce manual work
+    if (
+      goals.includes("Save time and reduce manual work") &&
+      !recommendations.some(
+        (r) => r.name === "Data Entry & Processing Workflow",
+      )
+    ) {
+      recommendations.push({
+        name: "Efficiency Optimization Suite",
+        description:
+          "Bundle of automation tools designed to maximize time savings",
+        benefits: [
+          "Reduces manual work by up to 80%",
+          "Frees team for high-value activities",
+          "Quick implementation and ROI",
+        ],
+      });
+    }
+
+    // Improve customer experience
+    if (
+      goals.includes("Improve customer experience") &&
+      !recommendations.some((r) => r.name === "Customer Support AI Agent")
+    ) {
+      recommendations.push({
+        name: "Customer Experience Enhancement Platform",
+        description:
+          "Tools to provide faster response times and personalized interactions",
+        benefits: [
+          "24/7 availability for customer interactions",
+          "Reduced response time by 90%",
+          "Improved satisfaction scores",
+        ],
+      });
+    }
+
+    // Reduce errors
+    if (goals.includes("Reduce errors")) {
+      recommendations.push({
+        name: "Error Prevention & Quality Control System",
+        description:
+          "Automated validation and quality checks at every step of workflows",
+        benefits: [
+          "Eliminates human error in repetitive tasks",
+          "Real-time validation and correction",
+          "Audit trail for compliance",
+        ],
+      });
+    }
+
+    // Scale operations without hiring
+    if (goals.includes("Scale operations without hiring")) {
+      recommendations.push({
+        name: "Scalable Automation Platform",
+        description:
+          "Enterprise-grade automation that grows with your business",
+        benefits: [
+          "Handle 10x volume with existing team",
+          "Reduces hiring and training costs",
+          "Easily add new automated workflows",
+        ],
+      });
+    }
+
+    // Improve data accessibility
+    if (goals.includes("Improve data accessibility")) {
+      recommendations.push({
+        name: "Data Accessibility & Integration Hub",
+        description:
+          "Unified platform for accessing and synchronizing data across systems",
+        benefits: [
+          "Single source of truth for all data",
+          "Real-time data synchronization",
+          "Advanced reporting and analytics",
+        ],
+      });
+    }
+
+    // Add a recommendation based on complexity and volume
     if (
       (complexity === "Requires judgment and decision-making" ||
         complexity === "Involves learning from patterns") &&
       (volume === "High (100-1000 per day)" ||
         volume === "Very high (1000+ per day)")
     ) {
-      // Check if we haven't already added an AI agent
       if (!recommendations.some((r) => r.name.includes("Agent"))) {
         recommendations.push({
           name: "Advanced AI Agent Platform",
@@ -335,11 +414,14 @@ export default function Quiz() {
       }
     }
 
-    // Add integration/workflow recommendation for siloed systems (only if not already added)
+    // Add integration recommendation for siloed systems
     if (
-      answerMap["systems-integration"] === "Mostly siloed (separate systems)" &&
-      !recommendations.some((r) => r.name.includes("Workflow")) &&
-      !recommendations.some((r) => r.name.includes("Integration"))
+      systemsIntegration === "Mostly siloed (separate systems)" &&
+      !recommendations.some(
+        (r) =>
+          r.name === "System Integration Workflow" ||
+          r.name === "Data Accessibility & Integration Hub",
+      )
     ) {
       recommendations.push({
         name: "System Integration Workflow",
