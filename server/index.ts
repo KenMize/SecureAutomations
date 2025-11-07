@@ -20,6 +20,7 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
   app.post("/api/send-email", handleSendEmail);
+  app.post("/api/contact-form", handleContactForm);
 
   return app;
 }
