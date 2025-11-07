@@ -149,8 +149,12 @@ export default function Quiz() {
   const currentQ = QUIZ_QUESTIONS[currentQuestion];
   const progress = ((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100;
 
+  if (!currentQ && !showUserForm && !showResults && !showRecommendationModal) {
+    return <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center"><p>Loading...</p></div>;
+  }
+
   const handleAnswer = (answer: string | number) => {
-    if (currentQ.type === "multi-select") {
+    if (!currentQ || currentQ.type === "multi-select") {
       // For multi-select, toggle the answer
       const existingAnswer = answers.find((a) => a.questionId === currentQ.id);
       if (existingAnswer) {
