@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, memo } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface FormData {
@@ -54,6 +54,92 @@ interface FormData {
 
 // API endpoint for sending assessment emails
 const SEND_EMAIL_ENDPOINT = "/api/send-email";
+
+// Memoized field components defined OUTSIDE the component
+const TextField = memo(({
+  label,
+  placeholder,
+  value,
+  onChange,
+  required = false,
+}: {
+  label: string;
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+  required?: boolean;
+}) => (
+  <div className="space-y-2">
+    <label className="text-sm font-medium text-slate-300">
+      {label}
+      {required && <span className="text-red-400 ml-1">*</span>}
+    </label>
+    <input
+      type="text"
+      required={required}
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+    />
+  </div>
+));
+
+TextField.displayName = "TextField";
+
+const SelectField = memo(({
+  label,
+  options,
+  value,
+  onChange,
+  required = false,
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  required?: boolean;
+}) => (
+  <div className="space-y-2">
+    <label className="text-sm font-medium text-slate-300">
+      {label}
+      {required && <span className="text-red-400 ml-1">*</span>}
+    </label>
+    <select
+      required={required}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+    >
+      <option value="">Select an option</option>
+      {options.map((opt) => (
+        <option key={opt} value={opt}>
+          {opt}
+        </option>
+      ))}
+    </select>
+  </div>
+));
+
+SelectField.displayName = "SelectField";
+
+const SectionHeader = memo(({ num, title, isExpanded, onToggle }: { num: number; title: string; isExpanded: boolean; onToggle: () => void }) => (
+  <button
+    onClick={onToggle}
+    className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
+  >
+    <h3 className="text-lg font-semibold text-white">
+      Section {num} – {title}
+    </h3>
+    <ChevronDown
+      className={`w-5 h-5 text-slate-400 transition-transform ${
+        isExpanded ? "rotate-180" : ""
+      }`}
+    />
+  </button>
+));
+
+SectionHeader.displayName = "SectionHeader";
 
 export default function CheckupPage() {
   const [formData, setFormData] = useState<FormData>({
