@@ -392,6 +392,13 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
     )
     .join("");
 
+  const formatDetailValue = (value: any): string => {
+    if (Array.isArray(value)) {
+      return value.join(", ");
+    }
+    return String(value || "Not provided");
+  };
+
   return `
     <!DOCTYPE html>
     <html>
@@ -425,28 +432,32 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
         <h2>Your Assessment Details</h2>
         <table>
           <tr>
-            <td style="font-weight: bold; background: #f3f4f6;"><strong>Primary Need</strong></td>
-            <td>${data.details["pain-points"] || "Not provided"}</td>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Primary Needs</strong></td>
+            <td>${formatDetailValue(data.details["pain-points"])}</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; background: #f3f4f6;"><strong>Primary Goals</strong></td>
+            <td>${formatDetailValue(data.details["primary-goal"])}</td>
           </tr>
           <tr>
             <td style="font-weight: bold; background: #f3f4f6;"><strong>Task Frequency</strong></td>
-            <td>${data.details["task-frequency"] || "Not provided"}</td>
+            <td>${formatDetailValue(data.details["task-frequency"])}</td>
           </tr>
           <tr>
             <td style="font-weight: bold; background: #f3f4f6;"><strong>Complexity Level</strong></td>
-            <td>${data.details["complexity-level"] || "Not provided"}</td>
+            <td>${formatDetailValue(data.details["complexity-level"])}</td>
           </tr>
           <tr>
             <td style="font-weight: bold; background: #f3f4f6;"><strong>Volume</strong></td>
-            <td>${data.details["volume-scale"] || "Not provided"}</td>
+            <td>${formatDetailValue(data.details["volume-scale"])}</td>
           </tr>
           <tr>
             <td style="font-weight: bold; background: #f3f4f6;"><strong>Systems Integration</strong></td>
-            <td>${data.details["systems-integration"] || "Not provided"}</td>
+            <td>${formatDetailValue(data.details["systems-integration"])}</td>
           </tr>
           <tr>
             <td style="font-weight: bold; background: #f3f4f6;"><strong>Timeline</strong></td>
-            <td>${data.details["timeline"] || "Not provided"}</td>
+            <td>${formatDetailValue(data.details["timeline"])}</td>
           </tr>
         </table>
 
