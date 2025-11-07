@@ -20,13 +20,22 @@ import {
   Clock,
 } from "lucide-react";
 
+interface ContactFormState {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}
+
+const initialContactForm: ContactFormState = {
+  name: "",
+  email: "",
+  company: "",
+  message: "",
+};
+
 export default function LandingSecureAI() {
-  const [contactForm, setContactForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+  const [contactForm, setContactForm] = useState<ContactFormState>(initialContactForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleContactChange = (
