@@ -872,7 +872,7 @@ export default function LandingSecureAI() {
             <input
               type="text"
               name="name"
-              value={contactForm.name}
+              value={contactForm.name ?? ""}
               onChange={handleContactChange}
               required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
@@ -881,7 +881,7 @@ export default function LandingSecureAI() {
             <input
               type="email"
               name="email"
-              value={contactForm.email}
+              value={contactForm.email ?? ""}
               onChange={handleContactChange}
               required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
@@ -890,7 +890,7 @@ export default function LandingSecureAI() {
             <input
               type="text"
               name="company"
-              value={contactForm.company}
+              value={contactForm.company ?? ""}
               onChange={handleContactChange}
               required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
@@ -898,7 +898,7 @@ export default function LandingSecureAI() {
             />
             <textarea
               name="message"
-              value={contactForm.message}
+              value={contactForm.message ?? ""}
               onChange={handleContactChange}
               required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
