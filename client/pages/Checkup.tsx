@@ -106,7 +106,7 @@ export default function CheckupPage() {
     []
   );
 
-  const SelectField = ({
+  const SelectField = memo(({
     label,
     options,
     field,
@@ -136,7 +136,7 @@ export default function CheckupPage() {
         ))}
       </select>
     </div>
-  );
+  ));
 
   const TextField = ({
     label,
