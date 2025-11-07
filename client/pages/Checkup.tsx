@@ -165,9 +165,9 @@ export default function CheckupPage() {
     </div>
   ));
 
-  const SectionHeader = memo(({ num, title }: { num: number; title: string }) => (
+  const SectionHeader = memo(({ num, title, isExpanded, onToggle }: { num: number; title: string; isExpanded: boolean; onToggle: () => void }) => (
     <button
-      onClick={() => setExpandedSection(expandedSection === num ? 0 : num)}
+      onClick={onToggle}
       className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
     >
       <h3 className="text-lg font-semibold text-white">
@@ -175,7 +175,7 @@ export default function CheckupPage() {
       </h3>
       <ChevronDown
         className={`w-5 h-5 text-slate-400 transition-transform ${
-          expandedSection === num ? "rotate-180" : ""
+          isExpanded ? "rotate-180" : ""
         }`}
       />
     </button>
