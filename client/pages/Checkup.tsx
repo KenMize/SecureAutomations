@@ -751,14 +751,14 @@ export default function CheckupPage() {
                     "6–12 months",
                     "More than 12 months",
                   ]}
-                  value={formData.audit_timeline}
+                  value={formData.audit_timeline ?? ""}
                   onChange={(val) => handleChangeCallback("audit_timeline", val)}
                 />
 
                 <SelectField
                   label="Request your free AI Security Readiness Report?"
                   options={["Yes", "No"]}
-                  value={formData.request_report}
+                  value={formData.request_report ?? ""}
                   onChange={(val) => handleChangeCallback("request_report", val)}
                 />
 
