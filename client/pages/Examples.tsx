@@ -17,6 +17,68 @@ interface ConsultationFormState {
 }
 
 export default function ExamplesPage() {
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
+  const [consultationForm, setConsultationForm] =
+    useState<ConsultationFormState>({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleConsultationChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setConsultationForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleConsultationSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(consultationForm),
+      });
+
+      if (response.ok) {
+        setConsultationForm({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        });
+        alert("Thank you! We'll contact you within 2 hours.");
+        setShowConsultationModal(false);
+      } else {
+        let errorMessage = "Unknown error";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          errorMessage = `Server error: ${response.status}`;
+        }
+        alert(`Failed to submit form: ${errorMessage}`);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert(
+        "An error occurred. Please check your internet connection and try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const agents = [
     {
       icon: MessageSquare,
