@@ -261,7 +261,7 @@ export default function Quiz() {
 
       if (response.ok) {
         setResult(resultData);
-        setShowResults(true);
+        setShowRecommendationModal(true);
       } else {
         let errorMessage = "Failed to submit quiz. Please try again.";
         try {
