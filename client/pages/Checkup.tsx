@@ -630,7 +630,7 @@ export default function CheckupPage() {
                     Additional notes
                   </label>
                   <textarea
-                    value={formData.additional_notes}
+                    value={formData.additional_notes ?? ""}
                     onChange={(e) =>
                       handleChange("additional_notes", e.target.value)
                     }
