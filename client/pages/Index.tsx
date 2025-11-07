@@ -392,9 +392,9 @@ export default function LandingSecureAI() {
                 </div>
                 <div className="flex gap-2 text-sm">
                   <span className="text-cyan-300 font-semibold">
-                    Your investment:
+                    Your cost:
                   </span>
-                  <span className="text-slate-300">$18,000/year starting</span>
+                  <span className="text-slate-300">$18,000/year</span>
                 </div>
               </div>
               <p className="mt-4 text-xs text-slate-400 italic">
