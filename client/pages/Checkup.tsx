@@ -320,14 +320,12 @@ export default function CheckupPage() {
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-2xl bg-white text-slate-950 font-black flex items-center justify-center">
-              SA
-            </div>
+          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
-          </div>
+          </a>
           <a
             href="/"
             className="text-sm text-slate-300 hover:text-white transition-colors"
