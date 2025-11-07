@@ -120,7 +120,7 @@ const QUIZ_QUESTIONS = [
   },
 ];
 
-export default function AutomationQuiz() {
+export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
   const [showResults, setShowResults] = useState(false);
