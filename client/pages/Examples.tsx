@@ -8,9 +8,51 @@ import {
 } from "lucide-react";
 
 export default function ExamplesPage() {
-  const workflows = [
+  const agents = [
     {
       icon: MessageSquare,
+      title: "Customer Support Chatbot",
+      description:
+        "24/7 AI agent that answers FAQs, handles common requests, and escalates complex issues to your team.",
+      benefits: [
+        "Handles 70% of support inquiries automatically",
+        "Instant responses to customers",
+        "Seamless handoff to support team",
+        "Works on website, email, and messaging",
+      ],
+      compliance: ["SOC 2", "GDPR"],
+    },
+    {
+      icon: UserCheck,
+      title: "Appointment Scheduler Agent",
+      description:
+        "Intelligent agent that books appointments, sends confirmations, and reminds customers automatically.",
+      benefits: [
+        "Books 100+ appointments per month",
+        "Reduces scheduling admin time by 90%",
+        "Automatic reminders reduce no-shows",
+        "Integrates with your calendar",
+      ],
+      compliance: ["GDPR", "CCPA"],
+    },
+    {
+      icon: BarChart3,
+      title: "Lead Qualifier Agent",
+      description:
+        "AI agent that qualifies inbound leads, asks qualifying questions, and routes to the right sales person.",
+      benefits: [
+        "Qualifies leads 24/7 before they reach your team",
+        "Improves lead quality by 40%+",
+        "Prioritizes hot leads automatically",
+        "Works with forms, email, and chat",
+      ],
+      compliance: ["GDPR", "SOC 2"],
+    },
+  ];
+
+  const workflows = [
+    {
+      icon: Zap,
       title: "Customer Support Automation",
       description:
         "Classify incoming support tickets, draft responses, and route to the right team. Redact PII before logging.",
@@ -108,67 +150,56 @@ export default function ExamplesPage() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {workflows.map((workflow, index) => {
             const Icon = workflow.icon;
             return (
               <div
                 key={index}
-                className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-white/20 transition-colors"
+                className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-white/20 transition-colors p-8"
               >
-                <div className="p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl font-bold">{workflow.title}</h2>
-                      <p className="mt-2 text-slate-300 text-lg">
-                        {workflow.description}
-                      </p>
-                    </div>
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 flex-shrink-0">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold">{workflow.title}</h3>
+                    <p className="mt-2 text-slate-300">
+                      {workflow.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                      Key Benefits
+                    </h4>
+                    <ul className="space-y-2">
+                      {workflow.benefits.map((benefit, i) => (
+                        <li key={i} className="flex gap-2 text-sm">
+                          <span className="text-cyan-300 font-bold flex-shrink-0">
+                            ✓
+                          </span>
+                          <span className="text-slate-300">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-8 mt-8">
-                    <div>
-                      <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                        Key Benefits
-                      </h3>
-                      <ul className="space-y-3">
-                        {workflow.benefits.map((benefit, i) => (
-                          <li key={i} className="flex gap-3">
-                            <span className="text-cyan-300 font-bold mt-1">
-                              ✓
-                            </span>
-                            <span className="text-slate-300">{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                        Compliance Frameworks
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {workflow.compliance.map((comp, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center rounded-full bg-slate-800/60 px-3 py-1 text-xs font-medium text-cyan-300 border border-cyan-300/30"
-                          >
-                            {comp}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="mt-6">
-                        <a
-                          href="/#contact"
-                          className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-medium transition-colors"
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                      Compliance Frameworks
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {workflow.compliance.map((comp, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center rounded-full bg-slate-800/60 px-3 py-1 text-xs font-medium text-cyan-300 border border-cyan-300/30"
                         >
-                          Request a custom workflow →
-                        </a>
-                      </div>
+                          {comp}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
