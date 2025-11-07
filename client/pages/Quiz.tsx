@@ -409,6 +409,14 @@ export default function Quiz() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         <div className="mx-auto max-w-md px-4 py-16">
+          <div className="flex justify-end mb-4">
+            <a
+              href="/"
+              className="text-slate-400 hover:text-white transition-colors text-sm"
+            >
+              ✕ Close
+            </a>
+          </div>
           <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
             <h2 className="text-2xl font-bold mb-2">Almost there!</h2>
             <p className="text-slate-300 mb-8">
