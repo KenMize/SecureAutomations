@@ -670,7 +670,7 @@ export default function CheckupPage() {
 
           {/* Section 8 */}
           <div className="space-y-4">
-            <SectionHeader num={8} title="Certifications & Goals" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+            <SectionHeader num={8} title="Certifications & Goals" isExpanded={expandedSection === 8} onToggle={() => setExpandedSection(expandedSection === 8 ? 0 : 8)} />
             {expandedSection === 8 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <div className="space-y-3">
