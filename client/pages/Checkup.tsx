@@ -472,7 +472,7 @@ export default function CheckupPage() {
 
           {/* Section 3 */}
           <div className="space-y-4">
-            <SectionHeader num={3} title="Access Control / Zero Trust" />
+            <SectionHeader num={3} title="Access Control / Zero Trust" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 3 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -501,7 +501,7 @@ export default function CheckupPage() {
 
           {/* Section 4 */}
           <div className="space-y-4">
-            <SectionHeader num={4} title="Data Protection & Privacy" />
+            <SectionHeader num={4} title="Data Protection & Privacy" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 4 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -530,7 +530,7 @@ export default function CheckupPage() {
 
           {/* Section 5 */}
           <div className="space-y-4">
-            <SectionHeader num={5} title="AI Governance" />
+            <SectionHeader num={5} title="AI Governance" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 5 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -559,7 +559,7 @@ export default function CheckupPage() {
 
           {/* Section 6 */}
           <div className="space-y-4">
-            <SectionHeader num={6} title="Audit & Monitoring" />
+            <SectionHeader num={6} title="Audit & Monitoring" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 6 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -588,7 +588,7 @@ export default function CheckupPage() {
 
           {/* Section 7 */}
           <div className="space-y-4">
-            <SectionHeader num={7} title="Incident Response & Continuity" />
+            <SectionHeader num={7} title="Incident Response & Continuity" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 7 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
@@ -612,7 +612,7 @@ export default function CheckupPage() {
 
           {/* Section 8 */}
           <div className="space-y-4">
-            <SectionHeader num={8} title="Certifications & Goals" />
+            <SectionHeader num={8} title="Certifications & Goals" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
             {expandedSection === 8 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <div className="space-y-3">
