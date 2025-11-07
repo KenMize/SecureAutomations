@@ -306,23 +306,23 @@ export default function LandingSecureAI() {
             {[
               {
                 icon: Rocket,
-                title: "Immediate revenue impact",
-                copy: "Book 100+ more appointments per month, close 30% more deals, cut support costs by half",
+                title: "Work for you, not against you",
+                copy: "Agents drive revenue, automations reduce costs. Use one or both to fit your needs.",
               },
               {
                 icon: Zap,
-                title: "Instant deployment",
-                copy: "Launch agents in 24 hours. No engineering team, no long implementation.",
+                title: "Fast to market",
+                copy: "Agents deploy in 24 hours. Automations take days. No long implementation cycles.",
               },
               {
                 icon: BadgeCheck,
-                title: "Affordable at scale",
-                copy: "Starting at $1,500/month. Pay based on usage, not complexity.",
+                title: "Affordable, flexible pricing",
+                copy: "Start small with agents or automations. Scale as you grow. Starting at $1,500/month.",
               },
               {
                 icon: Shield,
-                title: "Secure by design",
-                copy: "Enterprise-grade security and compliance built in, not bolted on",
+                title: "Enterprise security included",
+                copy: "DoD-grade security standards. Compliance ready. Built in, not bolted on.",
               },
             ].map(({ icon: Icon, title, copy }) => (
               <div
