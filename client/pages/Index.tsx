@@ -487,10 +487,10 @@ export default function LandingSecureAI() {
 
           <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              "✅ Microsoft Partner",
-              "Azure OpenAI Integrator",
-              "NIST-Mapped",
-              "DoD-Experienced",
+              "Works with Microsoft, OpenAI",
+              "Audit-ready out of the box",
+              "Encrypted & compliant by default",
+              "No IT knowledge required",
             ].map((badge) => (
               <div
                 key={badge}
