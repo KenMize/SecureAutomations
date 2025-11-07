@@ -150,9 +150,47 @@ export default function Quiz() {
   const progress = ((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100;
 
   const handleAnswer = (answer: string | number) => {
-    const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
-    setAnswers([...newAnswers, { questionId: currentQ.id, answer }]);
+    if (currentQ.type === "multi-select") {
+      // For multi-select, toggle the answer
+      const existingAnswer = answers.find((a) => a.questionId === currentQ.id);
+      if (existingAnswer) {
+        const answerArray = Array.isArray(existingAnswer.answer)
+          ? existingAnswer.answer
+          : [existingAnswer.answer];
+        const newAnswerArray = answerArray.includes(answer as string)
+          ? answerArray.filter((a) => a !== answer)
+          : [...answerArray, answer as string];
+        const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
+        if (newAnswerArray.length > 0) {
+          setAnswers([...newAnswers, { questionId: currentQ.id, answer: newAnswerArray }]);
+        } else {
+          setAnswers(newAnswers);
+        }
+      } else {
+        setAnswers([...answers, { questionId: currentQ.id, answer: [answer as string] }]);
+      }
+    } else {
+      // For single-select, replace the answer
+      const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
+      setAnswers([...newAnswers, { questionId: currentQ.id, answer }]);
 
+      if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setShowUserForm(true);
+      }
+    }
+  };
+
+  const handleNextQuestion = () => {
+    // Check if current question is answered for multi-select
+    if (currentQ.type === "multi-select") {
+      const hasAnswer = answers.some((a) => a.questionId === currentQ.id);
+      if (!hasAnswer) {
+        alert("Please select at least one option");
+        return;
+      }
+    }
     if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
