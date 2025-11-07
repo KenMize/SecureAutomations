@@ -138,7 +138,7 @@ export default function CheckupPage() {
     </div>
   ));
 
-  const TextField = ({
+  const TextField = memo(({
     label,
     placeholder,
     field,
@@ -163,7 +163,7 @@ export default function CheckupPage() {
         className="w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
       />
     </div>
-  );
+  ));
 
   const SectionHeader = ({ num, title }: { num: number; title: string }) => (
     <button
