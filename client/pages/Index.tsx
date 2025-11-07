@@ -25,9 +25,7 @@ export default function LandingSecureAI() {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-2xl bg-white text-slate-950 font-black flex items-center justify-center">
-              SA
-            </div>
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -68,45 +66,42 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-              Stop doing tasks by hand
+              Deploy AI agents that work 24/7
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              Secure automation that{" "}
-              <span className="text-cyan-300">saves you hours</span> and keeps{" "}
-              <span className="text-cyan-300">your data protected</span>
+              Build and deploy AI agents that{" "}
+              <span className="text-cyan-300">drive revenue</span> and{" "}
+              <span className="text-cyan-300">cut costs</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We help small teams automate their repetitive work: invoices,
-              emails, customer follow-ups. All safely and securely. Our
-              automations follow the same data-protection standards trusted by
-              U.S. defense systems. No IT team needed.
+              Create intelligent agents that handle customer conversations, book appointments, qualify leads, and manage your workflows. Your team stays focused on what matters.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="/checkup"
                 className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
               >
-                Get a free AI security checkup
+                See what your agents could do
               </a>
               <a
                 href="#solutions"
                 className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
               >
-                See solutions
+                Explore agent templates
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
               <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4" />
-                Customer data stays safe
+                <Zap className="h-4 w-4" />
+                Deploy in minutes
               </div>
               <div className="flex items-center gap-2">
-                <Lock className="h-4 w-4" />
-                Fully compliant & auditable
+                <Shield className="h-4 w-4" />
+                Enterprise security
               </div>
               <div className="flex items-center gap-2">
                 <BadgeCheck className="h-4 w-4" />
-                No IT expertise needed
+                Zero coding required
               </div>
             </div>
           </motion.div>
@@ -117,41 +112,38 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
-              <div className="text-sm text-slate-400 mb-3">How it works</div>
+              <div className="text-sm text-slate-400 mb-3">Ready-to-use agent templates</div>
               <div className="rounded-2xl bg-slate-950/60 p-5">
                 <div className="grid grid-cols-6 gap-3 text-xs">
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Your data comes in
+                    <Users className="h-4 w-4" /> Customer support bot
                   </div>
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> We protect it
+                    <Workflow className="h-4 w-4" /> Appointment scheduler
                   </div>
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> It gets automated
+                    <Rocket className="h-4 w-4" /> Lead qualifier
                   </div>
                   <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Connected to your tools
+                    <Zap className="h-4 w-4" /> Email automation
                   </div>
                   <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Full audit trail
+                    <Gauge className="h-4 w-4" /> Performance tracking
                   </div>
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300 mb-3">
-                Every automation is protected with the same security standards
-                used by defense systems. Customer data gets redacted, every
-                action is logged, and you stay compliant.
+                Deploy intelligent agents that work 24/7 on your website, email, and messaging platforms. No coding or AI expertise required.
               </p>
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
                 <li>
-                  Your data is encrypted and protected like it's defending
-                  national security
+                  Agents learn your business in minutes, not weeks
                 </li>
                 <li>
-                  Every action is logged so you can prove compliance to auditors
+                  Monitor every interaction and adjust behavior in real-time
                 </li>
                 <li>
-                  You stay in control and see exactly what's being automated
+                  See ROI immediately with built-in analytics and reporting
                 </li>
               </ul>
             </div>
@@ -159,29 +151,27 @@ export default function LandingSecureAI() {
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* AI AGENTS FOR REVENUE */}
       <section id="solutions" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            What we automate for you
+            AI agents that generate revenue
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We set up automations that handle invoices, leads, customer
-            messages, and follow-ups securely, so you can focus on growing your
-            business.
+            Deploy intelligent agents on your website, email, and messaging platforms to convert more leads, book more appointments, and delight your customers while you sleep.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
-              "Invoicing and payment reminders that run on their own",
-              "Customer leads automatically routed to the right person",
-              "Support emails tagged and prioritized without you lifting a finger",
-              "Your data stays encrypted and audit-ready every step of the way",
+              "Customer service chatbot that solves 70% of support tickets automatically",
+              "Appointment scheduler that books meetings and sends reminders 24/7",
+              "Lead qualifier that screens prospects and routes hot leads to your team",
+              "Email responder that handles FAQs and schedules follow-ups",
             ].map((point) => (
               <div
                 key={point}
                 className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 flex items-start gap-3"
               >
-                <CheckCircle2 className="h-5 w-5 mt-1 flex-shrink-0 text-cyan-300" />
+                <Rocket className="h-5 w-5 mt-1 flex-shrink-0 text-cyan-300" />
                 <p className="text-slate-300">{point}</p>
               </div>
             ))}
@@ -191,7 +181,7 @@ export default function LandingSecureAI() {
               href="/examples"
               className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm hover:bg-slate-100 transition-colors font-medium"
             >
-              See what we can automate for you
+              See agent examples
             </a>
           </div>
         </div>
@@ -201,12 +191,10 @@ export default function LandingSecureAI() {
       <section id="trust" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            You shouldn't have to choose between security and simplicity
+            Enterprise AI with SMB simplicity
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Our frameworks and controls come from the same standards used across
-            the U.S. Department of Defense and Fortune 500 environments, adapted
-            for small and midsize teams.
+            Deploy with confidence knowing your customer data is protected to the same standards as Fortune 500 companies and U.S. government agencies.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -252,29 +240,29 @@ export default function LandingSecureAI() {
       <section id="why-us" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Why growing teams work with us
+            Why SMBs choose us
           </h2>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
               {
-                icon: Shield,
-                title: "Defense-grade expertise",
-                copy: "Built by consultants who've secured AI at the Department of Defense",
+                icon: Rocket,
+                title: "Immediate revenue impact",
+                copy: "Book 100+ more appointments per month, close 30% more deals, cut support costs by half",
               },
               {
                 icon: Zap,
-                title: "Compliance without complexity",
-                copy: "Templates and guardrails for HIPAA, SOC 2, and GDPR",
+                title: "Instant deployment",
+                copy: "Launch agents in 24 hours. No engineering team, no long implementation.",
               },
               {
                 icon: BadgeCheck,
-                title: "Affordable security",
-                copy: "Enterprise standards at SMB-friendly pricing",
+                title: "Affordable at scale",
+                copy: "Starting at $1,500/month. Pay based on usage, not complexity.",
               },
               {
-                icon: Rocket,
-                title: "No IT team needed",
-                copy: "We design, deploy, and manage your automations",
+                icon: Shield,
+                title: "Secure by design",
+                copy: "Enterprise-grade security and compliance built in, not bolted on",
               },
             ].map(({ icon: Icon, title, copy }) => (
               <div
@@ -296,89 +284,81 @@ export default function LandingSecureAI() {
       <section className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Built for SMB budgets, with enterprise-grade results
+            ROI that pays for itself in days
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Your team is stretched thin. Compliance is complex. Hiring
-            specialists is expensive. At $1,500/month, our solution pays for
-            itself while you focus on growth.
+            Starting at $1,500/month. Most SMBs see payback in weeks through improved conversions, reduced support costs, and higher customer lifetime value.
           </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
-            {/* Pain Point 1: Time */}
+            {/* Revenue Impact */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                The Time Problem
+                Revenue Impact
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Manual processes eat 50-70 hours/month
+                Appointment schedulers convert 20% more leads
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Your team spends hours on data entry, report generation,
-                customer support tickets, and compliance documentation. That's
-                time not spent on strategy or revenue.
+                24/7 appointment booking means your sales team has a full pipeline. No more missed opportunities when you're not answering the phone.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  Real cost to your business:
+                  New annual revenue generated:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
-                  $3,000-5,000/month
+                  $25,000-50,000+
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (at $50-75/hour average staff cost)
+                  (conservative estimate for service businesses)
                 </p>
               </div>
             </div>
 
-            {/* Pain Point 2: Compliance */}
+            {/* Cost Reduction */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                The Compliance Problem
+                Cost Reduction
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Audit prep and compliance consulting is expensive
+                Support chatbot eliminates 60% of common inquiries
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                External auditors, compliance consultants, and ad-hoc reviews
-                cost thousands. Plus the risk of failed audits or regulatory
-                fines if controls slip.
+                Stop paying your team to answer the same questions. AI handles FAQs, order status, and common issues instantly.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  Typical consulting project cost:
+                  Annual support labor saved:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
-                  $5,000-15,000
+                  $15,000-30,000
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (plus ongoing audit labor)
+                  (vs. hiring or outsourcing)
                 </p>
               </div>
             </div>
 
-            {/* Pain Point 3: Hiring */}
+            {/* Efficiency Gain */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                The Hiring Problem
+                Team Efficiency
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Can't afford to hire specialists
+                Automate 40+ hours of manual work per month
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                A full-time compliance or automation engineer costs
-                $60-100k/year, plus benefits. Even a part-time contractor burns
-                $5-8k/month. That's on top of existing payroll.
+                Lead qualification, follow-up emails, appointment reminders, invoice tracking. All handled automatically while your team focuses on closing deals and growing relationships.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  Annual cost of one FTE specialist:
+                  Time freed per employee:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
-                  $70,000-120,000
+                  1 day per week
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (base + benefits + onboarding)
+                  (valued at $400-600/week)
                 </p>
               </div>
             </div>
@@ -386,14 +366,13 @@ export default function LandingSecureAI() {
             {/* The Solution */}
             <div className="rounded-2xl border border-cyan-300/30 bg-slate-900/80 p-6">
               <div className="text-sm text-cyan-300 font-medium uppercase tracking-wider">
-                The Secure Automations Solution
+                Total first-year ROI
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Starting at $1,500/month
+                $40,000-80,000 in new value
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                You get automations, compliance, and audit trails. All handled
-                by us. No IT department needed.
+                Against $18,000/year cost. That's 2-4x return on investment before considering customer satisfaction and retention improvements.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
