@@ -868,7 +868,16 @@ export default function Quiz() {
             ) : null}
           </div>
 
-          {currentQuestion > 0 && (
+          {currentQ.type === "multi-select" && (
+            <button
+              onClick={handleNextQuestion}
+              className="mt-8 w-full rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors"
+            >
+              Next →
+            </button>
+          )}
+
+          {currentQuestion > 0 && currentQ.type !== "multi-select" && (
             <button
               onClick={() => setCurrentQuestion(currentQuestion - 1)}
               className="mt-8 text-sm text-slate-400 hover:text-white transition-colors"
