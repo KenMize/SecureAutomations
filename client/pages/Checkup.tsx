@@ -60,8 +60,8 @@ interface SelectFieldProps {
   options: string[];
   field: keyof FormData;
   required?: boolean;
-  formData?: FormData;
-  handleChange?: (field: keyof FormData, value: string | string[]) => void;
+  formData: FormData;
+  handleChange: (field: keyof FormData, value: string | string[]) => void;
 }
 
 const SelectField = ({
@@ -69,8 +69,8 @@ const SelectField = ({
   options,
   field,
   required = false,
-  formData = {} as FormData,
-  handleChange = () => {},
+  formData,
+  handleChange,
 }: SelectFieldProps) => (
   <div className="space-y-2">
     <label className="text-sm font-medium text-slate-300">
