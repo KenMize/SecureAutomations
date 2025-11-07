@@ -376,7 +376,7 @@ export default function CheckupPage() {
                   field="company_name"
                   required
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Primary Contact Name"
@@ -384,7 +384,7 @@ export default function CheckupPage() {
                   field="contact_name"
                   required
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Contact Title"
@@ -392,7 +392,7 @@ export default function CheckupPage() {
                   field="contact_title"
                   required
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <TextField
                   label="Work Email"
@@ -400,7 +400,7 @@ export default function CheckupPage() {
                   field="work_email"
                   required
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Industry"
