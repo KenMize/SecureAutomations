@@ -469,25 +469,29 @@ export default function CheckupPage() {
                 <TextField
                   label="Company Name"
                   placeholder="Enter your company name"
-                  field="company_name"
+                  value={formData.company_name}
+                  onChange={(val) => handleChangeCallback("company_name", val)}
                   required
                 />
                 <TextField
                   label="Primary Contact Name"
                   placeholder="Your full name"
-                  field="contact_name"
+                  value={formData.contact_name}
+                  onChange={(val) => handleChangeCallback("contact_name", val)}
                   required
                 />
                 <TextField
                   label="Contact Title"
                   placeholder="Your title/role"
-                  field="contact_title"
+                  value={formData.contact_title}
+                  onChange={(val) => handleChangeCallback("contact_title", val)}
                   required
                 />
                 <TextField
                   label="Work Email"
                   placeholder="your@company.com"
-                  field="work_email"
+                  value={formData.work_email}
+                  onChange={(val) => handleChangeCallback("work_email", val)}
                   required
                 />
                 <SelectField
@@ -499,12 +503,14 @@ export default function CheckupPage() {
                     "Government Contractor",
                     "Other",
                   ]}
-                  field="industry"
+                  value={formData.industry}
+                  onChange={(val) => handleChangeCallback("industry", val)}
                 />
                 <SelectField
                   label="Company Size"
                   options={["1–50", "51–250", "251–1000", "1000+"]}
-                  field="company_size"
+                  value={formData.company_size}
+                  onChange={(val) => handleChangeCallback("company_size", val)}
                 />
               </div>
             )}
