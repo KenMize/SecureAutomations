@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MessageSquare,
   FileText,
@@ -8,6 +8,13 @@ import {
   Users,
   Clock,
 } from "lucide-react";
+
+interface ConsultationFormState {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}
 
 export default function ExamplesPage() {
   const agents = [
