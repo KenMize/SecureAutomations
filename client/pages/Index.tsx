@@ -30,7 +30,7 @@ export default function LandingSecureAI() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleContactChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setContactForm((prev) => ({
@@ -62,14 +62,12 @@ export default function LandingSecureAI() {
         alert("Thank you! We'll contact you within 2 hours.");
       } else {
         const errorData = await response.json();
-        alert(
-          `Failed to submit form: ${errorData.error || "Unknown error"}`
-        );
+        alert(`Failed to submit form: ${errorData.error || "Unknown error"}`);
       }
     } catch (error) {
       console.error("Submission error:", error);
       alert(
-        "An error occurred. Please check your internet connection and try again."
+        "An error occurred. Please check your internet connection and try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -858,7 +856,10 @@ export default function LandingSecureAI() {
             </a>
           </div>
 
-          <form onSubmit={handleContactSubmit} className="mt-12 grid md:grid-cols-2 gap-4 max-w-2xl">
+          <form
+            onSubmit={handleContactSubmit}
+            className="mt-12 grid md:grid-cols-2 gap-4 max-w-2xl"
+          >
             <input
               type="text"
               name="name"
@@ -895,7 +896,11 @@ export default function LandingSecureAI() {
               rows={5}
               placeholder="What's your biggest revenue opportunity? (e.g., booking more appointments, closing sales faster, supporting customers better)"
             />
-            <button type="submit" disabled={isSubmitting} className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               {isSubmitting ? "Submitting..." : "Schedule call"}
             </button>
           </form>

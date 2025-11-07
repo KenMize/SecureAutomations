@@ -324,7 +324,12 @@ export async function handleContactForm(req: Request, res: Response) {
     const formData = req.body as ContactFormRequest;
 
     // Validate required fields
-    if (!formData.name || !formData.email || !formData.company || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.company ||
+      !formData.message
+    ) {
       res.status(400).json({ error: "Missing required fields" });
       return;
     }
