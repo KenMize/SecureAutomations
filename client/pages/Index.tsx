@@ -71,8 +71,14 @@ export default function LandingSecureAI() {
         });
         alert("Thank you! We'll contact you within 2 hours.");
       } else {
-        const errorData = await response.json();
-        alert(`Failed to submit form: ${errorData.error || "Unknown error"}`);
+        let errorMessage = "Unknown error";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          errorMessage = `Server error: ${response.status}`;
+        }
+        alert(`Failed to submit form: ${errorMessage}`);
       }
     } catch (error) {
       console.error("Submission error:", error);
