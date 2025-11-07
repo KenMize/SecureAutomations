@@ -419,16 +419,28 @@ export default function Quiz() {
 
   if (showUserForm) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-        <div className="mx-auto max-w-md px-4 py-16">
-          <div className="flex justify-end mb-4">
+      <div className="min-h-screen bg-slate-950 text-slate-100">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+          <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
             <a
               href="/"
-              className="text-slate-400 hover:text-white transition-colors text-sm"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            >
+              <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+              <span className="font-semibold tracking-tight">
+                Secure Automations
+              </span>
+            </a>
+            <a
+              href="/"
+              className="text-sm text-slate-300 hover:text-white transition-colors"
             >
               ✕ Close
             </a>
           </div>
+        </header>
+
+        <div className="mx-auto max-w-md px-4 py-16">
           <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
             <h2 className="text-2xl font-bold mb-2">Almost there!</h2>
             <p className="text-slate-300 mb-8">
