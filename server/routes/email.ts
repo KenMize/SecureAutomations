@@ -98,30 +98,33 @@ async function sendEmailViaGraph(
   bodyHtml: string,
 ): Promise<void> {
   const sharedMailbox = "noreply@secureautomations.ai";
-  const response = await fetch(`https://graph.microsoft.com/v1.0/users/${sharedMailbox}/sendMail`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      message: {
-        subject,
-        body: {
-          contentType: "HTML",
-          content: bodyHtml,
-        },
-        toRecipients: [
-          {
-            emailAddress: {
-              address: to,
-            },
-          },
-        ],
+  const response = await fetch(
+    `https://graph.microsoft.com/v1.0/users/${sharedMailbox}/sendMail`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
       },
-      saveToSentItems: true,
-    }),
-  });
+      body: JSON.stringify({
+        message: {
+          subject,
+          body: {
+            contentType: "HTML",
+            content: bodyHtml,
+          },
+          toRecipients: [
+            {
+              emailAddress: {
+                address: to,
+              },
+            },
+          ],
+        },
+        saveToSentItems: true,
+      }),
+    },
+  );
 
   if (!response.ok) {
     const error = await response.text();
