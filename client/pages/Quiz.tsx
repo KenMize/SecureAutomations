@@ -160,75 +160,148 @@ export default function Quiz() {
     }
   };
 
-  const calculateScore = (): { score: number; recommendation: string } => {
-    let score = 0;
+  const generateRecommendations = (): RecommendedSolution[] => {
     const answerMap = Object.fromEntries(
       answers.map((a) => [a.questionId, a.answer]),
     );
 
+    const recommendations: RecommendedSolution[] = [];
+
+    // Map pain points to specific solutions
+    const painPoint = answerMap["pain-points"];
+    const frequency = answerMap["task-frequency"];
+    const complexity = answerMap["complexity-level"];
+    const volume = answerMap["volume-scale"];
+    const goal = answerMap["primary-goal"];
+
+    // Manual data entry and repetitive tasks
+    if (painPoint === "Manual data entry and repetitive tasks") {
+      recommendations.push({
+        name: "Data Entry & Processing Workflow",
+        description: "Automated extraction and validation of data across systems",
+        benefits: [
+          "Eliminates manual keyboard entry",
+          "Real-time data synchronization",
+          "Built-in error detection and corrections",
+        ],
+      });
+    }
+
+    // Customer support and response delays
+    if (painPoint === "Customer support and response delays") {
+      recommendations.push({
+        name: "Customer Support AI Agent",
+        description: "Intelligent agent that handles inquiries, routes tickets, and learns from responses",
+        benefits: [
+          "24/7 instant response to common questions",
+          "Automatic ticket routing and prioritization",
+          "Learns from human responses to improve over time",
+        ],
+      });
+    }
+
+    // Appointment booking and scheduling
+    if (painPoint === "Appointment booking and scheduling") {
+      recommendations.push({
+        name: "Smart Scheduling Agent",
+        description: "Autonomous scheduling that coordinates calendars and handles confirmations",
+        benefits: [
+          "Reduces back-and-forth emails",
+          "Prevents double-bookings",
+          "Sends automatic reminders to attendees",
+        ],
+      });
+    }
+
+    // Invoice processing and financial workflows
+    if (painPoint === "Invoice processing and financial workflows") {
+      recommendations.push({
+        name: "Invoice Processing Automation",
+        description: "Extract, validate, and route invoices to appropriate departments",
+        benefits: [
+          "90% reduction in processing time",
+          "Automatic GL code assignment",
+          "Fraud detection and validation",
+        ],
+      });
+    }
+
+    // Lead qualification and sales follow-ups
+    if (painPoint === "Lead qualification and sales follow-ups") {
+      recommendations.push({
+        name: "Lead Qualification & Nurture Agent",
+        description: "AI-driven lead scoring and automated follow-up sequences",
+        benefits: [
+          "Identifies high-value leads automatically",
+          "Sends personalized follow-ups at optimal times",
+          "Learns which leads convert best",
+        ],
+      });
+    }
+
+    // Report generation and analytics
+    if (painPoint === "Report generation and analytics") {
+      recommendations.push({
+        name: "Automated Reporting Workflow",
+        description: "Generate, format, and distribute reports on a schedule",
+        benefits: [
+          "Real-time data aggregation",
+          "Customizable report formats",
+          "Automatic distribution to stakeholders",
+        ],
+      });
+    }
+
+    // Add a second recommendation based on complexity and volume
     if (
-      answerMap["pain-points"] === "Manual data entry and repetitive tasks" ||
-      answerMap["pain-points"] === "Invoice processing and financial workflows"
+      (complexity === "Requires judgment and decision-making" ||
+        complexity === "Involves learning from patterns") &&
+      (volume === "High (100-1000 per day)" || volume === "Very high (1000+ per day)")
     ) {
-      score += 20;
-    } else if (
-      answerMap["pain-points"] === "Appointment booking and scheduling" ||
-      answerMap["pain-points"] === "Lead qualification and sales follow-ups"
-    ) {
-      score += 15;
-    } else {
-      score += 10;
+      // Check if we haven't already added an AI agent
+      if (!recommendations.some((r) => r.name.includes("Agent"))) {
+        recommendations.push({
+          name: "Advanced AI Agent Platform",
+          description: "Full-featured autonomous agent for complex, high-volume operations",
+          benefits: [
+            "Handles complex decision logic",
+            "Learns and adapts from patterns",
+            "Scales to thousands of transactions daily",
+          ],
+        });
+      }
     }
 
-    if (answerMap["task-frequency"] === "Daily") {
-      score += 25;
-    } else if (answerMap["task-frequency"] === "Multiple times per week") {
-      score += 20;
-    } else if (answerMap["task-frequency"] === "Weekly") {
-      score += 15;
-    } else {
-      score += 10;
-    }
-
+    // Add integration/workflow recommendation for siloed systems
     if (
-      answerMap["complexity-level"] === "Simple and rule-based (if X then Y)"
+      answerMap["systems-integration"] === "Mostly siloed (separate systems)" &&
+      !recommendations.some((r) => r.name.includes("Workflow"))
     ) {
-      score += 15;
-    } else if (
-      answerMap["complexity-level"] ===
-      "Mostly routine with occasional exceptions"
-    ) {
-      score += 20;
-    } else {
-      score += 25;
+      recommendations.push({
+        name: "System Integration Workflow",
+        description: "Connect disparate systems and synchronize data across platforms",
+        benefits: [
+          "Single source of truth across systems",
+          "Real-time data synchronization",
+          "Reduces duplicate data entry",
+        ],
+      });
     }
 
-    if (answerMap["volume-scale"] === "Very high (1000+ per day)") {
-      score += 20;
-    } else if (answerMap["volume-scale"] === "High (100-1000 per day)") {
-      score += 15;
-    } else {
-      score += 10;
+    // Ensure we have at least one recommendation
+    if (recommendations.length === 0) {
+      recommendations.push({
+        name: "Foundational Automation Workflow",
+        description: "Start with core automation to identify quick wins and build momentum",
+        benefits: [
+          "Easy to implement and monitor",
+          "Quick ROI to build internal support",
+          "Foundation for future AI agents",
+        ],
+      });
     }
 
-    if (answerMap["data-readiness"] >= 4) {
-      score += 5;
-    }
-    if (answerMap["systems-integration"] === "Well integrated and connected") {
-      score += 5;
-    }
-    if (answerMap["team-readiness"] === "Eager to adopt new tools") {
-      score += 5;
-    }
-
-    let recommendation = "Quick-Start RPA or Simple Automation";
-    if (score >= 85) {
-      recommendation = "Full AI Agent Platform (with Learning & Autonomy)";
-    } else if (score >= 65) {
-      recommendation = "Hybrid AI Agent + Workflow Automation";
-    }
-
-    return { score: Math.min(100, score), recommendation };
+    return recommendations.slice(0, 3); // Return up to 3 recommendations
   };
 
   const handleSubmitUserInfo = async (e: React.FormEvent) => {
