@@ -97,7 +97,8 @@ async function sendEmailViaGraph(
   subject: string,
   bodyHtml: string,
 ): Promise<void> {
-  const response = await fetch("https://graph.microsoft.com/v1.0/me/sendMail", {
+  const sharedMailbox = "noreply@secureautomations.ai";
+  const response = await fetch(`https://graph.microsoft.com/v1.0/users/${sharedMailbox}/sendMail`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${accessToken}`,
