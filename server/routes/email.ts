@@ -78,7 +78,7 @@ async function sendEmailViaGraph(
   accessToken: string,
   to: string,
   subject: string,
-  bodyHtml: string
+  bodyHtml: string,
 ): Promise<void> {
   const response = await fetch("https://graph.microsoft.com/v1.0/me/sendMail", {
     method: "POST",
@@ -196,9 +196,9 @@ function formatFormDataAsHtml(data: SendEmailRequest): string {
          ${Object.entries(section.fields)
            .map(
              ([key, value]) =>
-               `<p><strong>${key}:</strong> ${value || "Not provided"}</p>`
+               `<p><strong>${key}:</strong> ${value || "Not provided"}</p>`,
            )
-           .join("")}`
+           .join("")}`,
     )
     .join("");
 
@@ -255,15 +255,14 @@ export async function handleSendEmail(req: Request, res: Response) {
       accessToken,
       "sales@secureautomations.ai",
       subject,
-      bodyHtml
+      bodyHtml,
     );
 
     res.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({
-      error:
-        error instanceof Error ? error.message : "Failed to send email",
+      error: error instanceof Error ? error.message : "Failed to send email",
     });
   }
 }

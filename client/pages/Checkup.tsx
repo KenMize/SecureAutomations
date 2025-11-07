@@ -228,14 +228,14 @@ export default function CheckupPage() {
       } else {
         const errorData = await response.json();
         alert(
-          `Failed to submit assessment: ${errorData.error || "Unknown error"}`
+          `Failed to submit assessment: ${errorData.error || "Unknown error"}`,
         );
         setIsSubmitting(false);
       }
     } catch (error) {
       console.error("Submission error:", error);
       alert(
-        "An error occurred. Please check your internet connection and try again."
+        "An error occurred. Please check your internet connection and try again.",
       );
       setIsSubmitting(false);
     }
