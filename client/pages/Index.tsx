@@ -537,9 +537,7 @@ export default function LandingSecureAI() {
             {/* n8n */}
             <div className="flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-slate-900/40 hover:border-white/20 transition-colors">
               <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-300 mb-2">
-                  n8n
-                </div>
+                <div className="text-2xl font-bold text-cyan-300 mb-2">n8n</div>
                 <p className="text-xs text-slate-400">Automation</p>
               </div>
             </div>
