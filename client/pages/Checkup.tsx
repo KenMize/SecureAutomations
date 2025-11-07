@@ -181,6 +181,80 @@ export default function CheckupPage() {
     </button>
   ));
 
+  const calculateComplianceScores = () => {
+    // Calculate individual compliance framework scores
+    const frameworks: Record<string, number> = {
+      "NIST 800-53": 0,
+      "SOC 2 (TSC)": 0,
+      "ISO/IEC 27001": 0,
+      "ISO/IEC 42001": 0,
+      "HIPAA": 0,
+      "GDPR": 0,
+    };
+
+    const yes = 1, no = 0;
+
+    // NIST 800-53 (focuses on organizational controls, access, audit, incident response)
+    frameworks["NIST 800-53"] = Math.round(
+      ((formData.security_policy === "Yes" ? yes : no) +
+        (formData.roles_assigned === "Yes" ? yes : no) +
+        (formData.access_reviewed === "Yes" ? yes : no) +
+        (formData.security_logs === "Yes" ? yes : no) +
+        (formData.incident_response === "Yes" ? yes : no)) /
+        5 * 100
+    );
+
+    // SOC 2 (focuses on security, availability, processing integrity, confidentiality, privacy)
+    frameworks["SOC 2 (TSC)"] = Math.round(
+      ((formData.security_policy === "Yes" ? yes : no) +
+        (formData.mfa_required === "Yes" ? yes : no) +
+        (formData.encryption === "Yes" ? yes : no) +
+        (formData.security_logs === "Yes" ? yes : no) +
+        (formData.breach_training === "Yes" ? yes : no)) /
+        5 * 100
+    );
+
+    // ISO/IEC 27001 (focuses on information security management)
+    frameworks["ISO/IEC 27001"] = Math.round(
+      ((formData.security_policy === "Yes" ? yes : no) +
+        (formData.asset_inventory === "Yes" ? yes : no) +
+        (formData.access_reviewed === "Yes" ? yes : no) +
+        (formData.least_privilege === "Yes" ? yes : no) +
+        (formData.change_management === "Yes" ? yes : no)) /
+        5 * 100
+    );
+
+    // ISO/IEC 42001 (focuses on AI governance)
+    frameworks["ISO/IEC 42001"] = Math.round(
+      ((formData.ai_governance === "Yes" ? yes : no) +
+        (formData.ai_bias_reviewed === "Yes" ? yes : no) +
+        (formData.model_logging === "Yes" ? yes : no) +
+        (formData.output_review === "Yes" ? yes : no)) /
+        4 * 100
+    );
+
+    // HIPAA (focuses on data protection and privacy for healthcare)
+    frameworks["HIPAA"] = Math.round(
+      ((formData.phi_pii_secured === "Yes" ? yes : no) +
+        (formData.encryption === "Yes" ? yes : no) +
+        (formData.access_reviewed === "Yes" ? yes : no) +
+        (formData.breach_training === "Yes" ? yes : no) +
+        (formData.incident_response === "Yes" ? yes : no)) /
+        5 * 100
+    );
+
+    // GDPR (focuses on data protection and privacy)
+    frameworks["GDPR"] = Math.round(
+      ((formData.gdpr_support === "Yes" ? yes : no) +
+        (formData.retention_policy === "Yes" ? yes : no) +
+        (formData.encryption === "Yes" ? yes : no) +
+        (formData.access_reviewed === "Yes" ? yes : no)) /
+        4 * 100
+    );
+
+    return frameworks;
+  };
+
   const calculateScore = () => {
     const yes = 2,
       partial = 1,
