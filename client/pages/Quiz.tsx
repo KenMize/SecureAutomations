@@ -314,10 +314,11 @@ export default function Quiz() {
       }
     }
 
-    // Add integration/workflow recommendation for siloed systems
+    // Add integration/workflow recommendation for siloed systems (only if not already added)
     if (
       answerMap["systems-integration"] === "Mostly siloed (separate systems)" &&
-      !recommendations.some((r) => r.name.includes("Workflow"))
+      !recommendations.some((r) => r.name.includes("Workflow")) &&
+      !recommendations.some((r) => r.name.includes("Integration"))
     ) {
       recommendations.push({
         name: "System Integration Workflow",
