@@ -489,17 +489,21 @@ export default function Quiz() {
                   Your Assessment
                 </h4>
                 <div className="space-y-2 text-sm text-slate-300">
-                  <div className="flex justify-between">
+                  <div>
                     <span className="text-slate-400">Primary Need:</span>
-                    <span className="font-medium">{result.details["pain-points"]}</span>
+                    <p className="font-medium mt-1">
+                      {Array.isArray(result.details["pain-points"])
+                        ? result.details["pain-points"].join(", ")
+                        : result.details["pain-points"]}
+                    </p>
                   </div>
-                  <div className="flex justify-between">
+                  <div>
                     <span className="text-slate-400">Frequency:</span>
-                    <span className="font-medium">{result.details["task-frequency"]}</span>
+                    <p className="font-medium mt-1">{result.details["task-frequency"]}</p>
                   </div>
-                  <div className="flex justify-between">
+                  <div>
                     <span className="text-slate-400">Complexity:</span>
-                    <span className="font-medium">{result.details["complexity-level"]}</span>
+                    <p className="font-medium mt-1">{result.details["complexity-level"]}</p>
                   </div>
                 </div>
               </div>
