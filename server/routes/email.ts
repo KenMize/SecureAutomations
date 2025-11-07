@@ -38,6 +38,13 @@ interface SendEmailRequest {
   timestamp: string;
 }
 
+interface ContactFormRequest {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}
+
 // Get Microsoft Graph access token
 async function getAccessToken(): Promise<string> {
   const clientId = process.env.AZURE_CLIENT_ID;
