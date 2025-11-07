@@ -16,6 +16,8 @@ import {
   Gauge,
   Zap,
   Star,
+  MessageSquare,
+  Clock,
 } from "lucide-react";
 
 export default function LandingSecureAI() {
