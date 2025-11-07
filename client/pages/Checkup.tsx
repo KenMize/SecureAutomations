@@ -432,21 +432,21 @@ export default function CheckupPage() {
                   options={["Yes", "In progress", "No"]}
                   field="security_policy"
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Have roles been assigned for data protection & AI governance?"
                   options={["Yes", "No"]}
                   field="roles_assigned"
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Do you maintain an asset inventory?"
                   options={["Yes", "No"]}
                   field="asset_inventory"
                   formData={formData}
-                  handleChange={handleChange}
+                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Do you classify data (e.g., public, internal, confidential)?"
