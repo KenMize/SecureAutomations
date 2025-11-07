@@ -253,7 +253,7 @@ export async function handleSendEmail(req: Request, res: Response) {
     // Send email
     await sendEmailViaGraph(
       accessToken,
-      "sales@secureautomations.ai",
+      "Security@secureautomations.ai",
       subject,
       bodyHtml,
     );
