@@ -423,55 +423,55 @@ export default function LandingSecureAI() {
               </div>
             </div>
 
-            {/* The Solution */}
+            {/* Agents + Automation ROI */}
             <div className="rounded-2xl border border-cyan-300/30 bg-slate-900/80 p-6">
               <div className="text-sm text-cyan-300 font-medium uppercase tracking-wider">
-                Total first-year ROI
+                Combined Strategy ROI
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                $40,000-80,000 in new value
+                $40,000-80,000 in first-year value
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Against $18,000/year cost. That's 2-4x return on investment before considering customer satisfaction and retention improvements.
+                New revenue from agents plus labor savings from automations. At $1,500/month cost ($18k/year), that's 2-4x return on investment.
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex gap-2 text-sm">
                   <span className="text-cyan-300 font-semibold">
-                    Year 1 comparison:
+                    New revenue:
                   </span>
-                  <span className="text-slate-300">
-                    Save $24,000-110,000 in labor + hiring
-                  </span>
+                  <span className="text-slate-300">$25,000-50,000</span>
                 </div>
                 <div className="flex gap-2 text-sm">
                   <span className="text-cyan-300 font-semibold">
-                    Your cost:
+                    Labor saved:
                   </span>
-                  <span className="text-slate-300">$18,000/year</span>
+                  <span className="text-slate-300">$10,000-30,000</span>
+                </div>
+                <div className="flex gap-2 text-sm border-t border-cyan-300/20 pt-3 mt-3">
+                  <span className="text-cyan-300 font-semibold">
+                    Total value:
+                  </span>
+                  <span className="text-slate-300">$40,000-80,000</span>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-slate-400 italic">
-                You get back 50+ hours a month. Your team stays focused on
-                growth. Audits become straightforward.
-              </p>
             </div>
           </div>
 
           <div className="mt-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8">
-            <h3 className="text-lg font-semibold">The real payoff</h3>
+            <h3 className="text-lg font-semibold">The impact across the board</h3>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               <div>
                 <div className="text-2xl font-bold text-cyan-300">
-                  20%+ revenue lift
+                  20%+ revenue
                 </div>
                 <p className="mt-2 text-sm text-slate-300">
-                  More conversions, more appointments booked
+                  From agents capturing opportunities 24/7
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">40+ hrs/week</div>
+                <div className="text-2xl font-bold text-cyan-300">40+ hrs/month</div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Your team focuses on growth, not busywork
+                  From automations eliminating manual work
                 </p>
               </div>
               <div>
@@ -479,7 +479,7 @@ export default function LandingSecureAI() {
                   2-4x ROI
                 </div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Pays for itself in weeks, not months
+                  Payback in weeks, not months or years
                 </p>
               </div>
             </div>
@@ -493,10 +493,10 @@ export default function LandingSecureAI() {
               Book your strategy call
             </a>
             <a
-              href="/checkup"
+              href="/examples"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
-              See agent examples
+              See both agent and automation examples
             </a>
           </div>
         </div>
@@ -506,10 +506,10 @@ export default function LandingSecureAI() {
       <section className="border-t border-white/10 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Customer stories: From chaos to revenue
+            Real results with agents and automations
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Dental practices book 3x more appointments. E-commerce shops cut support costs by 60%. Service businesses close deals 20% faster.
+            Whether using agents alone, automations alone, or both—SMBs are seeing immediate impact on their bottom line.
           </p>
 
           <div className="mt-8 grid md:grid-cols-2 gap-6">
@@ -522,11 +522,12 @@ export default function LandingSecureAI() {
                   />
                 ))}
               </div>
+              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">Using AI Agents</div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "Our appointment scheduler agent booked 200+ appointments in the first month. That's $15,000 in new revenue we would've lost."
+                "The appointment scheduler agent booked 200+ meetings in month one. That's $15,000 in revenue we would've lost without it."
               </blockquote>
               <p className="text-sm text-slate-400">
-                Owner, Dental Practice (Austin, TX)
+                Founder, Dental Practice (Austin, TX)
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
@@ -538,8 +539,9 @@ export default function LandingSecureAI() {
                   />
                 ))}
               </div>
+              <div className="mb-3 text-xs text-slate-400 font-semibold uppercase">Using Workflow Automations</div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "Our support bot handles 70% of FAQ questions now. That's one full person doing actual sales instead of answering the same questions daily."
+                "Invoice processing went from 6 hours a week to fully automated. That's one team member who can now focus on strategy instead of data entry."
               </blockquote>
               <p className="text-sm text-slate-400">
                 VP Operations, E-Commerce Company
