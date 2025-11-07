@@ -155,7 +155,7 @@ export default function LandingSecureAI() {
             What we automate for you
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We set up automations that handle invoices, leads, customer messages, and follow-ups—securely, so you can focus on growing your business.
+            We set up automations that handle invoices, leads, customer messages, and follow-ups securely, so you can focus on growing your business.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
