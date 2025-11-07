@@ -344,81 +344,81 @@ export default function LandingSecureAI() {
       <section className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            ROI that pays for itself in days
+            ROI that pays for itself in weeks
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Starting at $1,500/month. Most SMBs see payback in weeks through improved conversions, reduced support costs, and higher customer lifetime value.
+            Starting at $1,500/month. Whether you choose agents, automations, or both—you'll see measurable results within weeks.
           </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
-            {/* Revenue Impact */}
+            {/* AI AGENTS ROI */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                Revenue Impact
+                AI Agents ROI
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Appointment schedulers convert 20% more leads
+                Direct revenue generation
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                24/7 appointment booking means your sales team has a full pipeline. No more missed opportunities when you're not answering the phone.
+                Appointment schedulers and chatbots generate new revenue by capturing opportunities 24/7 that would otherwise be lost.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  New annual revenue generated:
+                  New annual revenue from agents:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
                   $25,000-50,000+
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (conservative estimate for service businesses)
+                  (service businesses booking 100+ appointments/month)
                 </p>
               </div>
             </div>
 
-            {/* Cost Reduction */}
+            {/* WORKFLOW AUTOMATIONS ROI */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                Cost Reduction
+                Automation Savings
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Support chatbot eliminates 60% of common inquiries
+                Eliminate manual work and errors
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Stop paying your team to answer the same questions. AI handles FAQs, order status, and common issues instantly.
+                Invoice processing, CRM updates, and data entry automations save time and eliminate costly manual errors.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  Annual support labor saved:
+                  Annual labor hours saved:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
-                  $15,000-30,000
+                  500-1000+ hours/year
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (vs. hiring or outsourcing)
+                  (valued at $10,000-30,000 in labor costs)
                 </p>
               </div>
             </div>
 
-            {/* Efficiency Gain */}
+            {/* AGENT + AUTOMATION SYNERGY */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
-                Team Efficiency
+                Combined Effect
               </div>
               <h3 className="mt-3 text-lg font-semibold">
-                Automate 40+ hours of manual work per month
+                More leads + better efficiency
               </h3>
               <p className="mt-3 text-sm text-slate-300">
-                Lead qualification, follow-up emails, appointment reminders, invoice tracking. All handled automatically while your team focuses on closing deals and growing relationships.
+                When agents generate leads, automations instantly process them, update systems, and route to your team. Zero friction, maximum conversion.
               </p>
               <div className="mt-4 rounded-lg bg-slate-950/40 p-4 border border-cyan-300/20">
                 <p className="text-xs text-slate-400">
-                  Time freed per employee:
+                  Manual work eliminated:
                 </p>
                 <p className="mt-2 text-lg font-semibold text-cyan-300">
-                  1 day per week
+                  40+ hours/month
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  (valued at $400-600/week)
+                  (data entry, routing, follow-ups)
                 </p>
               </div>
             </div>
