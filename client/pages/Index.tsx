@@ -404,26 +404,26 @@ export default function LandingSecureAI() {
           </div>
 
           <div className="mt-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8">
-            <h3 className="text-lg font-semibold">Why this works for SMBs</h3>
+            <h3 className="text-lg font-semibold">The real payoff</h3>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               <div>
                 <div className="text-2xl font-bold text-cyan-300">
-                  50-70 hrs
+                  50+ hrs/month
                 </div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Recovered per month for your team
+                  Your team gets back to focus on real work
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">$5k-15k</div>
+                <div className="text-2xl font-bold text-cyan-300">$60k+</div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Replaced external consulting costs
+                  You don't spend on hiring specialists
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">1+ FTE</div>
+                <div className="text-2xl font-bold text-cyan-300">Audit-ready</div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Worth of coverage without hiring
+                  Compliance is handled, not a constant worry
                 </p>
               </div>
             </div>
