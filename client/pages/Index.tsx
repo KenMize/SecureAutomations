@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -21,6 +21,13 @@ import {
 } from "lucide-react";
 
 export default function LandingSecureAI() {
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* NAV */}
