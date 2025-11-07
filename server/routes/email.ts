@@ -367,3 +367,101 @@ export async function handleContactForm(req: Request, res: Response) {
     });
   }
 }
+
+function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
+  const getReadableAnswer = (key: string, value: string | number): string => {
+    if (typeof value === "number") {
+      return `${value} / 5`;
+    }
+    return String(value);
+  };
+
+  const detailsHtml = Object.entries(data.details)
+    .map(
+      ([key, value]) =>
+        `<tr>
+          <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0; font-weight: 500;">${key
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, (l) => l.toUpperCase())}</td>
+          <td style="padding: 8px 12px; border-bottom: 1px solid #e2e8f0;">${getReadableAnswer(key, value)}</td>
+        </tr>`
+    )
+    .join("");
+
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; color: #333; }
+          h1 { color: #0f172a; }
+          h3 { color: #06b6d4; }
+          p { margin: 5px 0; }
+          table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        </style>
+      </head>
+      <body>
+        <h1>Automation Readiness Assessment Results</h1>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Company:</strong> ${data.company}</p>
+        <p><strong>Submitted:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+
+        <div style="background: #f0f0f0; padding: 15px; margin: 20px 0; border-radius: 5px;">
+          <h3 style="margin-top: 0; color: #06b6d4;">Assessment Score: ${data.score}%</h3>
+          <h3 style="color: #0f172a;">Recommendation: ${data.recommendation}</h3>
+          <p>Based on the assessment, we recommend the above approach to maximize your automation ROI.</p>
+        </div>
+
+        <h3>Detailed Responses</h3>
+        <table>
+          ${detailsHtml}
+        </table>
+
+        <hr style="margin-top: 30px;">
+        <p style="color: #666; font-size: 12px;">This assessment was completed via the Secure Automations Automation Readiness Quiz. Our Sales team will review your results and contact you within 2 hours.</p>
+      </body>
+    </html>
+  `;
+}
+
+export async function handleQuizSubmission(req: Request, res: Response) {
+  try {
+    const formData = req.body as QuizSubmissionRequest;
+
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.company || !formData.score) {
+      res.status(400).json({ error: "Missing required fields" });
+      return;
+    }
+
+    // Get access token from Azure
+    const accessToken = await getAccessToken();
+
+    // Format the email
+    const subject = `Automation Readiness Assessment – ${formData.company} (Score: ${formData.score}%)`;
+    const bodyHtml = formatQuizResultsAsHtml(formData);
+
+    // Send to user's email
+    await sendEmailViaGraph(
+      accessToken,
+      formData.email,
+      subject,
+      bodyHtml,
+    );
+
+    // Send to sales team
+    await sendEmailViaGraph(
+      accessToken,
+      "Sales@secureautomations.ai",
+      subject,
+      bodyHtml,
+    );
+
+    res.json({ success: true, message: "Quiz results sent successfully" });
+  } catch (error) {
+    console.error("Error sending quiz results:", error);
+    res.status(500).json({
+      error: error instanceof Error ? error.message : "Failed to send quiz results",
+    });
+  }
+}
