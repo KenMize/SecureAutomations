@@ -240,6 +240,51 @@ function formatFormDataAsHtml(data: SendEmailRequest): string {
   `;
 }
 
+function formatContactFormAsHtml(data: ContactFormRequest): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; color: #333; }
+          h1 { color: #0f172a; }
+          h3 { color: #06b6d4; }
+          p { margin: 5px 0; }
+          .field { margin: 15px 0; }
+          .field-label { font-weight: bold; color: #06b6d4; }
+        </style>
+      </head>
+      <body>
+        <h1>New Consultation Request</h1>
+        <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+
+        <div class="field">
+          <div class="field-label">Name:</div>
+          <p>${data.name}</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label">Email:</div>
+          <p>${data.email}</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label">Company:</div>
+          <p>${data.company}</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label">Message:</div>
+          <p>${data.message.replace(/\n/g, "<br>")}</p>
+        </div>
+
+        <hr style="margin-top: 30px;">
+        <p style="color: #666; font-size: 12px;">This email was sent from the Secure Automations website contact form.</p>
+      </body>
+    </html>
+  `;
+}
+
 export async function handleSendEmail(req: Request, res: Response) {
   try {
     const formData = req.body as SendEmailRequest;
@@ -261,6 +306,40 @@ export async function handleSendEmail(req: Request, res: Response) {
     await sendEmailViaGraph(
       accessToken,
       "Security@secureautomations.ai",
+      subject,
+      bodyHtml,
+    );
+
+    res.json({ success: true, message: "Email sent successfully" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({
+      error: error instanceof Error ? error.message : "Failed to send email",
+    });
+  }
+}
+
+export async function handleContactForm(req: Request, res: Response) {
+  try {
+    const formData = req.body as ContactFormRequest;
+
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.company || !formData.message) {
+      res.status(400).json({ error: "Missing required fields" });
+      return;
+    }
+
+    // Get access token from Azure
+    const accessToken = await getAccessToken();
+
+    // Format the email
+    const subject = `New Strategy Call Request – ${formData.company}`;
+    const bodyHtml = formatContactFormAsHtml(formData);
+
+    // Send email
+    await sendEmailViaGraph(
+      accessToken,
+      "Sales@secureautomations.ai",
       subject,
       bodyHtml,
     );
