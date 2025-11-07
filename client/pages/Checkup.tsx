@@ -501,29 +501,23 @@ export default function CheckupPage() {
 
           {/* Section 2 */}
           <div className="space-y-4">
-            <SectionHeader num={2} title="Governance & Policy" expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+            <SectionHeader num={2} title="Governance & Policy" isExpanded={expandedSection === 2} onToggle={() => setExpandedSection(expandedSection === 2 ? 0 : 2)} />
             {expandedSection === 2 && (
               <div className="border border-white/10 rounded-xl p-6 space-y-4">
                 <SelectField
                   label="Do you have an information security policy?"
                   options={["Yes", "In progress", "No"]}
                   field="security_policy"
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Have roles been assigned for data protection & AI governance?"
                   options={["Yes", "No"]}
                   field="roles_assigned"
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Do you maintain an asset inventory?"
                   options={["Yes", "No"]}
                   field="asset_inventory"
-                  formData={formData}
-                  handleChange={handleChangeCallback}
                 />
                 <SelectField
                   label="Do you classify data (e.g., public, internal, confidential)?"
