@@ -623,22 +623,26 @@ export default function CheckupPage() {
                 <SelectField
                   label="AI models reviewed for bias and fairness?"
                   options={["Yes", "No"]}
-                  field="ai_bias_reviewed"
+                  value={formData.ai_bias_reviewed}
+                  onChange={(val) => handleChangeCallback("ai_bias_reviewed", val)}
                 />
                 <SelectField
                   label="AI governance committee or review process exists?"
                   options={["Yes", "No"]}
-                  field="ai_governance"
+                  value={formData.ai_governance}
+                  onChange={(val) => handleChangeCallback("ai_governance", val)}
                 />
                 <SelectField
                   label="Model prompts and decisions logged?"
                   options={["Yes", "No"]}
-                  field="model_logging"
+                  value={formData.model_logging}
+                  onChange={(val) => handleChangeCallback("model_logging", val)}
                 />
                 <SelectField
                   label="Outputs reviewed for hallucinations or data leakage?"
                   options={["Regularly", "Occasionally", "Never"]}
-                  field="output_review"
+                  value={formData.output_review}
+                  onChange={(val) => handleChangeCallback("output_review", val)}
                 />
               </div>
             )}
