@@ -45,6 +45,16 @@ interface ContactFormRequest {
   message: string;
 }
 
+interface QuizSubmissionRequest {
+  email: string;
+  name: string;
+  company: string;
+  score: number;
+  recommendation: string;
+  details: Record<string, string | number>;
+  timestamp: string;
+}
+
 // Get Microsoft Graph access token
 async function getAccessToken(): Promise<string> {
   const clientId = process.env.AZURE_CLIENT_ID;
