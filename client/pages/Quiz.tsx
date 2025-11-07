@@ -230,7 +230,7 @@ export default function Quiz() {
     }
 
     // Customer support and response delays
-    if (painPoint === "Customer support and response delays") {
+    if (painPoints.includes("Customer support and response delays")) {
       recommendations.push({
         name: "Customer Support AI Agent",
         description: "Intelligent agent that handles inquiries, routes tickets, and learns from responses",
@@ -243,7 +243,7 @@ export default function Quiz() {
     }
 
     // Appointment booking and scheduling
-    if (painPoint === "Appointment booking and scheduling") {
+    if (painPoints.includes("Appointment booking and scheduling")) {
       recommendations.push({
         name: "Smart Scheduling Agent",
         description: "Autonomous scheduling that coordinates calendars and handles confirmations",
@@ -256,7 +256,7 @@ export default function Quiz() {
     }
 
     // Invoice processing and financial workflows
-    if (painPoint === "Invoice processing and financial workflows") {
+    if (painPoints.includes("Invoice processing and financial workflows")) {
       recommendations.push({
         name: "Invoice Processing Automation",
         description: "Extract, validate, and route invoices to appropriate departments",
@@ -269,7 +269,7 @@ export default function Quiz() {
     }
 
     // Lead qualification and sales follow-ups
-    if (painPoint === "Lead qualification and sales follow-ups") {
+    if (painPoints.includes("Lead qualification and sales follow-ups")) {
       recommendations.push({
         name: "Lead Qualification & Nurture Agent",
         description: "AI-driven lead scoring and automated follow-up sequences",
@@ -282,7 +282,7 @@ export default function Quiz() {
     }
 
     // Report generation and analytics
-    if (painPoint === "Report generation and analytics") {
+    if (painPoints.includes("Report generation and analytics")) {
       recommendations.push({
         name: "Automated Reporting Workflow",
         description: "Generate, format, and distribute reports on a schedule",
