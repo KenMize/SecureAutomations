@@ -656,7 +656,7 @@ export default function CheckupPage() {
                   <textarea
                     value={formData.additional_notes ?? ""}
                     onChange={(e) =>
-                      handleChange("additional_notes", e.target.value)
+                      handleChangeCallback("additional_notes", e.target.value)
                     }
                     placeholder="Tell us anything else we should know..."
                     rows={4}
