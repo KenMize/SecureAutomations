@@ -378,6 +378,17 @@ export default function CheckupPage() {
       });
 
       if (response.ok) {
+        // Calculate and store compliance scores
+        const complianceScores = calculateComplianceScores();
+        sessionStorage.setItem(
+          "complianceResults",
+          JSON.stringify({
+            score,
+            complianceScores,
+            company: formData.company_name,
+            timestamp: new Date().toISOString(),
+          })
+        );
         window.location.href = "/thank-you";
       } else {
         let errorMessage = "Unknown error";
