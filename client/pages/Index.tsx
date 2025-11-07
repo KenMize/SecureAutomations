@@ -858,26 +858,45 @@ export default function LandingSecureAI() {
             </a>
           </div>
 
-          <form className="mt-12 grid md:grid-cols-2 gap-4 max-w-2xl">
+          <form onSubmit={handleContactSubmit} className="mt-12 grid md:grid-cols-2 gap-4 max-w-2xl">
             <input
+              type="text"
+              name="name"
+              value={contactForm.name}
+              onChange={handleContactChange}
+              required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               placeholder="Name"
             />
             <input
+              type="email"
+              name="email"
+              value={contactForm.email}
+              onChange={handleContactChange}
+              required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               placeholder="Work email"
             />
             <input
+              type="text"
+              name="company"
+              value={contactForm.company}
+              onChange={handleContactChange}
+              required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               placeholder="Company name"
             />
             <textarea
+              name="message"
+              value={contactForm.message}
+              onChange={handleContactChange}
+              required
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               rows={5}
               placeholder="What's your biggest revenue opportunity? (e.g., booking more appointments, closing sales faster, supporting customers better)"
             />
-            <button className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors">
-              Schedule call
+            <button type="submit" disabled={isSubmitting} className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              {isSubmitting ? "Submitting..." : "Schedule call"}
             </button>
           </form>
           <p className="mt-6 text-xs text-slate-500">
