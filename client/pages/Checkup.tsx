@@ -165,7 +165,7 @@ export default function CheckupPage() {
     </div>
   ));
 
-  const SectionHeader = ({ num, title }: { num: number; title: string }) => (
+  const SectionHeader = memo(({ num, title }: { num: number; title: string }) => (
     <button
       onClick={() => setExpandedSection(expandedSection === num ? 0 : num)}
       className="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-colors"
@@ -179,7 +179,7 @@ export default function CheckupPage() {
         }`}
       />
     </button>
-  );
+  ));
 
   const calculateScore = () => {
     const yes = 2,
