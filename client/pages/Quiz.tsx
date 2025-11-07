@@ -139,6 +139,7 @@ export default function Quiz() {
     company: "",
   });
   const [showUserForm, setShowUserForm] = useState(false);
+  const [showRecommendationModal, setShowRecommendationModal] = useState(false);
 
   const currentQ = QUIZ_QUESTIONS[currentQuestion];
   const progress = ((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100;
