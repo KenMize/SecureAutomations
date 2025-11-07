@@ -361,12 +361,12 @@ export default function ExamplesPage() {
             or automation workflow, our team can build exactly what you need—all
             with enterprise-grade security.
           </p>
-          <a
-            href="/#contact"
+          <button
+            onClick={() => setShowConsultationModal(true)}
             className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-6 py-3 text-sm shadow hover:bg-slate-100 transition-colors font-medium"
           >
             Schedule a consultation
-          </a>
+          </button>
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
