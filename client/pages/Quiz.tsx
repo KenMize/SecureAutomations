@@ -414,7 +414,7 @@ export default function Quiz() {
                 </label>
                 <input
                   type="text"
-                  value={userInfo.name}
+                  value={userInfo.name ?? ""}
                   onChange={(e) =>
                     setUserInfo({ ...userInfo, name: e.target.value })
                   }
@@ -430,7 +430,7 @@ export default function Quiz() {
                 </label>
                 <input
                   type="email"
-                  value={userInfo.email}
+                  value={userInfo.email ?? ""}
                   onChange={(e) =>
                     setUserInfo({ ...userInfo, email: e.target.value })
                   }
@@ -446,7 +446,7 @@ export default function Quiz() {
                 </label>
                 <input
                   type="text"
-                  value={userInfo.company}
+                  value={userInfo.company ?? ""}
                   onChange={(e) =>
                     setUserInfo({ ...userInfo, company: e.target.value })
                   }
