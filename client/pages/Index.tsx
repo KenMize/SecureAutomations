@@ -402,24 +402,24 @@ export default function LandingSecureAI() {
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               <div>
                 <div className="text-2xl font-bold text-cyan-300">
-                  50+ hrs/month
+                  20%+ revenue lift
                 </div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Your team gets back to focus on real work
+                  More conversions, more appointments booked
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-300">$60k+</div>
+                <div className="text-2xl font-bold text-cyan-300">40+ hrs/week</div>
                 <p className="mt-2 text-sm text-slate-300">
-                  You don't spend on hiring specialists
+                  Your team focuses on growth, not busywork
                 </p>
               </div>
               <div>
                 <div className="text-2xl font-bold text-cyan-300">
-                  Audit-ready
+                  2-4x ROI
                 </div>
                 <p className="mt-2 text-sm text-slate-300">
-                  Compliance is handled, not a constant worry
+                  Pays for itself in weeks, not months
                 </p>
               </div>
             </div>
@@ -430,13 +430,13 @@ export default function LandingSecureAI() {
               href="#contact"
               className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
             >
-              Get pricing for your business
+              Book your strategy call
             </a>
             <a
               href="/checkup"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
-              Take the AI security assessment
+              See agent examples
             </a>
           </div>
         </div>
@@ -446,11 +446,10 @@ export default function LandingSecureAI() {
       <section className="border-t border-white/10 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Real teams, real results
+            Customer stories: From chaos to revenue
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            From dental practices to e-commerce shops, small teams automate
-            their busywork and focus on growth.
+            Dental practices book 3x more appointments. E-commerce shops cut support costs by 60%. Service businesses close deals 20% faster.
           </p>
 
           <div className="mt-8 grid md:grid-cols-2 gap-6">
@@ -464,11 +463,10 @@ export default function LandingSecureAI() {
                 ))}
               </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "Our office now runs 24/7 automations. Leads come in, they hit
-                our CRM, invoices generate themselves. We sleep better."
+                "Our appointment scheduler agent booked 200+ appointments in the first month. That's $15,000 in new revenue we would've lost."
               </blockquote>
               <p className="text-sm text-slate-400">
-                Founder, Dental Practice (Austin, TX)
+                Owner, Dental Practice (Austin, TX)
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-8">
@@ -481,21 +479,20 @@ export default function LandingSecureAI() {
                 ))}
               </div>
               <blockquote className="text-base text-slate-100 italic mb-4">
-                "We got audited last month. Secure Automations' audit logs made
-                compliance trivial. The auditor had nothing to question."
+                "Our support bot handles 70% of FAQ questions now. That's one full person doing actual sales instead of answering the same questions daily."
               </blockquote>
               <p className="text-sm text-slate-400">
-                Operations Lead, E-Commerce Startup
+                VP Operations, E-Commerce Company
               </p>
             </div>
           </div>
 
           <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              "Works with Microsoft, OpenAI",
-              "Audit-ready out of the box",
-              "Encrypted & compliant by default",
-              "No IT knowledge required",
+              "Deployed in 24 hours",
+              "Zero IT overhead",
+              "Enterprise-grade security included",
+              "Works with your existing tools",
             ].map((badge) => (
               <div
                 key={badge}
@@ -591,12 +588,10 @@ export default function LandingSecureAI() {
       <section id="contact" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Let's build your next secure automation
+            Ready to deploy your first AI agent?
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Book a 30-minute consultation with our team. We'll review your
-            goals, identify automation opportunities, and show you how to bring
-            DoD-grade security to your business workflows.
+            Book a 30-minute strategy call. We'll identify your biggest revenue opportunity and show you exactly how agents can deliver it.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -604,13 +599,13 @@ export default function LandingSecureAI() {
               href="#contact"
               className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm shadow inline-flex items-center gap-2 hover:bg-slate-100 transition-colors font-medium"
             >
-              Book a 30-minute consultation
+              Book a strategy call
             </a>
             <a
               href="/examples"
               className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
             >
-              See example workflows
+              See what's possible
             </a>
           </div>
 
@@ -625,20 +620,19 @@ export default function LandingSecureAI() {
             />
             <input
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
-              placeholder="Company / Industry"
+              placeholder="Company name"
             />
             <textarea
               className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 md:col-span-2 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
               rows={5}
-              placeholder="Tell us about your automation needs and any compliance requirements..."
+              placeholder="What's your biggest revenue opportunity? (e.g., booking more appointments, closing sales faster, supporting customers better)"
             />
             <button className="rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm w-fit font-medium hover:bg-slate-100 transition-colors">
-              Request consultation
+              Schedule call
             </button>
           </form>
           <p className="mt-6 text-xs text-slate-500">
-            By submitting, you agree to our privacy notice. We never use your
-            data to train models.
+            By submitting, you agree to our privacy notice. We'll contact you within 2 hours.
           </p>
         </div>
       </section>
