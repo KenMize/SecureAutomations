@@ -68,19 +68,14 @@ export default function LandingSecureAI() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-              Security-first AI Automation
+              Stop doing tasks by hand
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              DoD-grade <span className="text-cyan-300">AI automation</span> for{" "}
-              <span className="text-cyan-300">growing businesses</span>
+              Secure automation that <span className="text-cyan-300">saves you hours</span> and keeps{" "}
+              <span className="text-cyan-300">your data protected</span>
             </h1>
             <p className="mt-5 text-slate-300 text-lg max-w-xl">
-              We bring Department of Defense-level security and expertise to
-              your AI workflows. Our team designs, deploys, and operates secure
-              automations using Microsoft Copilot, n8n, and Azure OpenAI with
-              Zero Trust controls, SSO/SCIM, and audit-ready reporting. You get
-              the confidence of enterprise-grade compliance, simplified for your
-              business.
+              We help small teams automate their repetitive work—invoices, emails, customer follow-ups—safely and securely. Our automations follow the same data-protection standards trusted by U.S. defense systems. No IT team needed.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -99,15 +94,15 @@ export default function LandingSecureAI() {
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4" />
-                Zero Trust
+                Customer data stays safe
               </div>
               <div className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
-                DoD-hardened
+                Fully compliant & auditable
               </div>
               <div className="flex items-center gap-2">
                 <BadgeCheck className="h-4 w-4" />
-                Audit-ready
+                No IT expertise needed
               </div>
             </div>
           </motion.div>
@@ -119,36 +114,34 @@ export default function LandingSecureAI() {
           >
             <div className="rounded-3xl border border-white/10 bg-slate-900/60 shadow-xl p-6">
               <div className="text-sm text-slate-400 mb-3">
-                Reference architecture
+                How it works
               </div>
               <div className="rounded-2xl bg-slate-950/60 p-5">
                 <div className="grid grid-cols-6 gap-3 text-xs">
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Intake
+                    <Workflow className="h-4 w-4" /> Your data comes in
                   </div>
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> LLM Guard
+                    <Workflow className="h-4 w-4" /> We protect it
                   </div>
                   <div className="col-span-2 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> Redact/Mask
+                    <Workflow className="h-4 w-4" /> It gets automated
                   </div>
                   <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> n8n / Power Automate
+                    <Workflow className="h-4 w-4" /> Connected to your tools
                   </div>
                   <div className="col-span-3 rounded-xl bg-slate-900/70 shadow p-3 border border-white/10 flex items-center gap-2">
-                    <Workflow className="h-4 w-4" /> SIEM + Evidence
+                    <Workflow className="h-4 w-4" /> Full audit trail
                   </div>
                 </div>
               </div>
               <p className="mt-4 text-sm text-slate-300 mb-3">
-                Every workflow passes through a secure layer that redacts
-                sensitive data, prevents prompt-injection, and logs every action
-                for audit and compliance.
+                Every automation is protected with the same security standards used by defense systems. Customer data gets redacted, every action is logged, and you stay compliant.
               </p>
               <ul className="text-sm text-slate-300 space-y-1 list-disc list-inside">
-                <li>DoD-inspired data-protection architecture</li>
-                <li>Role-based access synced with your SSO provider</li>
-                <li>Immutable audit logs sent to your SIEM or dashboard</li>
+                <li>Your data is encrypted and protected like it's defending national security</li>
+                <li>Every action is logged so you can prove compliance to auditors</li>
+                <li>You stay in control—see exactly what's being automated</li>
               </ul>
             </div>
           </motion.div>
@@ -159,18 +152,17 @@ export default function LandingSecureAI() {
       <section id="solutions" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Secure AI workflows that save time and protect trust
+            What we automate for you
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            We help businesses automate safely, from customer support and
-            finance to operations and compliance.
+            We set up automations that handle invoices, leads, customer messages, and follow-ups—securely, so you can focus on growing your business.
           </p>
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {[
-              "Connect your tools like HubSpot, Slack, and Microsoft 365",
-              "Automate repetitive tasks with privacy-first AI",
-              "Keep full control of your data, logs, and access",
-              "Get guidance from experts with real DoD automation experience",
+              "Invoicing and payment reminders that run on their own",
+              "Customer leads automatically routed to the right person",
+              "Support emails tagged and prioritized without you lifting a finger",
+              "Your data stays encrypted and audit-ready every step of the way",
             ].map((point) => (
               <div
                 key={point}
@@ -186,7 +178,7 @@ export default function LandingSecureAI() {
               href="/examples"
               className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-5 py-3 text-sm hover:bg-slate-100 transition-colors font-medium"
             >
-              Explore automations
+              See what we can automate for you
             </a>
           </div>
         </div>
@@ -196,7 +188,7 @@ export default function LandingSecureAI() {
       <section id="trust" className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Enterprise security, simplified for SMBs
+            You shouldn't have to choose between security and simplicity
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
             Our frameworks and controls come from the same standards used across
@@ -463,8 +455,7 @@ export default function LandingSecureAI() {
             Trusted by security-minded teams
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Our clients range from fast-moving startups to established service
-            providers who need AI automation without risk.
+            Our automations follow the same security standards trusted by the U.S. Department of Defense. That means your customer data stays protected, and you can pass any audit with confidence.
           </p>
 
           <div className="mt-8 rounded-2xl border border-white/10 bg-slate-800/60 p-8">
