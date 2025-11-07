@@ -141,10 +141,10 @@ export default function LandingSecureAI() {
                 Get a free AI security checkup
               </a>
               <a
-                href="#solutions"
+                href="/quiz"
                 className="rounded-2xl border border-white/20 px-5 py-3 text-sm inline-flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-colors font-medium"
               >
-                Explore both solutions
+                Take the automation quiz
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
