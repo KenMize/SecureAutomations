@@ -500,7 +500,7 @@ export async function handleQuizSubmission(req: Request, res: Response) {
     const accessToken = await getAccessToken();
 
     // Format the email
-    const subject = `Automation Readiness Assessment – ${formData.company} (Score: ${formData.score}%)`;
+    const subject = `Automation Readiness Assessment – ${formData.company}`;
     const bodyHtml = formatQuizResultsAsHtml(formData);
 
     // Send to user's email
@@ -514,10 +514,10 @@ export async function handleQuizSubmission(req: Request, res: Response) {
       bodyHtml,
     );
 
-    res.json({ success: true, message: "Quiz results sent successfully" });
+    return res.json({ success: true, message: "Quiz results sent successfully" });
   } catch (error) {
     console.error("Error sending quiz results:", error);
-    res.status(500).json({
+    return res.status(500).json({
       error:
         error instanceof Error ? error.message : "Failed to send quiz results",
     });
