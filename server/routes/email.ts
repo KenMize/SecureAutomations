@@ -514,7 +514,10 @@ export async function handleQuizSubmission(req: Request, res: Response) {
       bodyHtml,
     );
 
-    return res.json({ success: true, message: "Quiz results sent successfully" });
+    return res.json({
+      success: true,
+      message: "Quiz results sent successfully",
+    });
   } catch (error) {
     console.error("Error sending quiz results:", error);
     return res.status(500).json({
