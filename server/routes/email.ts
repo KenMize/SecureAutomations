@@ -1,5 +1,28 @@
 import { Request, Response } from "express";
 
+// Helper function to escape HTML special characters
+function escapeHtml(text: string): string {
+  const map: { [key: string]: string } = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
+}
+
+// Helper function to validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email) && email.length <= 254;
+}
+
+// Helper function to sanitize input
+function sanitizeInput(input: string, maxLength: number = 5000): string {
+  return escapeHtml(input.trim().substring(0, maxLength));
+}
+
 interface SendEmailRequest {
   company_name: string;
   contact_name: string;
@@ -294,7 +317,7 @@ function formatContactFormAsHtml(data: ContactFormRequest): string {
 
         <div class="field">
           <div class="field-label">Message:</div>
-          <p>${data.message.replace(/\n/g, "<br>")}</p>
+          <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
         </div>
 
         <hr style="margin-top: 30px;">
@@ -310,9 +333,21 @@ export async function handleSendEmail(req: Request, res: Response) {
 
     // Validate required fields
     if (!formData.company_name || !formData.work_email) {
-      res.status(400).json({ error: "Missing required fields" });
-      return;
+      return res.status(400).json({ error: "Missing required fields" });
     }
+
+    // Validate email format
+    if (!isValidEmail(formData.work_email)) {
+      return res.status(400).json({ error: "Invalid email address" });
+    }
+
+    // Sanitize string inputs
+    formData.company_name = sanitizeInput(formData.company_name, 200);
+    formData.contact_name = sanitizeInput(formData.contact_name, 200);
+    formData.work_email = formData.work_email.toLowerCase().trim();
+    formData.industry = sanitizeInput(formData.industry, 100);
+    formData.company_size = sanitizeInput(formData.company_size, 100);
+    formData.additional_notes = sanitizeInput(formData.additional_notes, 5000);
 
     // Get access token from Azure
     const accessToken = await getAccessToken();
@@ -349,9 +384,19 @@ export async function handleContactForm(req: Request, res: Response) {
       !formData.company ||
       !formData.message
     ) {
-      res.status(400).json({ error: "Missing required fields" });
-      return;
+      return res.status(400).json({ error: "Missing required fields" });
     }
+
+    // Validate email format
+    if (!isValidEmail(formData.email)) {
+      return res.status(400).json({ error: "Invalid email address" });
+    }
+
+    // Sanitize string inputs
+    formData.name = sanitizeInput(formData.name, 200);
+    formData.email = formData.email.toLowerCase().trim();
+    formData.company = sanitizeInput(formData.company, 200);
+    formData.message = sanitizeInput(formData.message, 5000);
 
     // Get access token from Azure
     const accessToken = await getAccessToken();
@@ -492,9 +537,18 @@ export async function handleQuizSubmission(req: Request, res: Response) {
       !formData.recommendations ||
       formData.recommendations.length === 0
     ) {
-      res.status(400).json({ error: "Missing required fields" });
-      return;
+      return res.status(400).json({ error: "Missing required fields" });
     }
+
+    // Validate email format
+    if (!isValidEmail(formData.email)) {
+      return res.status(400).json({ error: "Invalid email address" });
+    }
+
+    // Sanitize string inputs
+    formData.name = sanitizeInput(formData.name, 200);
+    formData.email = formData.email.toLowerCase().trim();
+    formData.company = sanitizeInput(formData.company, 200);
 
     // Get access token from Azure
     const accessToken = await getAccessToken();
