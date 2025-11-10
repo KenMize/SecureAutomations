@@ -53,14 +53,24 @@ export function createServer() {
   const allowedOrigins = [
     "https://secureautomations.ai",
     "https://www.secureautomations.ai",
-    "http://localhost:5173", // Development
-    "http://localhost:3000", // Development
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:8080",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8080",
   ];
+
+  const isDevelopment = process.env.NODE_ENV !== "production";
 
   app.use(
     cors({
       origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else if (isDevelopment && origin && origin.startsWith("http://localhost")) {
+          callback(null, true);
+        } else if (isDevelopment && origin && origin.startsWith("http://127.0.0.1")) {
           callback(null, true);
         } else {
           callback(new Error("Not allowed by CORS"));
