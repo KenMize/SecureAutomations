@@ -230,7 +230,7 @@ function formatFormDataAsHtml(data: SendEmailRequest): string {
     {
       title: "Certifications & Goals",
       fields: {
-        Certifications: data.certifications.join(", ") || "None",
+        Certifications: (data.certifications || []).join(", ") || "None",
         "Audit Timeline": data.audit_timeline,
         "Request Report": data.request_report,
         "Additional Notes": data.additional_notes,
@@ -245,7 +245,7 @@ function formatFormDataAsHtml(data: SendEmailRequest): string {
          ${Object.entries(section.fields)
            .map(
              ([key, value]) =>
-               `<p><strong>${key}:</strong> ${value || "Not provided"}</p>`,
+               `<p><strong>${key}:</strong> ${escapeHtml(value || "Not provided")}</p>`,
            )
            .join("")}`,
     )
@@ -267,7 +267,7 @@ function formatFormDataAsHtml(data: SendEmailRequest): string {
         <h1>New AI Security Readiness Assessment</h1>
         <p><strong>Readiness Score:</strong> <span style="color: #06b6d4; font-size: 20px;">${data.score}%</span></p>
         <p><strong>Submitted:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
-        
+
         <div class="score">
           <h2 style="margin-top: 0;">Readiness Score: ${data.score}%</h2>
           <p>This assessment provides an overview of the organization's AI security posture across key compliance frameworks.</p>
@@ -302,17 +302,17 @@ function formatContactFormAsHtml(data: ContactFormRequest): string {
 
         <div class="field">
           <div class="field-label">Name:</div>
-          <p>${data.name}</p>
+          <p>${escapeHtml(data.name)}</p>
         </div>
 
         <div class="field">
           <div class="field-label">Email:</div>
-          <p>${data.email}</p>
+          <p>${escapeHtml(data.email)}</p>
         </div>
 
         <div class="field">
           <div class="field-label">Company:</div>
-          <p>${data.company}</p>
+          <p>${escapeHtml(data.company)}</p>
         </div>
 
         <div class="field">
@@ -427,11 +427,11 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
     .map(
       (rec, idx) =>
         `<div style="background: #f9fafb; border-left: 4px solid #06b6d4; padding: 15px; margin: 15px 0; border-radius: 3px;">
-          <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 5px;">${idx + 1}. ${rec.name}</h4>
-          <p style="color: #666; margin: 8px 0; font-size: 14px;">${rec.description}</p>
+          <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 5px;">${idx + 1}. ${escapeHtml(rec.name)}</h4>
+          <p style="color: #666; margin: 8px 0; font-size: 14px;">${escapeHtml(rec.description)}</p>
           <p style="color: #06b6d4; font-weight: bold; margin: 10px 0 5px 0; font-size: 12px;">Key Benefits:</p>
           <ul style="margin: 5px 0; padding-left: 20px; font-size: 13px; color: #666;">
-            ${rec.benefits.map((benefit) => `<li style="margin: 4px 0;">${benefit}</li>`).join("")}
+            ${rec.benefits.map((benefit) => `<li style="margin: 4px 0;">${escapeHtml(benefit)}</li>`).join("")}
           </ul>
         </div>`,
     )
@@ -464,9 +464,9 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
       </head>
       <body>
         <h1>Your Personalized Automation Plan</h1>
-        <p><strong>Company:</strong> ${data.company}</p>
-        <p><strong>Contact Name:</strong> ${data.name}</p>
-        <p><strong>Contact Email:</strong> ${data.email}</p>
+        <p><strong>Company:</strong> ${escapeHtml(data.company)}</p>
+        <p><strong>Contact Name:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Contact Email:</strong> ${escapeHtml(data.email)}</p>
         <p><strong>Assessment Date:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
 
         <h2>Recommended Solutions</h2>
