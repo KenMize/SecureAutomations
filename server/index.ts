@@ -68,9 +68,17 @@ export function createServer() {
       origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
-        } else if (isDevelopment && origin && origin.startsWith("http://localhost")) {
+        } else if (
+          isDevelopment &&
+          origin &&
+          origin.startsWith("http://localhost")
+        ) {
           callback(null, true);
-        } else if (isDevelopment && origin && origin.startsWith("http://127.0.0.1")) {
+        } else if (
+          isDevelopment &&
+          origin &&
+          origin.startsWith("http://127.0.0.1")
+        ) {
           callback(null, true);
         } else {
           callback(new Error("Not allowed by CORS"));
