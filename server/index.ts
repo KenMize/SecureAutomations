@@ -12,14 +12,20 @@ import {
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
 function rateLimit(windowMs: number = 60000, maxRequests: number = 5) {
-  return (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  return (
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction,
+  ) => {
     const ip = req.ip || req.socket.remoteAddress || "unknown";
     const now = Date.now();
     const record = rateLimitStore.get(ip);
 
     if (record && record.resetTime > now) {
       if (record.count >= maxRequests) {
-        return res.status(429).json({ error: "Too many requests. Please try again later." });
+        return res
+          .status(429)
+          .json({ error: "Too many requests. Please try again later." });
       }
       record.count++;
     } else {
@@ -48,20 +54,22 @@ export function createServer() {
     "https://secureautomations.ai",
     "https://www.secureautomations.ai",
     "http://localhost:5173", // Development
-    "http://localhost:3000",  // Development
+    "http://localhost:3000", // Development
   ];
 
-  app.use(cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    optionsSuccessStatus: 200,
-  }));
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+      credentials: true,
+      optionsSuccessStatus: 200,
+    }),
+  );
 
   // Limit request payload size
   app.use(express.json({ limit: "10kb" }));
