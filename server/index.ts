@@ -66,19 +66,9 @@ export function createServer() {
   app.use(
     cors({
       origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
+        if (isDevelopment) {
           callback(null, true);
-        } else if (
-          isDevelopment &&
-          origin &&
-          origin.startsWith("http://localhost")
-        ) {
-          callback(null, true);
-        } else if (
-          isDevelopment &&
-          origin &&
-          origin.startsWith("http://127.0.0.1")
-        ) {
+        } else if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else if (origin && origin.endsWith(".fly.dev")) {
           callback(null, true);
