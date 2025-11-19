@@ -80,6 +80,8 @@ export function createServer() {
           origin.startsWith("http://127.0.0.1")
         ) {
           callback(null, true);
+        } else if (origin && origin.endsWith(".fly.dev")) {
+          callback(null, true);
         } else {
           callback(new Error("Not allowed by CORS"));
         }
