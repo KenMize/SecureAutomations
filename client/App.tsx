@@ -40,6 +40,7 @@ export default function App() {
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/examples" element={<Examples />} />
             <Route path="/demo/:agentId" element={<DemoWrapper />} />
+            <Route path="/workflow/:workflowId" element={<WorkflowWrapper />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
