@@ -33,6 +33,7 @@ export default function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/examples" element={<Examples />} />
+            <Route path="/demo/:agentId" element={<DemoWrapper />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
