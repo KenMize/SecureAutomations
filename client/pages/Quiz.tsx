@@ -632,12 +632,20 @@ export default function Quiz() {
                 implementation.
               </p>
 
-              <button
-                onClick={() => setShowResults(true)}
-                className="w-full rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors"
-              >
-                View Full Assessment Details
-              </button>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowResults(true)}
+                  className="flex-1 rounded-2xl bg-slate-800 text-white px-4 py-3 font-medium hover:bg-slate-700 transition-colors"
+                >
+                  View Full Details
+                </button>
+                <a
+                  href="/"
+                  className="flex-1 rounded-2xl bg-white text-slate-950 px-4 py-3 font-medium hover:bg-slate-100 transition-colors text-center"
+                >
+                  Done
+                </a>
+              </div>
             </div>
           </div>
         </div>
