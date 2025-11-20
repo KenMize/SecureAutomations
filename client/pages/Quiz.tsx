@@ -17,7 +17,7 @@ interface QuizResult {
   name: string;
   company: string;
   recommendations: RecommendedSolution[];
-  details: Record<string, string | number | string[]>;
+  details: Record<string, string | number | (string | number)[]>;
   timestamp: string;
 }
 
