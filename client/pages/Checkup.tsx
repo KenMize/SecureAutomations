@@ -571,9 +571,9 @@ export default function CheckupPage() {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-6 py-3 text-sm font-medium hover:bg-slate-100 transition-colors"
+                className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-8 py-3 text-base font-semibold hover:bg-slate-100 transition-colors"
               >
-                Back to Home
+                Done
               </a>
             </div>
           </div>
