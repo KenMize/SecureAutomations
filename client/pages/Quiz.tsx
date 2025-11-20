@@ -3,7 +3,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 
 interface QuizAnswer {
   questionId: string;
-  answer: string | number;
+  answer: string | number | string[];
 }
 
 interface RecommendedSolution {
@@ -17,7 +17,7 @@ interface QuizResult {
   name: string;
   company: string;
   recommendations: RecommendedSolution[];
-  details: Record<string, string | number>;
+  details: Record<string, string | number | string[]>;
   timestamp: string;
 }
 
