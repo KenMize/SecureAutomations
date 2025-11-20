@@ -16,19 +16,10 @@ interface DemoData {
 }
 
 export default function AgentDemoPage({
-  agentId = "support",
+  agentId,
 }: {
   agentId?: string;
 }) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      type: "agent",
-      text: "Hello! How can I help you today?",
-    },
-  ]);
-  const [inputValue, setInputValue] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
   const demoConfigs: Record<string, DemoData> = {
     support: {
       id: "support",
