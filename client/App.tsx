@@ -11,11 +11,17 @@ import Quiz from "./pages/Quiz";
 import ThankYou from "./pages/ThankYou";
 import Examples from "./pages/Examples";
 import AgentDemo from "./pages/AgentDemo";
+import WorkflowDemo from "./pages/WorkflowDemo";
 import NotFound from "./pages/NotFound";
 
 function DemoWrapper() {
   const { agentId } = useParams();
   return <AgentDemo agentId={agentId} />;
+}
+
+function WorkflowWrapper() {
+  const { workflowId } = useParams();
+  return <WorkflowDemo workflowId={workflowId} />;
 }
 
 const queryClient = new QueryClient();
