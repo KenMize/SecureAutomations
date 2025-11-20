@@ -506,55 +506,66 @@ export default function CheckupPage() {
                 <div className="text-6xl font-bold text-cyan-300 mb-2">
                   {result.score}%
                 </div>
-                <p className="text-slate-300">Overall Security Readiness Score</p>
+                <p className="text-slate-300">
+                  Overall Security Readiness Score
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4 mb-8">
-                {Object.entries(result.complianceScores).map(([framework, score]) => (
-                  <div
-                    key={framework}
-                    className="rounded-xl bg-slate-950/40 border border-white/10 p-4"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-slate-300">
-                        {framework}
-                      </span>
-                      <span className="text-lg font-bold text-cyan-300">
-                        {score}%
-                      </span>
+                {Object.entries(result.complianceScores).map(
+                  ([framework, score]) => (
+                    <div
+                      key={framework}
+                      className="rounded-xl bg-slate-950/40 border border-white/10 p-4"
+                    >
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium text-slate-300">
+                          {framework}
+                        </span>
+                        <span className="text-lg font-bold text-cyan-300">
+                          {score}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-800/50 rounded-full h-2">
+                        <div
+                          className="bg-cyan-300 h-2 rounded-full transition-all duration-300"
+                          style={{ width: `${score}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-800/50 rounded-full h-2">
-                      <div
-                        className="bg-cyan-300 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${score}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </div>
 
             <div className="rounded-2xl bg-slate-950/40 p-6 border border-white/10 mb-8">
-              <h3 className="font-semibold text-cyan-300 mb-4">
-                Next Steps
-              </h3>
+              <h3 className="font-semibold text-cyan-300 mb-4">Next Steps</h3>
               <ul className="space-y-3 text-sm text-slate-300">
                 <li className="flex gap-3">
                   <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
                   <span>
-                    <span className="font-semibold text-white">Consultation</span> – Our specialist will contact you within 2 hours
+                    <span className="font-semibold text-white">
+                      Consultation
+                    </span>{" "}
+                    – Our specialist will contact you within 2 hours
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
                   <span>
-                    <span className="font-semibold text-white">Detailed Analysis</span> – Review your strengths and gaps
+                    <span className="font-semibold text-white">
+                      Detailed Analysis
+                    </span>{" "}
+                    – Review your strengths and gaps
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <ChevronRight className="h-5 w-5 text-cyan-300 flex-shrink-0 mt-0.5" />
                   <span>
-                    <span className="font-semibold text-white">Custom Roadmap</span> – Get a tailored compliance plan
+                    <span className="font-semibold text-white">
+                      Custom Roadmap
+                    </span>{" "}
+                    – Get a tailored compliance plan
                   </span>
                 </li>
               </ul>
@@ -645,25 +656,19 @@ export default function CheckupPage() {
               label="Do you have an information security policy?"
               options={["Yes", "In progress", "No"]}
               value={formData.security_policy ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("security_policy", val)
-              }
+              onChange={(val) => handleChangeCallback("security_policy", val)}
             />
             <SelectField
               label="Have roles been assigned for data protection & AI governance?"
               options={["Yes", "No"]}
               value={formData.roles_assigned ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("roles_assigned", val)
-              }
+              onChange={(val) => handleChangeCallback("roles_assigned", val)}
             />
             <SelectField
               label="Do you maintain an asset inventory?"
               options={["Yes", "No"]}
               value={formData.asset_inventory ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("asset_inventory", val)
-              }
+              onChange={(val) => handleChangeCallback("asset_inventory", val)}
             />
             <SelectField
               label="Do you classify data (e.g., public, internal, confidential)?"
@@ -683,33 +688,25 @@ export default function CheckupPage() {
               label="Is single sign-on (SSO) enabled?"
               options={["Yes", "In progress", "No"]}
               value={formData.sso_enabled ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("sso_enabled", val)
-              }
+              onChange={(val) => handleChangeCallback("sso_enabled", val)}
             />
             <SelectField
               label="Is multi-factor authentication (MFA) required?"
               options={["Yes", "For sensitive systems", "No"]}
               value={formData.mfa_required ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("mfa_required", val)
-              }
+              onChange={(val) => handleChangeCallback("mfa_required", val)}
             />
             <SelectField
               label="Is least privilege enforced?"
               options={["Always", "Sometimes", "No"]}
               value={formData.least_privilege ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("least_privilege", val)
-              }
+              onChange={(val) => handleChangeCallback("least_privilege", val)}
             />
             <SelectField
               label="Are access rights reviewed regularly?"
               options={["Yes (quarterly or more)", "Yes (annually)", "No"]}
               value={formData.access_reviewed ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("access_reviewed", val)
-              }
+              onChange={(val) => handleChangeCallback("access_reviewed", val)}
             />
           </div>
         );
@@ -721,33 +718,25 @@ export default function CheckupPage() {
               label="Is data encrypted at rest and in transit?"
               options={["Yes", "Partially", "No"]}
               value={formData.encryption ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("encryption", val)
-              }
+              onChange={(val) => handleChangeCallback("encryption", val)}
             />
             <SelectField
               label="Do you have GDPR-compliant data handling?"
               options={["Yes", "In progress", "No"]}
               value={formData.gdpr_support ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("gdpr_support", val)
-              }
+              onChange={(val) => handleChangeCallback("gdpr_support", val)}
             />
             <SelectField
               label="Are PHI/PII data secured?"
               options={["Yes", "In progress", "No"]}
               value={formData.phi_pii_secured ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("phi_pii_secured", val)
-              }
+              onChange={(val) => handleChangeCallback("phi_pii_secured", val)}
             />
             <SelectField
               label="Do you have data retention policies?"
               options={["Yes", "In progress", "No"]}
               value={formData.retention_policy ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("retention_policy", val)
-              }
+              onChange={(val) => handleChangeCallback("retention_policy", val)}
             />
           </div>
         );
@@ -759,33 +748,25 @@ export default function CheckupPage() {
               label="Are AI models reviewed for bias?"
               options={["Yes", "Planned", "No"]}
               value={formData.ai_bias_reviewed ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("ai_bias_reviewed", val)
-              }
+              onChange={(val) => handleChangeCallback("ai_bias_reviewed", val)}
             />
             <SelectField
               label="Is there an AI governance committee?"
               options={["Yes", "Planned", "No"]}
               value={formData.ai_governance ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("ai_governance", val)
-              }
+              onChange={(val) => handleChangeCallback("ai_governance", val)}
             />
             <SelectField
               label="Are model outputs logged?"
               options={["Yes", "Partial", "No"]}
               value={formData.model_logging ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("model_logging", val)
-              }
+              onChange={(val) => handleChangeCallback("model_logging", val)}
             />
             <SelectField
               label="Are AI outputs reviewed for accuracy?"
               options={["Regularly", "Occasionally", "Not yet"]}
               value={formData.output_review ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("output_review", val)
-              }
+              onChange={(val) => handleChangeCallback("output_review", val)}
             />
           </div>
         );
@@ -797,33 +778,25 @@ export default function CheckupPage() {
               label="Are security logs monitored and retained?"
               options={["Yes", "Partial", "No"]}
               value={formData.security_logs ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("security_logs", val)
-              }
+              onChange={(val) => handleChangeCallback("security_logs", val)}
             />
             <SelectField
               label="Are logs tamper-proof?"
               options={["Yes", "No"]}
               value={formData.tamper_proof ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("tamper_proof", val)
-              }
+              onChange={(val) => handleChangeCallback("tamper_proof", val)}
             />
             <SelectField
               label="Is change management documented?"
               options={["Yes", "No"]}
               value={formData.change_management ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("change_management", val)
-              }
+              onChange={(val) => handleChangeCallback("change_management", val)}
             />
             <SelectField
               label="Are vendors/third parties assessed?"
               options={["Yes", "Partial", "No"]}
               value={formData.vendor_assessment ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("vendor_assessment", val)
-              }
+              onChange={(val) => handleChangeCallback("vendor_assessment", val)}
             />
           </div>
         );
@@ -835,25 +808,19 @@ export default function CheckupPage() {
               label="Do you have an incident response plan?"
               options={["Yes", "In progress", "No"]}
               value={formData.incident_response ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("incident_response", val)
-              }
+              onChange={(val) => handleChangeCallback("incident_response", val)}
             />
             <SelectField
               label="Is breach/incident training conducted?"
               options={["Yes (annually)", "Occasionally", "No"]}
               value={formData.breach_training ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("breach_training", val)
-              }
+              onChange={(val) => handleChangeCallback("breach_training", val)}
             />
             <SelectField
               label="Are backups tested regularly?"
               options={["Yes", "Occasionally", "No"]}
               value={formData.backup_testing ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("backup_testing", val)
-              }
+              onChange={(val) => handleChangeCallback("backup_testing", val)}
             />
           </div>
         );
@@ -900,18 +867,14 @@ export default function CheckupPage() {
                 "More than 12 months",
               ]}
               value={formData.audit_timeline ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("audit_timeline", val)
-              }
+              onChange={(val) => handleChangeCallback("audit_timeline", val)}
             />
 
             <SelectField
               label="Request your free AI Security Readiness Report?"
               options={["Yes", "No"]}
               value={formData.request_report ?? ""}
-              onChange={(val) =>
-                handleChangeCallback("request_report", val)
-              }
+              onChange={(val) => handleChangeCallback("request_report", val)}
             />
 
             <div className="space-y-2">
@@ -944,11 +907,7 @@ export default function CheckupPage() {
             href="/"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img
-              src="/logo.svg"
-              alt="Secure Automations"
-              className="h-8 w-8"
-            />
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
