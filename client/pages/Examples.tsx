@@ -126,6 +126,7 @@ export default function ExamplesPage() {
 
   const workflows = [
     {
+      id: "support",
       icon: FileText,
       title: "Customer Support Automation",
       description:
@@ -139,6 +140,7 @@ export default function ExamplesPage() {
       compliance: ["SOC 2", "GDPR"],
     },
     {
+      id: "contract",
       icon: FileText,
       title: "Contract & Document Review",
       description:
@@ -152,6 +154,7 @@ export default function ExamplesPage() {
       compliance: ["ISO 27001", "HIPAA"],
     },
     {
+      id: "compliance",
       icon: BarChart3,
       title: "Compliance Reporting Automation",
       description:
@@ -165,6 +168,7 @@ export default function ExamplesPage() {
       compliance: ["SOC 2", "NIST 800-53", "ISO 27001"],
     },
     {
+      id: "iam",
       icon: UserCheck,
       title: "Identity & Access Management Sync",
       description:
@@ -176,19 +180,6 @@ export default function ExamplesPage() {
         "Syncs with Entra ID, Okta, Active Directory",
       ],
       compliance: ["Zero Trust", "NIST 800-53", "ISO 27001"],
-    },
-    {
-      icon: Zap,
-      title: "Data Classification & Remediation",
-      description:
-        "Automatically classify sensitive data, flag misconfigurations, and trigger remediation workflows with audit trails.",
-      benefits: [
-        "Discover and protect PHI/PII automatically",
-        "Real-time data governance",
-        "Compliance with GDPR/CCPA data rights",
-        "Integrates with DLP tools and SIEMs",
-      ],
-      compliance: ["GDPR", "HIPAA", "CCPA"],
     },
   ];
 
