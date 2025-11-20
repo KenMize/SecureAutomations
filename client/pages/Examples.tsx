@@ -81,6 +81,7 @@ export default function ExamplesPage() {
 
   const agents = [
     {
+      id: "support",
       icon: MessageSquare,
       title: "Customer Support Chatbot",
       description:
@@ -94,6 +95,7 @@ export default function ExamplesPage() {
       compliance: ["SOC 2", "GDPR"],
     },
     {
+      id: "scheduler",
       icon: Clock,
       title: "Appointment Scheduler Agent",
       description:
@@ -107,6 +109,7 @@ export default function ExamplesPage() {
       compliance: ["GDPR", "CCPA"],
     },
     {
+      id: "lead",
       icon: BarChart3,
       title: "Lead Qualifier Agent",
       description:
