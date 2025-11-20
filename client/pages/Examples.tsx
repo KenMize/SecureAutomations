@@ -238,16 +238,19 @@ export default function ExamplesPage() {
             {agents.map((agent, index) => {
               const Icon = agent.icon;
               return (
-                <div
+                <a
                   key={index}
-                  className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-white/20 transition-colors p-8"
+                  href={`/demo/${agent.id}`}
+                  className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-cyan-300/50 hover:bg-slate-900/80 transition-all cursor-pointer group p-8 block"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 flex-shrink-0">
+                    <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 flex-shrink-0 group-hover:bg-cyan-300/30 transition-colors">
                       <Icon className="h-6 w-6" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{agent.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
+                    {agent.title}
+                  </h3>
                   <p className="text-slate-300 mb-6 text-sm">
                     {agent.description}
                   </p>
@@ -268,22 +271,27 @@ export default function ExamplesPage() {
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">
-                      Compliance
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {agent.compliance.map((comp, i) => (
-                        <span
-                          key={i}
-                          className="inline-flex items-center rounded-full bg-slate-800/60 px-3 py-1 text-xs font-medium text-cyan-300 border border-cyan-300/30"
-                        >
-                          {comp}
-                        </span>
-                      ))}
+                  <div className="flex items-end justify-between">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                        Compliance
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {agent.compliance.map((comp, i) => (
+                          <span
+                            key={i}
+                            className="inline-flex items-center rounded-full bg-slate-800/60 px-3 py-1 text-xs font-medium text-cyan-300 border border-cyan-300/30"
+                          >
+                            {comp}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="ml-4 text-cyan-300 font-semibold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      Try Demo →
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
