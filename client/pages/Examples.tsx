@@ -301,19 +301,25 @@ export default function ExamplesPage() {
             {workflows.map((workflow, index) => {
               const Icon = workflow.icon;
               return (
-                <div
+                <a
                   key={index}
-                  className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-white/20 transition-colors p-8"
+                  href={`/workflow/${workflow.id}`}
+                  className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden hover:border-cyan-300/50 hover:bg-slate-900/80 transition-all cursor-pointer group block p-8"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 flex-shrink-0">
+                    <div className="p-3 rounded-xl bg-cyan-300/20 text-cyan-300 flex-shrink-0 group-hover:bg-cyan-300/30 transition-colors">
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold">{workflow.title}</h3>
+                      <h3 className="text-xl font-bold group-hover:text-cyan-300 transition-colors">
+                        {workflow.title}
+                      </h3>
                       <p className="mt-2 text-slate-300 text-sm">
                         {workflow.description}
                       </p>
+                    </div>
+                    <div className="ml-4 text-cyan-300 font-semibold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      Try Demo →
                     </div>
                   </div>
 
@@ -350,7 +356,7 @@ export default function ExamplesPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
