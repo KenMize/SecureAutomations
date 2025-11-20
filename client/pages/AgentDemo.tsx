@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Send, MessageSquare, Clock, BarChart3 } from "lucide-react";
 
 interface Message {
@@ -15,107 +15,118 @@ interface DemoData {
   responses: Record<string, string[]>;
 }
 
+const DEMO_CONFIGS: Record<string, DemoData> = {
+  support: {
+    id: "support",
+    title: "Customer Support Chatbot",
+    icon: <MessageSquare className="h-8 w-8" />,
+    description:
+      "24/7 AI agent that answers FAQs, handles common requests, and escalates complex issues to your team.",
+    initialPrompt:
+      "I'm having trouble logging into my account. It keeps saying my password is incorrect even though I'm sure it's right.",
+    responses: {
+      "password|login|account": [
+        "I understand you're having trouble logging in. This is actually a common issue that we can usually resolve quickly. Have you tried resetting your password? I can send you a reset link right away.",
+        "Sometimes clearing your browser cache and cookies can help too. Would you like me to send you step-by-step instructions for that as well?",
+        "If you'd prefer, I can connect you with our support team who can verify your account details securely. What would work best for you?",
+      ],
+      "billing|invoice|payment|charge": [
+        "I'd be happy to help with your billing question. Let me look into that for you. Can you tell me which invoice you're asking about?",
+        "For security reasons, I'll need to verify some information. Let me connect you with our billing specialist who can access your account.",
+      ],
+      "feature|how to|guide": [
+        "Great question! I can walk you through that feature. Here's a quick overview:",
+        "1. Navigate to your dashboard\n2. Click on the feature you're interested in\n3. Follow the setup wizard\n\nWould you like more detailed instructions?",
+      ],
+      "error|bug|broken": [
+        "I'm sorry you're experiencing an issue. Let's troubleshoot this together. Can you tell me exactly what error message you're seeing?",
+        "Thanks for that information. This sounds like something our technical team should look into. I'm going to escalate this to them right now and they'll be in touch within 1 hour.",
+      ],
+      "default": [
+        "Thanks for your question! I've captured that and will get you the right answer. Is there anything else I can help with in the meantime?",
+        "I'm connecting you with a specialist who can help with that. They'll be with you shortly.",
+      ],
+    },
+  },
+  scheduler: {
+    id: "scheduler",
+    title: "Appointment Scheduler Agent",
+    icon: <Clock className="h-8 w-8" />,
+    description:
+      "Intelligent agent that books appointments, sends confirmations, and reminds customers automatically.",
+    initialPrompt: "I'd like to schedule an appointment with a consultant.",
+    responses: {
+      "appointment|schedule|meeting": [
+        "Great! I'd love to help you schedule an appointment. Let me check our availability.",
+        "We have slots available this week. Would you prefer morning or afternoon?",
+        "Perfect! Here are the available times:\n• Tuesday, 10:00 AM\n• Wednesday, 2:00 PM\n• Thursday, 3:30 PM\n\nWhich time works best for you?",
+        "Excellent! I've scheduled your appointment for [selected time]. You'll receive a calendar invite and a reminder 24 hours before.",
+      ],
+      "demo|trial|free": [
+        "Absolutely! We offer a 30-minute demo consultation. What topic would be most helpful?",
+        "I can connect you with our product specialist. Do you have a preferred time this week?",
+      ],
+      "cancel|reschedule|change": [
+        "I can help you reschedule that. When would you like to meet instead?",
+        "No problem! I've updated your appointment and you'll receive a new calendar invite.",
+      ],
+      "default": [
+        "What day and time would work best for you?",
+        "Perfect, I've noted that. Let me get that on the calendar.",
+      ],
+    },
+  },
+  lead: {
+    id: "lead",
+    title: "Lead Qualifier Agent",
+    icon: <BarChart3 className="h-8 w-8" />,
+    description:
+      "AI agent that qualifies inbound leads, asks qualifying questions, and routes to the right sales person.",
+    initialPrompt: "Hi, I'm interested in learning more about your automation platform.",
+    responses: {
+      "interested|learn|platform|product": [
+        "Fantastic! I'm excited to help. To make sure I connect you with the right person, I have a few quick questions.",
+        "First, what's the primary use case you're interested in? Are you looking for customer-facing automation, internal workflows, or compliance automation?",
+        "Got it! And roughly how many people would this solution impact at your company?",
+        "Perfect! And what's your timeline for implementation?",
+        "Great information! I'm connecting you with our sales specialist who focuses on companies like yours. They'll reach out within 2 hours with a tailored demo.",
+      ],
+      "budget|pricing|cost|price": [
+        "Great question! Pricing depends on your specific needs and scale. Let me collect some information so I can get you an accurate quote.",
+        "How many users or transactions per month are we talking about?",
+        "And what's your monthly automation volume approximately?",
+        "I've got all the details. Our pricing ranges from $5K-$50K+ per month depending on complexity. Our sales team will provide an exact quote based on your needs.",
+      ],
+      "integration|system|api|connect": [
+        "That's important! We integrate with most major systems. Which platforms are you currently using?",
+        "Perfect, we have certified connectors for all of those. Our integration team can usually get you connected within 2 weeks.",
+      ],
+      "default": [
+        "That's helpful to know. Let me gather some more information to ensure you talk with the right specialist.",
+        "Excellent! I'm getting you set up with our team.",
+      ],
+    },
+  },
+};
+
 export default function AgentDemoPage({
-  agentId,
+  agentId = "support",
 }: {
   agentId?: string;
 }) {
-  const demoConfigs: Record<string, DemoData> = {
-    support: {
-      id: "support",
-      title: "Customer Support Chatbot",
-      icon: <MessageSquare className="h-8 w-8" />,
-      description:
-        "24/7 AI agent that answers FAQs, handles common requests, and escalates complex issues to your team.",
-      initialPrompt:
-        "I'm having trouble logging into my account. It keeps saying my password is incorrect even though I'm sure it's right.",
-      responses: {
-        "password|login|account": [
-          "I understand you're having trouble logging in. This is actually a common issue that we can usually resolve quickly. Have you tried resetting your password? I can send you a reset link right away.",
-          "Sometimes clearing your browser cache and cookies can help too. Would you like me to send you step-by-step instructions for that as well?",
-          "If you'd prefer, I can connect you with our support team who can verify your account details securely. What would work best for you?",
-        ],
-        "billing|invoice|payment|charge": [
-          "I'd be happy to help with your billing question. Let me look into that for you. Can you tell me which invoice you're asking about?",
-          "For security reasons, I'll need to verify some information. Let me connect you with our billing specialist who can access your account.",
-        ],
-        "feature|how to|guide": [
-          "Great question! I can walk you through that feature. Here's a quick overview:",
-          "1. Navigate to your dashboard\n2. Click on the feature you're interested in\n3. Follow the setup wizard\n\nWould you like more detailed instructions?",
-        ],
-        "error|bug|broken": [
-          "I'm sorry you're experiencing an issue. Let's troubleshoot this together. Can you tell me exactly what error message you're seeing?",
-          "Thanks for that information. This sounds like something our technical team should look into. I'm going to escalate this to them right now and they'll be in touch within 1 hour.",
-        ],
-        default: [
-          "Thanks for your question! I've captured that and will get you the right answer. Is there anything else I can help with in the meantime?",
-          "I'm connecting you with a specialist who can help with that. They'll be with you shortly.",
-        ],
-      },
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      type: "agent",
+      text: "Hello! How can I help you today?",
     },
-    scheduler: {
-      id: "scheduler",
-      title: "Appointment Scheduler Agent",
-      icon: <Clock className="h-8 w-8" />,
-      description:
-        "Intelligent agent that books appointments, sends confirmations, and reminds customers automatically.",
-      initialPrompt: "I'd like to schedule an appointment with a consultant.",
-      responses: {
-        "appointment|schedule|meeting": [
-          "Great! I'd love to help you schedule an appointment. Let me check our availability.",
-          "We have slots available this week. Would you prefer morning or afternoon?",
-          "Perfect! Here are the available times:\n• Tuesday, 10:00 AM\n• Wednesday, 2:00 PM\n• Thursday, 3:30 PM\n\nWhich time works best for you?",
-          "Excellent! I've scheduled your appointment for [selected time]. You'll receive a calendar invite and a reminder 24 hours before.",
-        ],
-        "demo|trial|free": [
-          "Absolutely! We offer a 30-minute demo consultation. What topic would be most helpful?",
-          "I can connect you with our product specialist. Do you have a preferred time this week?",
-        ],
-        "cancel|reschedule|change": [
-          "I can help you reschedule that. When would you like to meet instead?",
-          "No problem! I've updated your appointment and you'll receive a new calendar invite.",
-        ],
-        default: [
-          "What day and time would work best for you?",
-          "Perfect, I've noted that. Let me get that on the calendar.",
-        ],
-      },
-    },
-    lead: {
-      id: "lead",
-      title: "Lead Qualifier Agent",
-      icon: <BarChart3 className="h-8 w-8" />,
-      description:
-        "AI agent that qualifies inbound leads, asks qualifying questions, and routes to the right sales person.",
-      initialPrompt:
-        "Hi, I'm interested in learning more about your automation platform.",
-      responses: {
-        "interested|learn|platform|product": [
-          "Fantastic! I'm excited to help. To make sure I connect you with the right person, I have a few quick questions.",
-          "First, what's the primary use case you're interested in? Are you looking for customer-facing automation, internal workflows, or compliance automation?",
-          "Got it! And roughly how many people would this solution impact at your company?",
-          "Perfect! And what's your timeline for implementation?",
-          "Great information! I'm connecting you with our sales specialist who focuses on companies like yours. They'll reach out within 2 hours with a tailored demo.",
-        ],
-        "budget|pricing|cost|price": [
-          "Great question! Pricing depends on your specific needs and scale. Let me collect some information so I can get you an accurate quote.",
-          "How many users or transactions per month are we talking about?",
-          "And what's your monthly automation volume approximately?",
-          "I've got all the details. Our pricing ranges from $5K-$50K+ per month depending on complexity. Our sales team will provide an exact quote based on your needs.",
-        ],
-        "integration|system|api|connect": [
-          "That's important! We integrate with most major systems. Which platforms are you currently using?",
-          "Perfect, we have certified connectors for all of those. Our integration team can usually get you connected within 2 weeks.",
-        ],
-        default: [
-          "That's helpful to know. Let me gather some more information to ensure you talk with the right specialist.",
-          "Excellent! I'm getting you set up with our team.",
-        ],
-      },
-    },
-  };
+  ]);
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const demo = demoConfigs[agentId] || demoConfigs.support;
+  const demo = useMemo(() => {
+    const config = DEMO_CONFIGS[agentId] || DEMO_CONFIGS.support;
+    return config;
+  }, [agentId]);
 
   const generateResponse = (userInput: string) => {
     const lowerInput = userInput.toLowerCase();
@@ -131,19 +142,14 @@ export default function AgentDemoPage({
     }
 
     const defaultResponses = demo.responses.default;
-    return defaultResponses[
-      Math.floor(Math.random() * defaultResponses.length)
-    ];
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
   };
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
     setIsLoading(true);
-    const newMessages = [
-      ...messages,
-      { type: "user" as const, text: inputValue },
-    ];
+    const newMessages = [...messages, { type: "user" as const, text: inputValue }];
     setMessages(newMessages);
     setInputValue("");
 
@@ -175,7 +181,11 @@ export default function AgentDemoPage({
             href="/examples"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+            <img
+              src="/logo.svg"
+              alt="Secure Automations"
+              className="h-8 w-8"
+            />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -277,10 +287,10 @@ export default function AgentDemoPage({
 
         <div className="mt-8 p-6 rounded-2xl border border-white/10 bg-slate-900/40">
           <p className="text-sm text-slate-400">
-            <strong>Demo Note:</strong> This is an interactive demonstration of
-            how our {demo.title} works. Try asking the agent different questions
-            to see how it responds. In production, this agent would be connected
-            to your systems and data sources.
+            <strong>Demo Note:</strong> This is an interactive demonstration of how our{" "}
+            {demo.title} works. Try asking the agent different questions to see how it
+            responds. In production, this agent would be connected to your systems and
+            data sources.
           </p>
         </div>
       </div>
