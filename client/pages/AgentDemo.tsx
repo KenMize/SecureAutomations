@@ -42,7 +42,7 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
         "I'm sorry you're experiencing an issue. Let's troubleshoot this together. Can you tell me exactly what error message you're seeing?",
         "Thanks for that information. This sounds like something our technical team should look into. I'm going to escalate this to them right now and they'll be in touch within 1 hour.",
       ],
-      "default": [
+      default: [
         "Thanks for your question! I've captured that and will get you the right answer. Is there anything else I can help with in the meantime?",
         "I'm connecting you with a specialist who can help with that. They'll be with you shortly.",
       ],
@@ -70,7 +70,7 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
         "I can help you reschedule that. When would you like to meet instead?",
         "No problem! I've updated your appointment and you'll receive a new calendar invite.",
       ],
-      "default": [
+      default: [
         "What day and time would work best for you?",
         "Perfect, I've noted that. Let me get that on the calendar.",
       ],
@@ -82,7 +82,8 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
     icon: <BarChart3 className="h-8 w-8" />,
     description:
       "AI agent that qualifies inbound leads, asks qualifying questions, and routes to the right sales person.",
-    initialPrompt: "Hi, I'm interested in learning more about your automation platform.",
+    initialPrompt:
+      "Hi, I'm interested in learning more about your automation platform.",
     responses: {
       "interested|learn|platform|product": [
         "Fantastic! I'm excited to help. To make sure I connect you with the right person, I have a few quick questions.",
@@ -101,7 +102,7 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
         "That's important! We integrate with most major systems. Which platforms are you currently using?",
         "Perfect, we have certified connectors for all of those. Our integration team can usually get you connected within 2 weeks.",
       ],
-      "default": [
+      default: [
         "That's helpful to know. Let me gather some more information to ensure you talk with the right specialist.",
         "Excellent! I'm getting you set up with our team.",
       ],
@@ -142,14 +143,19 @@ export default function AgentDemoPage({
     }
 
     const defaultResponses = demo.responses.default;
-    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    return defaultResponses[
+      Math.floor(Math.random() * defaultResponses.length)
+    ];
   };
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
     setIsLoading(true);
-    const newMessages = [...messages, { type: "user" as const, text: inputValue }];
+    const newMessages = [
+      ...messages,
+      { type: "user" as const, text: inputValue },
+    ];
     setMessages(newMessages);
     setInputValue("");
 
@@ -181,11 +187,7 @@ export default function AgentDemoPage({
             href="/examples"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img
-              src="/logo.svg"
-              alt="Secure Automations"
-              className="h-8 w-8"
-            />
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -287,10 +289,10 @@ export default function AgentDemoPage({
 
         <div className="mt-8 p-6 rounded-2xl border border-white/10 bg-slate-900/40">
           <p className="text-sm text-slate-400">
-            <strong>Demo Note:</strong> This is an interactive demonstration of how our{" "}
-            {demo.title} works. Try asking the agent different questions to see how it
-            responds. In production, this agent would be connected to your systems and
-            data sources.
+            <strong>Demo Note:</strong> This is an interactive demonstration of
+            how our {demo.title} works. Try asking the agent different questions
+            to see how it responds. In production, this agent would be connected
+            to your systems and data sources.
           </p>
         </div>
       </div>
