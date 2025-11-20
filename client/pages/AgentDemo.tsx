@@ -108,7 +108,9 @@ interface AgentDemoPageProps {
   agentId?: string;
 }
 
-export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProps) {
+export default function AgentDemoPage({
+  agentId = "support",
+}: AgentDemoPageProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       type: "agent",
@@ -129,13 +131,16 @@ export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProp
       if (keyword === "default") continue;
       const keywords = keyword.split("|");
       if (keywords.some((kw) => lowerInput.includes(kw))) {
-        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        const randomResponse =
+          responses[Math.floor(Math.random() * responses.length)];
         return randomResponse;
       }
     }
 
     const defaultResponses = demo.responses.default;
-    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    return defaultResponses[
+      Math.floor(Math.random() * defaultResponses.length)
+    ];
   };
 
   const handleSendMessage = (): void => {
@@ -176,11 +181,7 @@ export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProp
             href="/examples"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img
-              src="/logo.svg"
-              alt="Secure Automations"
-              className="h-8 w-8"
-            />
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -234,8 +235,14 @@ export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProp
                 <div className="bg-slate-800/60 text-slate-200 border border-white/10 rounded-2xl px-4 py-3">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" />
-                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0.1s" }} />
-                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0.2s" }} />
+                    <div
+                      className="w-2 h-2 rounded-full bg-slate-400 animate-bounce"
+                      style={{ animationDelay: "0.1s" }}
+                    />
+                    <div
+                      className="w-2 h-2 rounded-full bg-slate-400 animate-bounce"
+                      style={{ animationDelay: "0.2s" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -280,7 +287,10 @@ export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProp
 
         <div className="mt-8 p-6 rounded-2xl border border-white/10 bg-slate-900/40">
           <p className="text-sm text-slate-400">
-            <strong>Demo Note:</strong> This is an interactive demonstration of how our {demo.title} works. Try asking the agent different questions to see how it responds. In production, this agent would be connected to your systems and data sources.
+            <strong>Demo Note:</strong> This is an interactive demonstration of
+            how our {demo.title} works. Try asking the agent different questions
+            to see how it responds. In production, this agent would be connected
+            to your systems and data sources.
           </p>
         </div>
       </div>

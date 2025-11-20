@@ -297,7 +297,7 @@ export default function WorkflowDemoPage({
 
   const workflow = useMemo(
     () => WORKFLOW_CONFIGS[workflowId] || WORKFLOW_CONFIGS.support,
-    [workflowId]
+    [workflowId],
   );
 
   const steps: WorkflowStep[] = workflow.steps.map((step, idx) => {
@@ -351,7 +351,9 @@ export default function WorkflowDemoPage({
     setAllLogs([]);
   };
 
-  const isFormValid = workflow.formFields.every((field) => formData[field.name]);
+  const isFormValid = workflow.formFields.every(
+    (field) => formData[field.name],
+  );
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
@@ -361,11 +363,7 @@ export default function WorkflowDemoPage({
             href="/examples"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img
-              src="/logo.svg"
-              alt="Secure Automations"
-              className="h-8 w-8"
-            />
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -483,7 +481,9 @@ export default function WorkflowDemoPage({
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold">{step.title}</h3>
-                      <p className="text-sm text-slate-400">{step.description}</p>
+                      <p className="text-sm text-slate-400">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
 
@@ -515,10 +515,10 @@ export default function WorkflowDemoPage({
         <div className="mt-8 p-6 rounded-2xl border border-white/10 bg-slate-900/40">
           <p className="text-sm text-slate-400">
             <strong>Demo Note:</strong> This interactive demonstration shows how
-            our {workflow.title} works end-to-end. Fill in the form, click "Run",
-            and watch the automation process your data through each step with
-            real-time logs. In production, this would be connected to your actual
-            systems and databases.
+            our {workflow.title} works end-to-end. Fill in the form, click
+            "Run", and watch the automation process your data through each step
+            with real-time logs. In production, this would be connected to your
+            actual systems and databases.
           </p>
         </div>
       </div>
