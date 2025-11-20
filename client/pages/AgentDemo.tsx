@@ -11,7 +11,6 @@ interface DemoData {
   title: string;
   icon: React.ReactNode;
   description: string;
-  initialPrompt: string;
   responses: Record<string, string[]>;
 }
 
@@ -22,29 +21,27 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
     icon: <MessageSquare className="h-8 w-8" />,
     description:
       "24/7 AI agent that answers FAQs, handles common requests, and escalates complex issues to your team.",
-    initialPrompt:
-      "I'm having trouble logging into my account. It keeps saying my password is incorrect even though I'm sure it's right.",
     responses: {
       "password|login|account": [
-        "I understand you're having trouble logging in. This is actually a common issue that we can usually resolve quickly. Have you tried resetting your password? I can send you a reset link right away.",
-        "Sometimes clearing your browser cache and cookies can help too. Would you like me to send you step-by-step instructions for that as well?",
-        "If you'd prefer, I can connect you with our support team who can verify your account details securely. What would work best for you?",
+        "I understand you're having trouble logging in. This is actually a common issue. Have you tried resetting your password? I can send you a reset link.",
+        "Sometimes clearing your browser cache and cookies can help. Would you like step-by-step instructions?",
+        "I can connect you with our support team who can verify your account details securely.",
       ],
-      "billing|invoice|payment|charge": [
-        "I'd be happy to help with your billing question. Let me look into that for you. Can you tell me which invoice you're asking about?",
-        "For security reasons, I'll need to verify some information. Let me connect you with our billing specialist who can access your account.",
+      "billing|invoice|payment": [
+        "I'd be happy to help with your billing question. Which invoice are you asking about?",
+        "For security, I'll connect you with our billing specialist who can access your account.",
       ],
       "feature|how to|guide": [
-        "Great question! I can walk you through that feature. Here's a quick overview:",
-        "1. Navigate to your dashboard\n2. Click on the feature you're interested in\n3. Follow the setup wizard\n\nWould you like more detailed instructions?",
+        "Great question! Let me walk you through that feature. Here's a quick overview.",
+        "1. Navigate to your dashboard\n2. Click on the feature\n3. Follow the setup wizard",
       ],
       "error|bug|broken": [
-        "I'm sorry you're experiencing an issue. Let's troubleshoot this together. Can you tell me exactly what error message you're seeing?",
-        "Thanks for that information. This sounds like something our technical team should look into. I'm going to escalate this to them right now and they'll be in touch within 1 hour.",
+        "I'm sorry you're experiencing an issue. What error message are you seeing?",
+        "Thanks for that information. I'm escalating this to our technical team now.",
       ],
       default: [
-        "Thanks for your question! I've captured that and will get you the right answer. Is there anything else I can help with in the meantime?",
-        "I'm connecting you with a specialist who can help with that. They'll be with you shortly.",
+        "Thanks for your question! I've captured that information.",
+        "I'm connecting you with a specialist who can help with that.",
       ],
     },
   },
@@ -54,25 +51,24 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
     icon: <Clock className="h-8 w-8" />,
     description:
       "Intelligent agent that books appointments, sends confirmations, and reminds customers automatically.",
-    initialPrompt: "I'd like to schedule an appointment with a consultant.",
     responses: {
       "appointment|schedule|meeting": [
         "Great! I'd love to help you schedule an appointment. Let me check our availability.",
         "We have slots available this week. Would you prefer morning or afternoon?",
-        "Perfect! Here are the available times:\n• Tuesday, 10:00 AM\n• Wednesday, 2:00 PM\n• Thursday, 3:30 PM\n\nWhich time works best for you?",
-        "Excellent! I've scheduled your appointment for [selected time]. You'll receive a calendar invite and a reminder 24 hours before.",
+        "Perfect! Here are available times:\n• Tuesday, 10:00 AM\n• Wednesday, 2:00 PM\n• Thursday, 3:30 PM",
+        "Excellent! I've scheduled your appointment. You'll receive a calendar invite and reminder.",
       ],
       "demo|trial|free": [
-        "Absolutely! We offer a 30-minute demo consultation. What topic would be most helpful?",
-        "I can connect you with our product specialist. Do you have a preferred time this week?",
+        "Absolutely! We offer a 30-minute demo consultation. What topic would be helpful?",
+        "I can connect you with our product specialist. Do you have a preferred time?",
       ],
-      "cancel|reschedule|change": [
-        "I can help you reschedule that. When would you like to meet instead?",
+      "cancel|reschedule": [
+        "I can help you reschedule. When would you like to meet instead?",
         "No problem! I've updated your appointment and you'll receive a new calendar invite.",
       ],
       default: [
         "What day and time would work best for you?",
-        "Perfect, I've noted that. Let me get that on the calendar.",
+        "Perfect! Let me get that on the calendar.",
       ],
     },
   },
@@ -82,39 +78,37 @@ const DEMO_CONFIGS: Record<string, DemoData> = {
     icon: <BarChart3 className="h-8 w-8" />,
     description:
       "AI agent that qualifies inbound leads, asks qualifying questions, and routes to the right sales person.",
-    initialPrompt:
-      "Hi, I'm interested in learning more about your automation platform.",
     responses: {
-      "interested|learn|platform|product": [
-        "Fantastic! I'm excited to help. To make sure I connect you with the right person, I have a few quick questions.",
-        "First, what's the primary use case you're interested in? Are you looking for customer-facing automation, internal workflows, or compliance automation?",
-        "Got it! And roughly how many people would this solution impact at your company?",
-        "Perfect! And what's your timeline for implementation?",
-        "Great information! I'm connecting you with our sales specialist who focuses on companies like yours. They'll reach out within 2 hours with a tailored demo.",
+      "interested|learn|platform": [
+        "Fantastic! To make sure I connect you with the right person, I have a few quick questions.",
+        "First, what's the primary use case? Customer-facing automation, internal workflows, or compliance?",
+        "Got it! How many people would this solution impact at your company?",
+        "Perfect! What's your timeline for implementation?",
+        "Great! I'm connecting you with our sales specialist. They'll reach out within 2 hours.",
       ],
-      "budget|pricing|cost|price": [
-        "Great question! Pricing depends on your specific needs and scale. Let me collect some information so I can get you an accurate quote.",
+      "budget|pricing|cost": [
+        "Great question! Pricing depends on your specific needs. Let me collect some information.",
         "How many users or transactions per month are we talking about?",
-        "And what's your monthly automation volume approximately?",
-        "I've got all the details. Our pricing ranges from $5K-$50K+ per month depending on complexity. Our sales team will provide an exact quote based on your needs.",
+        "What's your monthly automation volume approximately?",
+        "Our pricing ranges from $5K-$50K+ per month. Our sales team will provide an exact quote.",
       ],
-      "integration|system|api|connect": [
-        "That's important! We integrate with most major systems. Which platforms are you currently using?",
-        "Perfect, we have certified connectors for all of those. Our integration team can usually get you connected within 2 weeks.",
+      "integration|system|api": [
+        "That's important! Which platforms are you currently using?",
+        "Perfect! We have certified connectors for those. Our integration team can connect you within 2 weeks.",
       ],
       default: [
-        "That's helpful to know. Let me gather some more information to ensure you talk with the right specialist.",
+        "That's helpful to know. Let me gather some more information.",
         "Excellent! I'm getting you set up with our team.",
       ],
     },
   },
 };
 
-export default function AgentDemoPage({
-  agentId = "support",
-}: {
+interface AgentDemoPageProps {
   agentId?: string;
-}) {
+}
+
+export default function AgentDemoPage({ agentId = "support" }: AgentDemoPageProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       type: "agent",
@@ -125,56 +119,51 @@ export default function AgentDemoPage({
   const [isLoading, setIsLoading] = useState(false);
 
   const demo = useMemo(() => {
-    const config = DEMO_CONFIGS[agentId] || DEMO_CONFIGS.support;
-    return config;
+    return DEMO_CONFIGS[agentId] || DEMO_CONFIGS.support;
   }, [agentId]);
 
-  const generateResponse = (userInput: string) => {
+  const generateResponse = (userInput: string): string => {
     const lowerInput = userInput.toLowerCase();
 
     for (const [keyword, responses] of Object.entries(demo.responses)) {
       if (keyword === "default") continue;
       const keywords = keyword.split("|");
       if (keywords.some((kw) => lowerInput.includes(kw))) {
-        const randomResponse =
-          responses[Math.floor(Math.random() * responses.length)];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
         return randomResponse;
       }
     }
 
     const defaultResponses = demo.responses.default;
-    return defaultResponses[
-      Math.floor(Math.random() * defaultResponses.length)
-    ];
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (): void => {
     if (!inputValue.trim()) return;
 
     setIsLoading(true);
-    const newMessages = [
+    const newMessages: Message[] = [
       ...messages,
-      { type: "user" as const, text: inputValue },
+      { type: "user", text: inputValue },
     ];
     setMessages(newMessages);
     setInputValue("");
 
-    // Simulate agent thinking time
     setTimeout(() => {
       const response = generateResponse(inputValue);
-      setMessages([...newMessages, { type: "agent" as const, text: response }]);
+      setMessages([...newMessages, { type: "agent", text: response }]);
       setIsLoading(false);
     }, 800);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
   };
 
-  const handleReset = () => {
+  const handleReset = (): void => {
     setMessages([{ type: "agent", text: "Hello! How can I help you today?" }]);
     setInputValue("");
   };
@@ -187,7 +176,11 @@ export default function AgentDemoPage({
             href="/examples"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+            <img
+              src="/logo.svg"
+              alt="Secure Automations"
+              className="h-8 w-8"
+            />
             <span className="font-semibold tracking-tight">
               Secure Automations
             </span>
@@ -215,7 +208,6 @@ export default function AgentDemoPage({
         </div>
 
         <div className="rounded-3xl border border-white/10 bg-slate-900/60 overflow-hidden flex flex-col h-[600px]">
-          {/* Chat Messages */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((msg, idx) => (
               <div
@@ -242,15 +234,14 @@ export default function AgentDemoPage({
                 <div className="bg-slate-800/60 text-slate-200 border border-white/10 rounded-2xl px-4 py-3">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" />
-                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce delay-100" />
-                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce delay-200" />
+                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0.1s" }} />
+                    <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0.2s" }} />
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Input Area */}
           <div className="border-t border-white/10 bg-slate-950/40 p-4 space-y-3">
             <div className="flex gap-3">
               <input
@@ -289,10 +280,7 @@ export default function AgentDemoPage({
 
         <div className="mt-8 p-6 rounded-2xl border border-white/10 bg-slate-900/40">
           <p className="text-sm text-slate-400">
-            <strong>Demo Note:</strong> This is an interactive demonstration of
-            how our {demo.title} works. Try asking the agent different questions
-            to see how it responds. In production, this agent would be connected
-            to your systems and data sources.
+            <strong>Demo Note:</strong> This is an interactive demonstration of how our {demo.title} works. Try asking the agent different questions to see how it responds. In production, this agent would be connected to your systems and data sources.
           </p>
         </div>
       </div>
