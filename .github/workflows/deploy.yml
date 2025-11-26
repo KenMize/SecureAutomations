@@ -24,8 +24,8 @@ jobs:
           version: 10.14.0
 
       - name: Install dependencies
-        run: pnpm install --prefer-offline
-        timeout-minutes: 10
+        run: pnpm install --frozen-lockfile --no-optional
+        timeout-minutes: 15
 
       - name: Build SPA
         run: pnpm run build:client
