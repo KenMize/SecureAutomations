@@ -70,8 +70,6 @@ export function createServer() {
           callback(null, true);
         } else if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
-        } else if (origin && origin.endsWith(".fly.dev")) {
-          callback(null, true);
         } else {
           callback(new Error("Not allowed by CORS"));
         }
