@@ -24,7 +24,7 @@ jobs:
           version: 10.14.0
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --no-optional
+        run: pnpm install
         timeout-minutes: 15
 
       - name: Build SPA
