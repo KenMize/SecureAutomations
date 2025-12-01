@@ -79,7 +79,7 @@ interface QuizSubmissionRequest {
   name: string;
   company: string;
   recommendations: RecommendedSolution[];
-  details: Record<string, string | number>;
+  details: Record<string, string | number | (string | number)[]>;
   timestamp: string;
 }
 
