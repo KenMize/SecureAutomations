@@ -201,10 +201,7 @@ export default function Quiz() {
           ];
         }
 
-        return [
-          ...prevAnswers,
-          { questionId: currentQ.id, answer: [answer] },
-        ];
+        return [...prevAnswers, { questionId: currentQ.id, answer: [answer] }];
       });
       return;
     }

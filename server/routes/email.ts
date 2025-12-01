@@ -441,9 +441,7 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
     if (Array.isArray(value)) {
       const sanitizedEntries = value
         .map((entry) =>
-          entry === null || entry === undefined
-            ? ""
-            : String(entry).trim(),
+          entry === null || entry === undefined ? "" : String(entry).trim(),
         )
         .filter((entry) => entry.length > 0)
         .map((entry) => escapeHtml(entry));
