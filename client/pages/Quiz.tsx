@@ -1036,12 +1036,10 @@ export default function Quiz() {
           <div className="space-y-3">
             {currentQ.type === "multi-select" ? (
               (currentQ.options || []).map((option) => {
-                const selectedAnswers =
-                  answers.find((a) => a.questionId === currentQ.id)?.answer ||
-                  [];
-                const isSelected =
-                  Array.isArray(selectedAnswers) &&
-                  selectedAnswers.includes(option);
+                const selectedAnswers = normalizeAnswerArray(
+                  answers.find((a) => a.questionId === currentQ.id)?.answer,
+                );
+                const isSelected = selectedAnswers.includes(option);
                 return (
                   <label
                     key={option}
