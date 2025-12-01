@@ -224,14 +224,15 @@ export default function Quiz() {
   };
 
   const handleNextQuestion = () => {
-    // Check if current question is answered for multi-select
     if (currentQ && currentQ.type === "multi-select") {
-      const hasAnswer = answers.some((a) => a.questionId === currentQ.id);
-      if (!hasAnswer) {
+      const answerEntry = answers.find((a) => a.questionId === currentQ.id);
+      const selections = normalizeAnswerArray(answerEntry?.answer);
+      if (selections.length === 0) {
         alert("Please select at least one option");
         return;
       }
     }
+
     if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
