@@ -171,41 +171,55 @@ export default function Quiz() {
   }
 
   const handleAnswer = (answer: string | number) => {
-    if (currentQ && currentQ.type === "multi-select") {
-      // For multi-select, toggle the answer
-      const existingAnswer = answers.find((a) => a.questionId === currentQ.id);
-      if (existingAnswer) {
-        const answerArray = Array.isArray(existingAnswer.answer)
-          ? existingAnswer.answer
-          : [existingAnswer.answer];
-        const newAnswerArray = answerArray.includes(answer as string)
-          ? answerArray.filter((a) => a !== answer)
-          : [...answerArray, answer as string];
-        const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
-        if (newAnswerArray.length > 0) {
-          setAnswers([
-            ...newAnswers,
-            { questionId: currentQ.id, answer: newAnswerArray },
-          ]);
-        } else {
-          setAnswers(newAnswers);
-        }
-      } else {
-        setAnswers([
-          ...answers,
-          { questionId: currentQ.id, answer: [answer as string] },
-        ]);
-      }
-    } else {
-      // For single-select, replace the answer
-      const newAnswers = answers.filter((a) => a.questionId !== currentQ.id);
-      setAnswers([...newAnswers, { questionId: currentQ.id, answer }]);
+    if (!currentQ) {
+      return;
+    }
 
-      if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-      } else {
-        setShowUserForm(true);
-      }
+    if (currentQ.type === "multi-select") {
+      setAnswers((prevAnswers) => {
+        const existingAnswer = prevAnswers.find(
+          (a) => a.questionId === currentQ.id,
+        );
+
+        if (existingAnswer) {
+          const normalizedAnswers = normalizeAnswerArray(existingAnswer.answer);
+          const updatedAnswers = normalizedAnswers.includes(answer)
+            ? normalizedAnswers.filter((a) => a !== answer)
+            : [...normalizedAnswers, answer];
+
+          const remainingAnswers = prevAnswers.filter(
+            (a) => a.questionId !== currentQ.id,
+          );
+
+          if (updatedAnswers.length === 0) {
+            return remainingAnswers;
+          }
+
+          return [
+            ...remainingAnswers,
+            { questionId: currentQ.id, answer: updatedAnswers },
+          ];
+        }
+
+        return [
+          ...prevAnswers,
+          { questionId: currentQ.id, answer: [answer] },
+        ];
+      });
+      return;
+    }
+
+    setAnswers((prevAnswers) => {
+      const filteredAnswers = prevAnswers.filter(
+        (a) => a.questionId !== currentQ.id,
+      );
+      return [...filteredAnswers, { questionId: currentQ.id, answer }];
+    });
+
+    if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowUserForm(true);
     }
   };
 
