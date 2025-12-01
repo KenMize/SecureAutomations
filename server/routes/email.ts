@@ -437,11 +437,29 @@ function formatQuizResultsAsHtml(data: QuizSubmissionRequest): string {
     )
     .join("");
 
-  const formatDetailValue = (value: any): string => {
+  const formatDetailValue = (value: unknown): string => {
     if (Array.isArray(value)) {
-      return value.join(", ");
+      const sanitizedEntries = value
+        .map((entry) =>
+          entry === null || entry === undefined
+            ? ""
+            : String(entry).trim(),
+        )
+        .filter((entry) => entry.length > 0)
+        .map((entry) => escapeHtml(entry));
+      return sanitizedEntries.join(", ") || "Not provided";
     }
-    return String(value || "Not provided");
+
+    if (value === undefined || value === null) {
+      return "Not provided";
+    }
+
+    const stringValue = String(value).trim();
+    if (stringValue.length === 0) {
+      return "Not provided";
+    }
+
+    return escapeHtml(stringValue);
   };
 
   return `
