@@ -21,6 +21,18 @@ interface QuizResult {
   timestamp: string;
 }
 
+const normalizeAnswerArray = (
+  value?: string | number | (string | number)[],
+): (string | number)[] => {
+  if (Array.isArray(value)) {
+    return value;
+  }
+  if (value === undefined || value === null) {
+    return [];
+  }
+  return [value];
+};
+
 const QUIZ_QUESTIONS = [
   {
     id: "pain-points",
