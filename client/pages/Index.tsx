@@ -123,6 +123,9 @@ export default function LandingSecureAI() {
             <a href="#solutions" className="hover:text-white transition-colors">
               Solutions
             </a>
+            <a href="/pricing" className="hover:text-white transition-colors">
+              Pricing
+            </a>
             <a href="#trust" className="hover:text-white transition-colors">
               Trust
             </a>
