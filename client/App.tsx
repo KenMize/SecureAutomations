@@ -10,6 +10,7 @@ import Checkup from "./pages/Checkup";
 import Quiz from "./pages/Quiz";
 import ThankYou from "./pages/ThankYou";
 import Examples from "./pages/Examples";
+import Pricing from "./pages/Pricing";
 import AgentDemo from "./pages/AgentDemo";
 import WorkflowDemo from "./pages/WorkflowDemo";
 import NotFound from "./pages/NotFound";
