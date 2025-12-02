@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { apiUrl, getEnvVar } from "../lib/api";
 
 interface QuizAnswer {
   questionId: string;
