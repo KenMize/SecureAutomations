@@ -8,6 +8,7 @@ import {
   Users,
   Clock,
 } from "lucide-react";
+import { apiUrl, getEnvVar } from "../lib/api";
 
 interface ConsultationFormState {
   name: string;
