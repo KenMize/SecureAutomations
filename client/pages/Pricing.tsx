@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { apiUrl, getEnvVar } from "../lib/api";
+import { ConsultationModal } from "../components/ConsultationModal";
 
 interface PricingTier {
   id: string;
