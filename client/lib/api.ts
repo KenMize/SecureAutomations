@@ -1,23 +1,26 @@
 const trimTrailingSlash = (value: string) => value.replace(/\/$/, "");
 const trimLeadingSlash = (value: string) => value.replace(/^\//, "");
 
+const AZURE_API_BASE =
+  "https://secureautomations-api-ddfeayg5emd3e3dj.canadacentral-01.azurewebsites.net/api";
+
 function getApiBaseUrl(): string {
   const envBase = import.meta.env.VITE_API_BASE_URL as string | undefined;
   if (envBase) {
     return envBase;
   }
 
-  const isLocalhost =
-    typeof window !== "undefined" &&
-    (window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1" ||
-      window.location.hostname.startsWith("192.168."));
-
-  if (isLocalhost) {
-    return "/api";
+  if (typeof window === "undefined") {
+    return AZURE_API_BASE;
   }
 
-  return "https://secureautomations-api-ddfeayg5emd3e3dj.canadacentral-01.azurewebsites.net/api";
+  const hostname = window.location.hostname;
+  const isLocalhost =
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname.startsWith("192.168.");
+
+  return isLocalhost ? "/api" : AZURE_API_BASE;
 }
 
 export const API_BASE_URL = getApiBaseUrl();
