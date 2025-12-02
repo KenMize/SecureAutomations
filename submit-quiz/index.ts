@@ -75,7 +75,9 @@ const httpTrigger: AzureFunction = async (
       status: 500,
       body: {
         error:
-          error instanceof Error ? error.message : "Failed to send quiz results",
+          error instanceof Error
+            ? error.message
+            : "Failed to send quiz results",
       },
     };
   }
