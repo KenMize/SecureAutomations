@@ -405,10 +405,10 @@ export async function handleContactForm(req: Request, res: Response) {
     const subject = `New Strategy Call Request – ${formData.company}`;
     const bodyHtml = formatContactFormAsHtml(formData);
 
-    // Send email
+    // Send email to sales team
     await sendEmailViaGraph(
       accessToken,
-      "Sales@secureautomations.ai",
+      "sales@secureautomations.ai",
       subject,
       bodyHtml,
     );
