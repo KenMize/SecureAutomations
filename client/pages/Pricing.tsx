@@ -170,7 +170,9 @@ export default function Pricing() {
       });
 
       if (response.ok) {
-        alert("Thank you! We'll be in touch within 2 hours to schedule your consultation.");
+        alert(
+          "Thank you! We'll be in touch within 2 hours to schedule your consultation.",
+        );
         setSelectedTier(null);
       } else {
         alert("Error scheduling consultation. Please try again.");
