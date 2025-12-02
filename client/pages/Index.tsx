@@ -36,7 +36,7 @@ const initialContactForm: ContactFormState = {
 };
 
 const CONTACT_FORM_ENDPOINT = apiUrl(
-  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact-form",
+  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact",
 );
 
 export default function LandingSecureAI() {
