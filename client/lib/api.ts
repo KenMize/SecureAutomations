@@ -7,11 +7,17 @@ function getApiBaseUrl(): string {
     return envBase;
   }
 
-  if (import.meta.env.MODE === "production") {
-    return "https://secureautomations-api-ddfeayg5emd3e3dj.canadacentral-01.azurewebsites.net/api";
+  const isLocalhost =
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1" ||
+      window.location.hostname.startsWith("192.168."));
+
+  if (isLocalhost) {
+    return "/api";
   }
 
-  return "/api";
+  return "https://secureautomations-api-ddfeayg5emd3e3dj.canadacentral-01.azurewebsites.net/api";
 }
 
 export const API_BASE_URL = getApiBaseUrl();
