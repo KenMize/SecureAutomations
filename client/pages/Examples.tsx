@@ -13,6 +13,7 @@ import { apiUrl, getEnvVar } from "../lib/api";
 interface ConsultationFormState {
   name: string;
   email: string;
+  phone: string;
   company: string;
   message: string;
 }
@@ -27,6 +28,7 @@ export default function ExamplesPage() {
     useState<ConsultationFormState>({
       name: "",
       email: "",
+      phone: "",
       company: "",
       message: "",
     });
