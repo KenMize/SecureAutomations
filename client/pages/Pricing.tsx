@@ -28,7 +28,8 @@ const pricingTiers: PricingTier[] = [
     name: "Free AI & Automation Consultation",
     price: "$0",
     billing: "20–30 minutes",
-    description: "Understand your workflows, identify opportunities, and plan securely.",
+    description:
+      "Understand your workflows, identify opportunities, and plan securely.",
     included: [
       "Assess your workflows & bottlenecks",
       "Identify automation & AI agent opportunities",
@@ -44,7 +45,8 @@ const pricingTiers: PricingTier[] = [
     name: "AI Foundations & Secure Setup",
     price: "Starting at $1,500",
     billing: "One-time project",
-    description: "Securely deploy your first 1–2 AI agents or automated workflows.",
+    description:
+      "Securely deploy your first 1–2 AI agents or automated workflows.",
     included: [
       "60–90 min deep-dive strategy session",
       "Security & compliance readiness review",
@@ -67,7 +69,8 @@ const pricingTiers: PricingTier[] = [
     name: "AI Growth Automation Retainer",
     price: "Starting at $1,500/month",
     billing: "Monthly retainer",
-    description: "Continuous AI development, optimization, and secure automation management.",
+    description:
+      "Continuous AI development, optimization, and secure automation management.",
     included: [
       "5–10 tasks per month (builds, updates, optimizations, integrations)",
       "Ongoing monitoring & optimization of AI agents",
@@ -203,7 +206,10 @@ export default function Pricing() {
             <a href="/examples" className="hover:text-white transition-colors">
               Solutions
             </a>
-            <a href="/pricing" className="text-cyan-300 hover:text-white transition-colors">
+            <a
+              href="/pricing"
+              className="text-cyan-300 hover:text-white transition-colors"
+            >
               Pricing
             </a>
           </nav>
@@ -223,10 +229,13 @@ export default function Pricing() {
               <span className="block text-cyan-300">Transparent Pricing</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
-              We help SMBs safely deploy AI agents and automations with a strong emphasis on security, data protection, and compliance. Every engagement begins with a FREE consultation.
+              We help SMBs safely deploy AI agents and automations with a strong
+              emphasis on security, data protection, and compliance. Every
+              engagement begins with a FREE consultation.
             </p>
             <p className="text-sm text-slate-400">
-              ✔ No hidden fees • ✔ Flexible engagements • ✔ Security-first approach
+              ✔ No hidden fees • ✔ Flexible engagements • ✔ Security-first
+              approach
             </p>
           </motion.div>
         </div>
@@ -258,7 +267,9 @@ export default function Pricing() {
                       </span>
                     )}
                   </div>
-                  <p className="text-slate-400 text-sm mb-3">{tier.description}</p>
+                  <p className="text-slate-400 text-sm mb-3">
+                    {tier.description}
+                  </p>
                   <div className="mb-1">
                     <span className="text-4xl font-bold text-cyan-300">
                       {tier.price}
@@ -331,30 +342,42 @@ export default function Pricing() {
           transition={{ duration: 0.5 }}
           className="mt-20 p-8 rounded-2xl border border-white/10 bg-slate-900/40"
         >
-          <h3 className="text-lg font-semibold mb-6">Important Terms & Boundaries</h3>
+          <h3 className="text-lg font-semibold mb-6">
+            Important Terms & Boundaries
+          </h3>
           <div className="grid md:grid-cols-2 gap-8 text-sm text-slate-300">
             <div>
-              <h4 className="font-semibold text-white mb-3">Third-Party Fees</h4>
+              <h4 className="font-semibold text-white mb-3">
+                Third-Party Fees
+              </h4>
               <p className="text-slate-400">
-                External software (AI tools, automation platforms, CRMs, databases) are NOT included in our pricing.
+                External software (AI tools, automation platforms, CRMs,
+                databases) are NOT included in our pricing.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Assessment & SOW</h4>
+              <h4 className="font-semibold text-white mb-3">
+                Assessment & SOW
+              </h4>
               <p className="text-slate-400">
-                All pricing is subject to refinement after the initial assessment. A formal Statement of Work (SOW) defines deliverables, task limits, timelines, and pricing.
+                All pricing is subject to refinement after the initial
+                assessment. A formal Statement of Work (SOW) defines
+                deliverables, task limits, timelines, and pricing.
               </p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-3">Task Definition</h4>
               <p className="text-slate-400">
-                Tasks include AI agent builds, workflow automations, integrations, workflow updates, security/compliance additions, testing & QA, and optimization work.
+                Tasks include AI agent builds, workflow automations,
+                integrations, workflow updates, security/compliance additions,
+                testing & QA, and optimization work.
               </p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-3">Fair Use</h4>
               <p className="text-slate-400">
-                Unlimited requests ≠ unlimited workload. Work is completed one task at a time with typical throughput defined in each package.
+                Unlimited requests ≠ unlimited workload. Work is completed one
+                task at a time with typical throughput defined in each package.
               </p>
             </div>
           </div>
@@ -366,7 +389,9 @@ export default function Pricing() {
         <div className="mx-auto max-w-7xl px-4 py-20 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
           <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Schedule your free 20–30 minute consultation today. We'll assess your workflows, identify AI opportunities, and provide a tailored implementation plan—no commitment required.
+            Schedule your free 20–30 minute consultation today. We'll assess
+            your workflows, identify AI opportunities, and provide a tailored
+            implementation plan—no commitment required.
           </p>
           <button
             onClick={() => handleCTA("free-consultation")}
