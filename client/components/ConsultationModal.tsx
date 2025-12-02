@@ -78,8 +78,7 @@ export function ConsultationModal({
       email: email.trim(),
       phone: phone.trim(),
       company: company.trim(),
-      message:
-        message.trim() || `Interested in: ${tierName}`,
+      message: message.trim() || `Interested in: ${tierName}`,
     };
 
     try {

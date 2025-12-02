@@ -187,8 +187,7 @@ export default function Pricing() {
       } else {
         const errorData = await response.json().catch(() => ({}));
         alert(
-          errorData.error ||
-            "Error scheduling consultation. Please try again.",
+          errorData.error || "Error scheduling consultation. Please try again.",
         );
       }
     } catch (error) {
@@ -442,9 +441,7 @@ export default function Pricing() {
         open={modalOpen}
         onOpenChange={setModalOpen}
         tierId={selectedTier || ""}
-        tierName={
-          pricingTiers.find((t) => t.id === selectedTier)?.name || ""
-        }
+        tierName={pricingTiers.find((t) => t.id === selectedTier)?.name || ""}
         onSubmit={handleModalSubmit}
         isSubmitting={submitting}
       />
