@@ -187,17 +187,23 @@ export default function Pricing() {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-          <a href="/" className="text-xl font-bold text-cyan-300">
-            Secure Automations
+          <a
+            href="/"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
+            <img src="/logo.svg" alt="Secure Automations" className="h-8 w-8" />
+            <span className="font-semibold tracking-tight">
+              Secure Automations
+            </span>
           </a>
-          <nav className="flex gap-6">
-            <a href="/" className="text-sm hover:text-cyan-300 transition-colors">
+          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
+            <a href="/" className="hover:text-white transition-colors">
               Home
             </a>
-            <a href="/examples" className="text-sm hover:text-cyan-300 transition-colors">
+            <a href="/examples" className="hover:text-white transition-colors">
               Solutions
             </a>
-            <a href="/pricing" className="text-sm text-cyan-300">
+            <a href="/pricing" className="text-cyan-300 hover:text-white transition-colors">
               Pricing
             </a>
           </nav>
