@@ -505,7 +505,7 @@ export default function Quiz() {
         timestamp: new Date().toISOString(),
       };
 
-      const response = await fetch("/api/submit-quiz", {
+      const response = await fetch(SUBMIT_QUIZ_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
