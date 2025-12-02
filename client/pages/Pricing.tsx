@@ -145,21 +145,29 @@ const pricingTiers: PricingTier[] = [
 export default function Pricing() {
   const [submitting, setSubmitting] = useState(false);
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const handleCTA = async (tierId: string) => {
+  const handleCTA = (tierId: string) => {
     setSelectedTier(tierId);
+    setModalOpen(true);
+  };
+
+  const handleModalSubmit = async (formData: {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    message: string;
+  }) => {
     setSubmitting(true);
 
     try {
-      const tier = pricingTiers.find((t) => t.id === tierId);
+      const tier = pricingTiers.find((t) => t.id === selectedTier);
       const payload = {
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: `Interested in: ${tier?.name}`,
-        source: "Pricing Page CTA",
-        submittedAt: new Date().toISOString(),
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message || `Interested in: ${tier?.name}`,
       };
 
       const response = await fetch(CONSULTATION_ENDPOINT, {
@@ -176,7 +184,11 @@ export default function Pricing() {
         );
         setSelectedTier(null);
       } else {
-        alert("Error scheduling consultation. Please try again.");
+        const errorData = await response.json().catch(() => ({}));
+        alert(
+          errorData.error ||
+            "Error scheduling consultation. Please try again.",
+        );
       }
     } catch (error) {
       console.error("Error:", error);
