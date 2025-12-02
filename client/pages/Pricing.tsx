@@ -436,6 +436,17 @@ export default function Pricing() {
           </div>
         </div>
       </footer>
+
+      <ConsultationModal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        tierId={selectedTier || ""}
+        tierName={
+          pricingTiers.find((t) => t.id === selectedTier)?.name || ""
+        }
+        onSubmit={handleModalSubmit}
+        isSubmitting={submitting}
+      />
     </div>
   );
 }
