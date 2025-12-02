@@ -47,7 +47,7 @@ export default function ExamplesPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact-form", {
+      const response = await fetch(CONSULTATION_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
