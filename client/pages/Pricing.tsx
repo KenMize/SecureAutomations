@@ -59,7 +59,6 @@ const pricingTiers: PricingTier[] = [
       "Additional tasks billed separately or added to custom SOW",
     ],
     special: "✔ 24–48 hr rush delivery available (+30–50% premium)",
-    highlighted: true,
     cta: "Get Started",
   },
   {
@@ -84,6 +83,7 @@ const pricingTiers: PricingTier[] = [
       "Additional tasks billed hourly or via SOW",
     ],
     special: "✔ Rush work (24–48 hr) incurs 25–40% fee",
+    highlighted: true,
     cta: "Schedule Consultation",
   },
   {
