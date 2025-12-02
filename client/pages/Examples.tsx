@@ -18,7 +18,7 @@ interface ConsultationFormState {
 }
 
 const CONSULTATION_ENDPOINT = apiUrl(
-  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact-form",
+  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact",
 );
 
 export default function ExamplesPage() {
