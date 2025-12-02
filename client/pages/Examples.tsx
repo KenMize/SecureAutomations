@@ -49,18 +49,29 @@ export default function ExamplesPage() {
     setIsSubmitting(true);
 
     try {
+      const payload = {
+        name: consultationForm.name,
+        email: consultationForm.email,
+        phone: consultationForm.phone ?? "",
+        company: consultationForm.company,
+        message: consultationForm.message,
+        source: "SecureAutomations.ai",
+        submittedAt: new Date().toISOString(),
+      };
+
       const response = await fetch(CONSULTATION_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(consultationForm),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setConsultationForm({
           name: "",
           email: "",
+          phone: "",
           company: "",
           message: "",
         });
