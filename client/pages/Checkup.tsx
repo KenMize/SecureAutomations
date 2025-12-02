@@ -45,7 +45,9 @@ interface ComplianceResult {
   timestamp: string;
 }
 
-const SEND_EMAIL_ENDPOINT = "/api/send-email";
+const SEND_EMAIL_ENDPOINT = apiUrl(
+  getEnvVar("VITE_SEND_EMAIL_PATH") ?? "send-email",
+);
 
 const TextField = memo(
   ({
