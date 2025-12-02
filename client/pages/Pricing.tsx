@@ -170,10 +170,8 @@ export default function Pricing() {
       });
 
       if (response.ok) {
-        const modal = document.querySelector(
-          "[data-pricing-modal]",
-        ) as HTMLDialogElement;
-        modal?.showModal?.();
+        alert("Thank you! We'll be in touch within 2 hours to schedule your consultation.");
+        setSelectedTier(null);
       } else {
         alert("Error scheduling consultation. Please try again.");
       }
