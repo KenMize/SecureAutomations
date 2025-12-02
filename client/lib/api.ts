@@ -3,11 +3,14 @@ const DEFAULT_PROD_API_BASE =
 
 const fallbackBaseUrl = import.meta.env.PROD ? DEFAULT_PROD_API_BASE : "/api";
 
-export const API_BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? fallbackBaseUrl;
+const envVars = import.meta.env as Record<string, string | undefined>;
+
+export const API_BASE_URL = envVars.VITE_API_BASE_URL ?? fallbackBaseUrl;
 
 const trimTrailingSlash = (value: string) => value.replace(/\/$/, "");
 const trimLeadingSlash = (value: string) => value.replace(/^\//, "");
 
 export const apiUrl = (path: string) =>
   `${trimTrailingSlash(API_BASE_URL)}/${trimLeadingSlash(path)}`;
+
+export const getEnvVar = (key: string) => envVars[key];
