@@ -17,6 +17,10 @@ interface ConsultationFormState {
   message: string;
 }
 
+const CONSULTATION_ENDPOINT = apiUrl(
+  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact-form",
+);
+
 export default function ExamplesPage() {
   const [showConsultationModal, setShowConsultationModal] = useState(false);
   const [consultationForm, setConsultationForm] =
