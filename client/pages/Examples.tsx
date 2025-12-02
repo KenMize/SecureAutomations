@@ -475,6 +475,20 @@ export default function ExamplesPage() {
 
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Phone (optional)
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={consultationForm.phone ?? ""}
+                  onChange={handleConsultationChange}
+                  className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Company
                 </label>
                 <input
