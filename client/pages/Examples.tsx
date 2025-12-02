@@ -214,12 +214,17 @@ export default function ExamplesPage() {
               Secure Automations
             </span>
           </a>
-          <a
-            href="/"
-            className="text-sm text-slate-300 hover:text-white transition-colors"
-          >
-            Back to Home
-          </a>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
+            <a href="/" className="hover:text-white transition-colors">
+              Home
+            </a>
+            <a href="/examples" className="hover:text-white transition-colors">
+              Solutions
+            </a>
+            <a href="/pricing" className="hover:text-white transition-colors">
+              Pricing
+            </a>
+          </nav>
         </div>
       </header>
 
