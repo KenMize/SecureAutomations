@@ -59,7 +59,7 @@ export default function LandingSecureAI() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact-form", {
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
