@@ -913,6 +913,14 @@ export default function LandingSecureAI() {
               placeholder="Work email"
             />
             <input
+              type="tel"
+              name="phone"
+              value={contactForm.phone ?? ""}
+              onChange={handleContactChange}
+              className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 placeholder:text-slate-500 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-all"
+              placeholder="Phone (optional)"
+            />
+            <input
               type="text"
               name="company"
               value={contactForm.company ?? ""}
