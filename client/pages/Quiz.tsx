@@ -146,6 +146,10 @@ const QUIZ_QUESTIONS = [
   },
 ];
 
+const SUBMIT_QUIZ_ENDPOINT = apiUrl(
+  getEnvVar("VITE_SUBMIT_QUIZ_PATH") ?? "submit-quiz",
+);
+
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
