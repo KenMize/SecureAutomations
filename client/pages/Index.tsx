@@ -61,18 +61,29 @@ export default function LandingSecureAI() {
     setIsSubmitting(true);
 
     try {
+      const payload = {
+        name: contactForm.name,
+        email: contactForm.email,
+        phone: contactForm.phone ?? "",
+        company: contactForm.company,
+        message: contactForm.message,
+        source: "SecureAutomations.ai",
+        submittedAt: new Date().toISOString(),
+      };
+
       const response = await fetch(CONTACT_FORM_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(contactForm),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setContactForm({
           name: "",
           email: "",
+          phone: "",
           company: "",
           message: "",
         });
