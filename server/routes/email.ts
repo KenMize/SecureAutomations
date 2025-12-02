@@ -579,7 +579,7 @@ export async function handleQuizSubmission(req: Request, res: Response) {
     // Send to sales team
     await sendEmailViaGraph(
       accessToken,
-      "Sales@secureautomations.ai",
+      "sales@secureautomations.ai",
       subject,
       bodyHtml,
     );
