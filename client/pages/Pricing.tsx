@@ -166,6 +166,7 @@ export default function Pricing() {
       const payload = {
         name: formData.name,
         email: formData.email,
+        phone: formData.phone,
         company: formData.company,
         message: formData.message || `Interested in: ${tier?.name}`,
       };
