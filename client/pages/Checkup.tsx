@@ -1,5 +1,6 @@
 import React, { useState, useCallback, memo } from "react";
 import { ChevronRight } from "lucide-react";
+import { apiUrl, getEnvVar } from "../lib/api";
 
 interface FormData {
   company_name: string;
