@@ -24,6 +24,7 @@ import {
 interface ContactFormState {
   name: string;
   email: string;
+  phone: string;
   company: string;
   message: string;
 }
@@ -31,6 +32,7 @@ interface ContactFormState {
 const initialContactForm: ContactFormState = {
   name: "",
   email: "",
+  phone: "",
   company: "",
   message: "",
 };
