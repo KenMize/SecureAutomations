@@ -1,0 +1,14 @@
+node_modules
+.git
+.env
+.env.*
+dist
+.next
+.vercel
+server
+shared/api.ts
+server/**
+vite.config.server.ts
+DEPLOYMENT.md
+AGENTS.md
+railway.json
