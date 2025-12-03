@@ -3,7 +3,9 @@ const trimLeadingSlash = (value: string) => value.replace(/^\//, "");
 
 // Railway backend URL - will be set via environment variable during build
 // For development, this is ignored and /api is used instead
-const RAILWAY_API_BASE = import.meta.env.VITE_API_BASE_URL as string | undefined;
+const RAILWAY_API_BASE = import.meta.env.VITE_API_BASE_URL as
+  | string
+  | undefined;
 
 function getApiBaseUrl(): string {
   // Server-side: use relative /api
