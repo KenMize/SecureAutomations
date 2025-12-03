@@ -1,14 +1,12 @@
 const trimTrailingSlash = (value: string) => value.replace(/\/$/, "");
 const trimLeadingSlash = (value: string) => value.replace(/^\//, "");
 
-function getApiBaseUrl(): string {
-  // Check for explicit environment variable first
-  const envBase = import.meta.env.VITE_API_BASE_URL as string | undefined;
-  if (envBase) {
-    return envBase;
-  }
+// Railway backend URL - will be set via environment variable during build
+// For development, this is ignored and /api is used instead
+const RAILWAY_API_BASE = import.meta.env.VITE_API_BASE_URL as string | undefined;
 
-  // Server-side: use relative /api (will be handled by Express)
+function getApiBaseUrl(): string {
+  // Server-side: use relative /api
   if (typeof window === "undefined") {
     return "/api";
   }
@@ -25,11 +23,14 @@ function getApiBaseUrl(): string {
     return "/api";
   }
 
-  // Production: use Railway backend
-  // Railway URL format will be something like https://securautomations-prod-xxxx.railway.app
-  // Since we're using GitHub Pages at secureautomations.ai, and Railway has a different domain,
-  // we need to use the full Railway URL. This will be set via VITE_API_BASE_URL env var during build.
-  // For now, assume the API is available at the same domain if not specified
+  // Production: use Railway backend if configured
+  // GitHub Pages is at secureautomations.ai, Railway is on a separate domain
+  // The build process must set VITE_API_BASE_URL to the Railway URL
+  if (RAILWAY_API_BASE) {
+    return RAILWAY_API_BASE;
+  }
+
+  // Fallback: try same domain (for GitHub Pages SSR scenario - though unlikely to work)
   return "/api";
 }
 
