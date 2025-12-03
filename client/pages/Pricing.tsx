@@ -122,7 +122,7 @@ const pricingTiers: PricingTier[] = [
     id: "custom",
     tier: 4,
     name: "Custom AI Automation Projects",
-    price: "Starting at $2,000+",
+    price: "Starting at $3,000+",
     billing: "Custom quote",
     description: "Complex automation needs requiring tailored solutions.",
     included: [
