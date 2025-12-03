@@ -50,11 +50,8 @@ export default function ExamplesPage() {
       const payload = {
         name: consultationForm.name,
         email: consultationForm.email,
-        phone: consultationForm.phone ?? "",
         company: consultationForm.company,
         message: consultationForm.message,
-        source: "SecureAutomations.ai",
-        submittedAt: new Date().toISOString(),
       };
 
       const response = await fetch(CONSULTATION_ENDPOINT, {
