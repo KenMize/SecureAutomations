@@ -64,8 +64,7 @@ module.exports = async function (context: any, req: any) {
     context.res = {
       status: 500,
       body: {
-        error:
-          error instanceof Error ? error.message : "Failed to send email",
+        error: error instanceof Error ? error.message : "Failed to send email",
       },
     };
   }

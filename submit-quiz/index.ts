@@ -71,7 +71,9 @@ module.exports = async function (context: any, req: any) {
       status: 500,
       body: {
         error:
-          error instanceof Error ? error.message : "Failed to send quiz results",
+          error instanceof Error
+            ? error.message
+            : "Failed to send quiz results",
       },
     };
   }
