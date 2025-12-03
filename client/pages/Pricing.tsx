@@ -68,7 +68,7 @@ const pricingTiers: PricingTier[] = [
     id: "growth",
     tier: 2,
     name: "AI Growth Automation Retainer",
-    price: "Starting at $1,500/month",
+    price: "Starting at $2,500/month",
     billing: "Monthly retainer",
     description:
       "Continuous AI development, optimization, and secure automation management.",
