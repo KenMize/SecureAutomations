@@ -481,7 +481,7 @@ export default function LandingSecureAI() {
             ROI that pays for itself in weeks
           </h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
-            Starting at $1,500/month. Whether you choose agents, automations, or
+            Starting at $2,500/month. Whether you choose agents, automations, or
             both—you'll see measurable results within weeks.
           </p>
 
