@@ -1,6 +1,16 @@
 {
   "buildCommand": "npm run build:client",
   "outputDirectory": "dist/spa",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "env": {
     "AZURE_CLIENT_ID": "@azure_client_id",
     "AZURE_TENANT_ID": "@azure_tenant_id",
