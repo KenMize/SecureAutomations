@@ -25,11 +25,3 @@ dist-ssr
 
 .config/
 !.env
-
-# Azure Functions
-local.settings.json
-*.js.map
-*.ts
-!*.d.ts
-.python_packages/
-azure-pipelines.yml
