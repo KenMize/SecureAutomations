@@ -18,9 +18,7 @@ interface PricingTier {
   cta: string;
 }
 
-const CONSULTATION_ENDPOINT = apiUrl(
-  getEnvVar("VITE_CONTACT_FORM_PATH") ?? "contact",
-);
+const CONSULTATION_ENDPOINT = apiUrl("contact-form");
 
 const pricingTiers: PricingTier[] = [
   {
