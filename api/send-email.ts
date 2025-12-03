@@ -259,18 +259,21 @@ export default async function handler(
   res: VercelResponse,
 ): Promise<void> {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    res.status(405).json({ error: "Method not allowed" });
+    return;
   }
 
   try {
     const formData = req.body as SendEmailRequest;
 
     if (!formData.company_name || !formData.work_email) {
-      return res.status(400).json({ error: "Missing required fields" });
+      res.status(400).json({ error: "Missing required fields" });
+      return;
     }
 
     if (!isValidEmail(formData.work_email)) {
-      return res.status(400).json({ error: "Invalid email address" });
+      res.status(400).json({ error: "Invalid email address" });
+      return;
     }
 
     formData.company_name = sanitizeInput(formData.company_name, 200);
@@ -292,10 +295,10 @@ export default async function handler(
       bodyHtml,
     );
 
-    return res.json({ success: true, message: "Email sent successfully" });
+    res.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
-    return res.status(500).json({
+    res.status(500).json({
       error: error instanceof Error ? error.message : "Failed to send email",
     });
   }
