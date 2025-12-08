@@ -1,15 +1,18 @@
 {
   "buildCommand": "npm run build:client",
-  "public": "dist/spa",
   "functions": {
     "api/**/*.ts": {
       "runtime": "nodejs20.x"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/spa/index.html"
     }
   ]
 }
