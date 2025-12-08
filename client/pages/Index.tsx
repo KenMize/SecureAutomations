@@ -62,11 +62,8 @@ export default function LandingSecureAI() {
       const payload = {
         name: contactForm.name,
         email: contactForm.email,
-        phone: contactForm.phone ?? "",
         company: contactForm.company,
         message: contactForm.message,
-        source: "SecureAutomations.ai",
-        submittedAt: new Date().toISOString(),
       };
 
       const response = await fetch(CONTACT_FORM_ENDPOINT, {
