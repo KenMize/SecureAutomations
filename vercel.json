@@ -1,3 +1,15 @@
 {
-  "buildCommand": "npm run build:client"
+  "buildCommand": "npm run build:client",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/:path((?!api/).*)",
+      "destination": "/dist/spa/index.html"
+    }
+  ]
 }
